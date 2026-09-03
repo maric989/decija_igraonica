@@ -2,7 +2,7 @@
 
 - Ruta: `/igraonica/magicna-pisaca-masina`
 - Fajl: `app/igraonica/magicna-pisaca-masina/page.tsx`
-- Alias: `/igraonica/magicna-masina` (isti ekran)
+- Alias: `/igraonica/magicna-masina` → 308 redirect na kanonsku rutu
 - Kategorija: slova
 - Ikona: `/icons/pisaca-masina.jpeg`
 

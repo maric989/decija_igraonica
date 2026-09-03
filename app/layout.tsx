@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import JsonLd from "@/components/JsonLd";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, sajtJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -11,14 +13,13 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.decija-ucionica.com/"),
+  metadataBase: new URL(`${SITE_URL}/`),
   title: {
-    default: "Moja Pametna Učionica | Edukativne igre za decu",
-    template: "%s | Moja Pametna Učionica",
+    default: `${SITE_NAME} | Edukativne igre za predškolce`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Dečija Učionica (decija-ucionica) — besplatna i bezbedna aplikacija za učenje ćirilice, slova, brojeva i logike za decu predškolskog uzrasta.",
-  applicationName: "Dečija Učionica",
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
   keywords: [
     "decija-ucionica",
     "dečija učionica",
@@ -35,11 +36,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "sr_RS",
-    url: "https://www.decija-ucionica.com/",
-    title: "Moja Pametna Učionica | Edukativne igre",
-    description:
-      "Dečija Učionica — besplatna i bezbedna aplikacija za učenje ćirilice i brojeva. Naučite slova kroz igru!",
-    siteName: "Dečija Učionica",
+    url: "/",
+    title: `${SITE_NAME} | Edukativne igre za predškolce`,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} | Edukativne igre za predškolce`,
+    description: SITE_DESCRIPTION,
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -47,6 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="sr" className={`${nunito.variable} h-full antialiased`}>
       <body className={`${nunito.className} min-h-full flex flex-col`}>
+        <JsonLd data={sajtJsonLd()} />
         {children}
         <Analytics />
         <SpeedInsights />

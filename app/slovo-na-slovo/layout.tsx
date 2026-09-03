@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Slovo na Slovo | Igra prepoznavanja prvog slova",
-  description:
-    "Zabavna edukativna igra za decu. Pogodi kojim slovom počinje reč sa slike i nauči ćirilicu.",
-};
+const { metadata, Layout } = igraLayout("/slovo-na-slovo");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

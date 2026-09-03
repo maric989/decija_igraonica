@@ -1,74 +1,21 @@
 import type { MetadataRoute } from "next";
+import { IGRE_SEO, SITE_URL } from "@/lib/seo";
+
+const HOME_LAST_MODIFIED = "2026-09-03";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.decija-ucionica.com";
-
   return [
     {
-      url: baseUrl,
-      lastModified: new Date(),
+      url: `${SITE_URL}/`,
+      lastModified: HOME_LAST_MODIFIED,
       changeFrequency: "yearly",
       priority: 1,
     },
-    {
-      url: `${baseUrl}/uci-slova`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+    ...IGRE_SEO.map((igra) => ({
+      url: `${SITE_URL}${igra.path}`,
+      lastModified: igra.lastModified,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/uci-brojeve`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/igraonica/brojalica`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/igraonica/memorija`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/igraonica/magicna-pisaca-masina`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/igraonica/carobna-tastatura`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/slovo-na-slovo`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/pogodi-rec`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/matematika`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/vaga`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    })),
   ];
 }

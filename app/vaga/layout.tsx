@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Vaga | Uravnoteži brojeve",
-  description:
-    "Edukativna matematička igra za decu: stavi isti broj jabuka na vagu da bude u ravnoteži.",
-};
+const { metadata, Layout } = igraLayout("/vaga");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

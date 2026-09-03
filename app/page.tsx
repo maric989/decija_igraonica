@@ -10,7 +10,7 @@ export default function Home() {
         <h1 className="text-center font-extrabold text-sky-800">
           <Link
             href="/"
-            className="mx-auto mb-10 flex w-fit items-center justify-center gap-3 rounded-full border border-white/50 bg-white/80 px-4 py-3 shadow-md backdrop-blur-md sm:px-8"
+            className="mx-auto mb-4 flex w-fit items-center justify-center gap-3 rounded-full border border-white/50 bg-white/80 px-4 py-3 shadow-md backdrop-blur-md sm:px-8"
           >
             <Image
               src="/logo.png"
@@ -25,6 +25,10 @@ export default function Home() {
             </span>
           </Link>
         </h1>
+
+        <p className="mb-10 max-w-2xl text-center text-base text-sky-800/80 sm:text-lg">
+          Besplatne igre za ćirilicu i brojeve — za predškolce, bez naloga i reklama.
+        </p>
 
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <ActionCard

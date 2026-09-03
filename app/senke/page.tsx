@@ -11,7 +11,6 @@ import {
 import { RefreshCw } from "lucide-react";
 import confetti from "canvas-confetti";
 import NazadLink from "@/components/NazadLink";
-import GameTitleIcon from "@/components/GameTitleIcon";
 import { playNetacno, playPobjeda, playTacno } from "@/lib/sounds";
 
 type Pojam = {
@@ -26,6 +25,8 @@ const POJMOVI: Pojam[] = [
   { id: "raketa", src: "/senke/raketa.png", naziv: "Raketa" },
   { id: "kraba", src: "/senke/kraba.png", naziv: "Kraba" },
 ];
+
+const SLIKA_KLASA = "h-20 w-20 object-contain sm:h-24 sm:w-24";
 
 function izmesaj<T>(niz: T[]): T[] {
   const kopija = [...niz];
@@ -65,11 +66,11 @@ function Slicica({
     <Image
       src={src}
       alt={naziv}
-      width={220}
-      height={220}
+      width={96}
+      height={96}
       draggable={false}
       priority={priority}
-      className={`pointer-events-none h-32 w-32 select-none object-contain md:h-40 md:w-40 ${
+      className={`pointer-events-none select-none ${SLIKA_KLASA} ${
         spojen
           ? "drop-shadow-lg drop-shadow-green-500"
           : senka
@@ -98,7 +99,10 @@ function DraggableSlika({
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  async function handleDragEnd(_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
+  async function handleDragEnd(
+    _: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ) {
     const rezultat = onDragFinish(info.point);
 
     if (rezultat.kind === "match") {
@@ -142,7 +146,7 @@ function DraggableSlika({
       onDragStart={onDragStart}
       onDrag={(_, info) => onDragMove(info.point)}
       onDragEnd={handleDragEnd}
-      className="relative z-20 h-32 w-32 cursor-grab touch-none active:cursor-grabbing md:h-40 md:w-40"
+      className={`relative z-20 cursor-grab touch-none active:cursor-grabbing ${SLIKA_KLASA}`}
       aria-label={pojam.naziv}
     >
       <Slicica src={pojam.src} naziv={pojam.naziv} priority />
@@ -183,7 +187,8 @@ export default function SenkePage() {
 
   function nadjiZonu(point: { x: number; y: number }) {
     return senke.find(
-      (s) => !spojeno.includes(s.id) && pogodioCilj(point, zoneRefs.current[s.id]),
+      (s) =>
+        !spojeno.includes(s.id) && pogodioCilj(point, zoneRefs.current[s.id]),
     );
   }
 
@@ -209,29 +214,37 @@ export default function SenkePage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-sky-100 px-3 py-4 sm:px-4 sm:py-8">
-      <div className="mb-6 flex w-full max-w-4xl flex-col items-center gap-4">
-        <NazadLink />
-        <h1 className="flex items-center justify-center gap-2 text-center text-3xl font-extrabold text-sky-800 sm:text-4xl">
-          <GameTitleIcon src="/icons/senke.png" alt="" />
+    <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-sky-100">
+      <NazadLink className="absolute top-4 left-4 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 font-bold text-slate-700 shadow-sm transition-colors hover:bg-white" />
+
+      <header className="mt-4 mb-2 flex flex-col items-center px-4">
+        <h1 className="flex items-center justify-center gap-2 text-center text-2xl font-extrabold text-sky-800 sm:text-3xl">
+          <Image
+            src="/icons/senke.png"
+            alt=""
+            width={40}
+            height={40}
+            className="h-10 w-10 shrink-0 object-contain"
+            priority
+          />
           <span>Senke</span>
         </h1>
-        <p className="text-center text-base font-semibold text-sky-700">
+        <p className="text-center text-sm font-semibold text-sky-700 sm:text-base">
           Prevuci sliku na njenu senku!
         </p>
-      </div>
+      </header>
 
-      <div className="grid w-full max-w-4xl grid-cols-2 gap-10 overflow-visible sm:gap-16 md:gap-24">
-        <section className="relative z-20 flex flex-col items-center gap-4 sm:gap-6">
+      <div className="flex flex-1 flex-row items-center justify-center gap-4 overflow-hidden px-4 w-full">
+        <section className="relative z-20 flex flex-col items-center gap-4">
           {POJMOVI.map((pojam) => {
             const matched = spojeno.includes(pojam.id);
             return (
               <div
                 key={pojam.id}
-                className="flex h-36 w-32 flex-col items-center justify-start md:h-44 md:w-40"
+                className={`flex items-center justify-center ${SLIKA_KLASA}`}
               >
                 {matched ? (
-                  <div className="h-32 w-32 rounded-3xl border-4 border-dashed border-sky-200 bg-white/30 md:h-40 md:w-40" />
+                  <div className={`rounded-2xl border-4 border-dashed border-sky-200 bg-white/30 ${SLIKA_KLASA}`} />
                 ) : (
                   <DraggableSlika
                     pojam={pojam}
@@ -247,45 +260,38 @@ export default function SenkePage() {
                     }
                   />
                 )}
-                <span className="mt-1 text-sm font-bold text-sky-800">{pojam.naziv}</span>
               </div>
             );
           })}
         </section>
 
-        <section className="relative z-0 flex flex-col items-center gap-4 sm:gap-6">
+        <section className="relative z-0 flex flex-col items-center gap-4">
           {senke.map((pojam) => {
             const matched = spojeno.includes(pojam.id);
-            const aktivanCilj = nadSenkom === pojam.id && prevlacenje === pojam.id;
+            const aktivanCilj =
+              nadSenkom === pojam.id && prevlacenje === pojam.id;
             return (
               <div
                 key={pojam.id}
-                className="flex h-36 w-32 flex-col items-center justify-start md:h-44 md:w-40"
+                ref={(el) => {
+                  zoneRefs.current[pojam.id] = el;
+                }}
+                className={`flex items-center justify-center rounded-2xl ${SLIKA_KLASA} ${
+                  matched
+                    ? "bg-green-100/70 ring-4 ring-green-400"
+                    : aktivanCilj
+                      ? "bg-green-50/80 ring-4 ring-green-300"
+                      : prevlacenje
+                        ? "bg-white/40 ring-2 ring-sky-200"
+                        : ""
+                }`}
               >
-                <div
-                  ref={(el) => {
-                    zoneRefs.current[pojam.id] = el;
-                  }}
-                  className={`flex h-32 w-32 items-center justify-center rounded-3xl md:h-40 md:w-40 ${
-                    matched
-                      ? "bg-green-100/70 ring-4 ring-green-400"
-                      : aktivanCilj
-                        ? "bg-green-50/80 ring-4 ring-green-300"
-                        : prevlacenje
-                          ? "bg-white/40 ring-2 ring-sky-200"
-                          : ""
-                  }`}
-                >
-                  <Slicica
-                    src={pojam.src}
-                    naziv={pojam.naziv}
-                    senka={!matched}
-                    spojen={matched}
-                  />
-                </div>
-                <span className="mt-1 text-sm font-bold text-transparent">
-                  {pojam.naziv}
-                </span>
+                <Slicica
+                  src={pojam.src}
+                  naziv={pojam.naziv}
+                  senka={!matched}
+                  spojen={matched}
+                />
               </div>
             );
           })}

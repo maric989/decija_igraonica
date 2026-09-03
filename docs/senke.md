@@ -19,4 +19,4 @@ Levo su šarene slike, desno njihove senke izmešanog reda. Prevlači sliku na p
 
 ## Beleške
 
-Vežba vizuelno sparivanje oblika. Nema naslova kolona — interfejs je vizuelan.
+Vežba vizuelno sparivanje oblika. Nema naslova kolona ni labela ispod slika — interfejs je vizuelan. Layout je `h-[100dvh]` bez skrola na mobilnom.

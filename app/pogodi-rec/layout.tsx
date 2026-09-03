@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Pogodi Reč | Čarobni Baloni",
-  description:
-    "Edukativna igra pogađanja reči na ćirilici za decu. Sačuvaj balone i pogodi skrivenu reč!",
-};
+const { metadata, Layout } = igraLayout("/pogodi-rec");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

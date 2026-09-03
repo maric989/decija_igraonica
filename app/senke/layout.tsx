@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Senke | Poveži parove",
-  description:
-    "Edukativna igra za decu: prevuci sliku na njenu senku i poveži parove.",
-};
+const { metadata, Layout } = igraLayout("/senke");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

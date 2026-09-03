@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/igraonica/magicna-masina",
+        destination: "/igraonica/magicna-pisaca-masina",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

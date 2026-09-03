@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Uči Slova i Ćirilicu",
-  description:
-    "Interaktivno učenje srpske azbuke i ćirilice kroz zabavne kartice sa slikama.",
-};
+const { metadata, Layout } = igraLayout("/uci-slova");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

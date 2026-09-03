@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Matematičke Avanture | Sabiranje i Oduzimanje",
-  description:
-    "Interaktivna matematička igra za decu. Vežbajte sabiranje i oduzimanje kroz tri nivoa težine!",
-};
+const { metadata, Layout } = igraLayout("/matematika");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

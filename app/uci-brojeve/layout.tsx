@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Učenje Brojeva do 10",
-  description:
-    "Nauči brojeve i osnovno brojanje kroz vizuelne primere prilagođene deci.",
-};
+const { metadata, Layout } = igraLayout("/uci-brojeve");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

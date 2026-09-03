@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Igra Brojalica za Decu",
-  description:
-    "Zabavna mini-igra za predškolce. Prebroj predmete na ekranu i pogodi tačan broj!",
-};
+const { metadata, Layout } = igraLayout("/igraonica/brojalica");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

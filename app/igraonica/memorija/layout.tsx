@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Igra Memorije | Spoji slovo i sliku",
-  description:
-    "Vežbaj pamćenje i uči ćirilicu uz klasičnu igru spajanja parova (slova i slike).",
-};
+const { metadata, Layout } = igraLayout("/igraonica/memorija");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;

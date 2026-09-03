@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
+import { igraLayout } from "@/lib/igra-layout";
 
-export const metadata: Metadata = {
-  title: "Čarobna Tastatura | Padajuća slova",
-  description:
-    "Edukativna igra brzine i prepoznavanja slova za najmlađe.",
-};
+const { metadata, Layout } = igraLayout("/igraonica/carobna-tastatura");
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export { metadata };
+export default Layout;
