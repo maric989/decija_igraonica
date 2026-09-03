@@ -1,5 +1,5 @@
-import { BookOpen, Calculator, Keyboard, Puzzle, Hash, Type, Sparkles } from "lucide-react";
 import ActionCard from "@/components/ActionCard";
+import { Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
@@ -18,42 +18,42 @@ export default function Home() {
           <ActionCard
             title="Uči Slova"
             href="/uci-slova"
-            icon={BookOpen}
+            icon="BookOpen"
             backgroundClass="bg-rose-200"
             description="Uči slova kroz šarene kartice!"
           />
           <ActionCard
             title="Uči Brojeve"
             href="/uci-brojeve"
-            icon={Calculator}
+            icon="Calculator"
             backgroundClass="bg-emerald-200"
             description="Upoznaj brojeve od 1 do 10!"
           />
           <ActionCard
             title="Čarobna Tastatura"
             href="/igraonica/carobna-tastatura"
-            icon={Keyboard}
+            icon="Keyboard"
             backgroundClass="bg-blue-200"
             description="Uhvati slova koja padaju!"
           />
           <ActionCard
             title="Memorija"
             href="/igraonica/memorija"
-            icon={Puzzle}
+            icon="Puzzle"
             backgroundClass="bg-pink-200"
             description="Pronađi parove slova i slika."
           />
           <ActionCard
             title="Brojalica"
             href="/igraonica/brojalica"
-            icon={Hash}
+            icon="Hash"
             backgroundClass="bg-yellow-200"
             description="Prebroj predmete na ekranu."
           />
           <ActionCard
             title="Magična Pisaća Mašina"
             href="/igraonica/magicna-pisaca-masina"
-            icon={Type}
+            icon="Type"
             backgroundClass="bg-orange-200"
             description="Tipkaj slobodno i gledaj magiju!"
           />
