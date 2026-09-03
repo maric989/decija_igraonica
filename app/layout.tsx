@@ -10,7 +10,7 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://decija-igraonica.vercel.app/"),
+  metadataBase: new URL("https://www.decija-ucionica.com/"),
   title: {
     default: "Moja Pametna Učionica | Edukativne igre za decu",
     template: "%s | Moja Pametna Učionica",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "sr_RS",
-    url: "https://decija-igraonica.vercel.app/",
+    url: "https://www.decija-ucionica.com/",
     title: "Moja Pametna Učionica | Edukativne igre",
     description:
       "Besplatna i bezbedna aplikacija za učenje ćirilice i brojeva. Naučite slova kroz igru!",
