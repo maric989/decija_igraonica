@@ -10,6 +10,7 @@ import {
   Type,
   Sparkles,
   PartyPopper,
+  PlusCircle,
   type LucideIcon,
 } from "lucide-react";
 import { playPop } from "@/lib/sounds";
@@ -23,6 +24,7 @@ const ICONS = {
   Type,
   Sparkles,
   PartyPopper,
+  PlusCircle,
 } as const satisfies Record<string, LucideIcon>;
 
 export type ActionCardIcon = keyof typeof ICONS;

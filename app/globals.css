@@ -35,6 +35,10 @@ body {
   }
 }
 
+.animate-shake {
+  animation: shake 0.45s ease-in-out;
+}
+
 @keyframes balloon-float {
   0%,
   100% {

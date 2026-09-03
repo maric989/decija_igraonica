@@ -78,6 +78,13 @@ export default function Home() {
             backgroundClass="bg-indigo-200"
             description="Pogađaj slova i sačuvaj balone!"
           />
+          <ActionCard
+            title="Matematička Avantura"
+            href="/matematika"
+            icon="PlusCircle"
+            backgroundClass="bg-lime-200"
+            description="Sabiranje i oduzimanje kroz igru!"
+          />
         </div>
 
       </div>
