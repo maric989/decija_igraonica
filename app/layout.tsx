@@ -16,9 +16,13 @@ export const metadata: Metadata = {
     template: "%s | Moja Pametna Učionica",
   },
   description:
-    "Besplatna i bezbedna aplikacija za učenje ćirilice, slova, brojeva i logike za decu predškolskog uzrasta.",
-  applicationName: "Moja Pametna Učionica",
+    "Dečija Učionica (decija-ucionica) — besplatna i bezbedna aplikacija za učenje ćirilice, slova, brojeva i logike za decu predškolskog uzrasta.",
+  applicationName: "Dečija Učionica",
   keywords: [
+    "decija-ucionica",
+    "dečija učionica",
+    "decija ucionica",
+    "moja pametna učionica",
     "edukativne igre za decu",
     "učenje ćirilice",
     "azbuka za decu",
@@ -33,8 +37,8 @@ export const metadata: Metadata = {
     url: "https://www.decija-ucionica.com/",
     title: "Moja Pametna Učionica | Edukativne igre",
     description:
-      "Besplatna i bezbedna aplikacija za učenje ćirilice i brojeva. Naučite slova kroz igru!",
-    siteName: "Moja Pametna Učionica",
+      "Dečija Učionica — besplatna i bezbedna aplikacija za učenje ćirilice i brojeva. Naučite slova kroz igru!",
+    siteName: "Dečija Učionica",
   },
 };
 
