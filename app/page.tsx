@@ -1,69 +1,65 @@
-import Image from "next/image";
+import { BookOpen, Calculator, Keyboard, Puzzle, Hash, Type, Sparkles } from "lucide-react";
+import ActionCard from "@/components/ActionCard";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="flex min-h-screen w-full flex-col items-center justify-center bg-sky-100 px-6 py-12">
+      <div className="flex w-full max-w-6xl flex-col items-center gap-12">
+
+        <h1 className="flex flex-wrap items-center justify-center gap-3 text-center text-4xl font-extrabold text-sky-800 sm:gap-4 sm:text-5xl md:text-6xl">
+          <Sparkles
+            className="h-10 w-10 text-amber-400 sm:h-12 sm:w-12 md:h-14 md:w-14"
+            strokeWidth={2.25}
+          />
+          Moja Pametna Učionica
+        </h1>
+
+        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <ActionCard
+            title="Uči Slova"
+            href="/uci-slova"
+            icon={BookOpen}
+            backgroundClass="bg-rose-200"
+            description="Uči slova kroz šarene kartice!"
+          />
+          <ActionCard
+            title="Uči Brojeve"
+            href="/uci-brojeve"
+            icon={Calculator}
+            backgroundClass="bg-emerald-200"
+            description="Upoznaj brojeve od 1 do 10!"
+          />
+          <ActionCard
+            title="Čarobna Tastatura"
+            href="/igraonica/carobna-tastatura"
+            icon={Keyboard}
+            backgroundClass="bg-blue-200"
+            description="Uhvati slova koja padaju!"
+          />
+          <ActionCard
+            title="Memorija"
+            href="/igraonica/memorija"
+            icon={Puzzle}
+            backgroundClass="bg-pink-200"
+            description="Pronađi parove slova i slika."
+          />
+          <ActionCard
+            title="Brojalica"
+            href="/igraonica/brojalica"
+            icon={Hash}
+            backgroundClass="bg-yellow-200"
+            description="Prebroj predmete na ekranu."
+          />
+          <ActionCard
+            title="Magična Pisaća Mašina"
+            href="/igraonica/magicna-masina"
+            icon={Type}
+            backgroundClass="bg-orange-200"
+            description="Tipkaj slobodno i gledaj magiju!"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+      </div>
+    </main>
   );
 }
