@@ -162,7 +162,7 @@ export default function SlovoNaSlovoPage() {
           const jePogresno = pogresnoSlovo === slovo;
           const jeTacno = status === "tacno" && slovo === pojam.slovo;
 
-          let dugmeBoja = BOJE_DUGMADI[i % BOJE_DUGMADI.length];
+          let dugmeBoja: string = BOJE_DUGMADI[i % BOJE_DUGMADI.length];
           if (jeTacno) dugmeBoja = "bg-green-300 text-green-900 ring-4 ring-green-400 scale-110";
           if (jePogresno) dugmeBoja = "animate-shake bg-orange-300 text-orange-900";
 
