@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, BookOpen } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { AZBUKA_PODACI, type SlovoData } from "@/lib/azbuka";
+import NazadLink from "@/components/NazadLink";
 
 // ─── Komponenta ───────────────────────────────────────────────────────────────
 export default function UciSlovaPage() {
@@ -55,13 +55,7 @@ export default function UciSlovaPage() {
 
         {/* ── Header ── */}
         <header className="flex flex-col items-center gap-4 text-center">
-          <Link
-            href="/"
-            className="flex cursor-pointer items-center gap-2 rounded-full bg-rose-200 px-6 py-3 text-lg font-bold text-rose-900 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl"
-          >
-            <ArrowLeft className="h-5 w-5" />
-            Nazad
-          </Link>
+          <NazadLink className="flex cursor-pointer items-center gap-2 rounded-full bg-rose-200 px-6 py-3 text-lg font-bold text-rose-900 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl" />
           <div className="flex items-center gap-3">
             <BookOpen className="h-10 w-10 text-rose-500 sm:h-12 sm:w-12" strokeWidth={2.25} />
             <h1 className="text-4xl font-extrabold text-rose-800 sm:text-5xl">

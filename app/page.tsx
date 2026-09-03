@@ -1,20 +1,27 @@
 import ActionCard from "@/components/ActionCard";
-import { Sparkles } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-sky-100 px-6 py-12">
       <div className="flex w-full max-w-6xl flex-col items-center gap-12">
 
-        <h1 className="flex flex-wrap items-center justify-center gap-3 text-center text-4xl font-extrabold text-sky-800 sm:gap-4 sm:text-5xl md:text-6xl">
-          <Sparkles
-            className="h-10 w-10 text-amber-400 sm:h-12 sm:w-12 md:h-14 md:w-14"
-            strokeWidth={2.25}
-          />
-          Moja Pametna Učionica
+        <h1 className="text-center text-4xl font-extrabold text-sky-800 sm:text-5xl md:text-6xl">
+          <Link href="/" className="flex items-center justify-center gap-3">
+            <Image
+              src="/logo.png"
+              alt="Moja Pametna Učionica Logo"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain rounded-xl hover:scale-105 transition-transform"
+              priority
+            />
+            Moja Pametna Učionica
+          </Link>
         </h1>
 
-        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8">
           <ActionCard
             title="Uči Slova"
             href="/uci-slova"
@@ -28,6 +35,13 @@ export default function Home() {
             icon="Calculator"
             backgroundClass="bg-emerald-200"
             description="Upoznaj brojeve od 1 do 10!"
+          />
+          <ActionCard
+            title="Slovo na Slovo"
+            href="/slovo-na-slovo"
+            icon="Sparkles"
+            backgroundClass="bg-violet-200"
+            description="Pogodi kojim slovom počinje reč!"
           />
           <ActionCard
             title="Čarobna Tastatura"

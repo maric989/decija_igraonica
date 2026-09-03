@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import NazadLink from "@/components/NazadLink";
 
 const BOJE = [
   "text-red-500",
@@ -130,13 +129,11 @@ export default function MagicnaPisacaMasinaPage() {
       <div className="flex w-full max-w-3xl flex-col items-center gap-6">
         {/* Header */}
         <header className="flex w-full items-center justify-between">
-          <Link
-            href="/"
+          <NazadLink
+            label="Nazad"
+            iconClassName="h-4 w-4"
             className="flex items-center gap-2 rounded-full bg-amber-700 px-4 py-2 text-sm font-bold text-amber-100 shadow-md transition-all hover:scale-105 hover:bg-amber-600"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Igraonica
-          </Link>
+          />
           <h1 className="text-center text-2xl font-extrabold text-amber-100 sm:text-3xl drop-shadow-lg">
             🖊️ Magična Pisaća Mašina
           </h1>

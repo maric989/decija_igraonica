@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ArrowLeft, Star } from "lucide-react";
+import { Star } from "lucide-react";
+import NazadLink from "@/components/NazadLink";
 
 // ─── Konstante ────────────────────────────────────────────────────────────────
 const ABECEDA = [
@@ -140,13 +140,11 @@ export default function CarobnaTastaturaPage() {
 
         {/* Navigacija */}
         <div className="absolute left-4 top-4 z-10">
-          <Link
-            href="/"
+          <NazadLink
+            label="Izlaz"
+            iconClassName="h-4 w-4"
             className="flex items-center gap-1 rounded-full bg-white/20 px-4 py-2 text-sm font-bold text-white backdrop-blur transition hover:bg-white/30"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Izlaz
-          </Link>
+          />
         </div>
 
         {/* Rezultat */}

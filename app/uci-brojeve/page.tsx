@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Link from "next/link";
-import { ArrowLeft, Calculator, Star } from "lucide-react";
+import { Calculator, Star } from "lucide-react";
+import NazadLink from "@/components/NazadLink";
 
 const BROJEVI = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
 
@@ -57,13 +57,7 @@ export default function UciBrojevePage() {
     <main className="flex min-h-screen w-full flex-col items-center bg-emerald-100 px-4 py-8 sm:px-6 sm:py-12">
       <div className="flex w-full max-w-4xl flex-col items-center gap-8">
         <header className="flex flex-col items-center gap-4 text-center">
-          <Link
-            href="/"
-            className="flex cursor-pointer items-center gap-2 rounded-full bg-emerald-200 px-6 py-3 text-lg font-bold text-emerald-900 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl"
-          >
-            <ArrowLeft className="h-5 w-5" />
-            Nazad
-          </Link>
+          <NazadLink className="flex cursor-pointer items-center gap-2 rounded-full bg-emerald-200 px-6 py-3 text-lg font-bold text-emerald-900 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl" />
           <div className="flex items-center gap-3">
             <Calculator
               className="h-10 w-10 text-emerald-600 sm:h-12 sm:w-12"

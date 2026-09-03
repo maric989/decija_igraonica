@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ArrowLeft, Apple, Cat, Car, Heart, Star, Fish, Cake, Sun, type LucideIcon } from "lucide-react";
+import { Apple, Cat, Car, Heart, Star, Fish, Cake, Sun, type LucideIcon } from "lucide-react";
 import confetti from "canvas-confetti";
+import NazadLink from "@/components/NazadLink";
 
 // ─── Predmeti koji se broje ───────────────────────────────────────────────────
 type Predmet = { ikona: LucideIcon; boja: string; naziv: string };
@@ -163,13 +163,7 @@ export default function BrojalicaPage() {
 
       {/* Nazad */}
       <div className="mb-6 w-full max-w-lg">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 rounded-full bg-yellow-200 px-5 py-2.5 font-bold text-yellow-900 shadow-md transition-all hover:scale-105 hover:shadow-lg"
-        >
-          <ArrowLeft className="h-5 w-5" />
-          Nazad
-        </Link>
+        <NazadLink className="inline-flex items-center gap-2 rounded-full bg-yellow-200 px-5 py-2.5 font-bold text-yellow-900 shadow-md transition-all hover:scale-105 hover:shadow-lg" />
       </div>
 
       {/* Naslov */}

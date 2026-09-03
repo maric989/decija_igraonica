@@ -8,6 +8,7 @@ import {
   Puzzle,
   Hash,
   Type,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import { playPop } from "@/lib/sounds";
@@ -19,6 +20,7 @@ const ICONS = {
   Puzzle,
   Hash,
   Type,
+  Sparkles,
 } as const satisfies Record<string, LucideIcon>;
 
 export type ActionCardIcon = keyof typeof ICONS;

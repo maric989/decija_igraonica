@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, RefreshCw } from "lucide-react";
+import { RefreshCw } from "lucide-react";
+import NazadLink from "@/components/NazadLink";
 
 // ─── Podaci ───────────────────────────────────────────────────────────────────
 const SLIKE = [
@@ -153,45 +153,42 @@ export default function MemorijePage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-pink-50 px-4 py-8">
+    <main className="flex min-h-screen flex-col items-center bg-pink-50 px-3 py-4 sm:px-4 sm:py-8">
 
       {/* Header */}
-      <div className="mb-6 flex w-full max-w-3xl items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-2 rounded-full bg-pink-200 px-5 py-2.5 font-bold text-pink-900 shadow-md transition-all hover:scale-105 hover:shadow-lg"
-        >
-          <ArrowLeft className="h-5 w-5" />
-          Nazad
-        </Link>
+      <div className="mb-4 grid w-full max-w-3xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 sm:mb-6 sm:gap-4">
+        <NazadLink
+          className="flex shrink-0 items-center gap-1 rounded-full bg-pink-200 px-3 py-2 text-sm font-bold text-pink-900 shadow-md transition-all hover:scale-105 hover:shadow-lg sm:gap-2 sm:px-5 sm:py-2.5 sm:text-base"
+          iconClassName="h-4 w-4 sm:h-5 sm:w-5"
+        />
 
-        <h1 className="text-3xl font-extrabold text-pink-800 sm:text-4xl">
+        <h1 className="truncate text-center text-xl font-extrabold text-pink-800 sm:text-3xl md:text-4xl">
           Memorija 🧠
         </h1>
 
         <button
           onClick={novaIgra}
-          className="flex items-center gap-2 rounded-full bg-pink-200 px-5 py-2.5 font-bold text-pink-900 shadow-md transition-all hover:scale-105 hover:shadow-lg"
+          className="flex shrink-0 items-center gap-1 rounded-full bg-pink-200 px-3 py-2 text-sm font-bold text-pink-900 shadow-md transition-all hover:scale-105 hover:shadow-lg sm:gap-2 sm:px-5 sm:py-2.5 sm:text-base"
         >
-          <RefreshCw className="h-5 w-5" />
+          <RefreshCw className="h-4 w-4 sm:h-5 sm:w-5" />
           Nova
         </button>
       </div>
 
       {/* Statistika */}
-      <div className="mb-5 flex gap-6 text-center">
-        <div className="rounded-2xl bg-pink-200 px-5 py-2 shadow">
-          <p className="text-xs font-semibold uppercase tracking-wide text-pink-600">Pronađeno</p>
-          <p className="text-2xl font-extrabold text-pink-900">{pogodene.length} / {SLIKE.length}</p>
+      <div className="mb-4 flex w-full max-w-3xl justify-center gap-3 text-center sm:mb-5 sm:gap-6">
+        <div className="min-w-0 flex-1 rounded-2xl bg-pink-200 px-3 py-2 shadow sm:flex-none sm:px-5">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-pink-600 sm:text-xs">Pronađeno</p>
+          <p className="text-xl font-extrabold text-pink-900 sm:text-2xl">{pogodene.length} / {SLIKE.length}</p>
         </div>
-        <div className="rounded-2xl bg-purple-200 px-5 py-2 shadow">
-          <p className="text-xs font-semibold uppercase tracking-wide text-purple-600">Pokušaji</p>
-          <p className="text-2xl font-extrabold text-purple-900">{pokusaji}</p>
+        <div className="min-w-0 flex-1 rounded-2xl bg-purple-200 px-3 py-2 shadow sm:flex-none sm:px-5">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-purple-600 sm:text-xs">Pokušaji</p>
+          <p className="text-xl font-extrabold text-purple-900 sm:text-2xl">{pokusaji}</p>
         </div>
       </div>
 
-      {/* Tabla */}
-      <div className="grid grid-cols-4 gap-3 sm:gap-4">
+      {/* Tabla: kvadrati se skupljaju sa širinom ekrana, bez fiksnog w-28 */}
+      <div className="grid w-full max-w-md grid-cols-4 gap-2 sm:max-w-xl sm:gap-3 md:max-w-2xl md:gap-4">
         {tabla.map((kartica) => {
           const stanje = getStanje(kartica);
           const otkrivena = stanje !== "skrivena";
@@ -201,11 +198,11 @@ export default function MemorijePage() {
             <div
               key={kartica.uid}
               onClick={() => klikKartica(kartica)}
-              className="cursor-pointer"
+              className="min-w-0 w-full cursor-pointer"
               style={{ perspective: "600px" }}
             >
               <div
-                className="relative h-28 w-28 transition-transform duration-500 sm:h-32 sm:w-32"
+                className="relative aspect-square w-full transition-transform duration-500"
                 style={{
                   transformStyle: "preserve-3d",
                   transform: otkrivena ? "rotateY(180deg)" : "rotateY(0deg)",
@@ -213,7 +210,7 @@ export default function MemorijePage() {
               >
                 {/* Poleđina (pitanje) */}
                 <div
-                  className={`absolute inset-0 flex items-center justify-center rounded-2xl text-5xl shadow-md transition-colors ${
+                  className={`absolute inset-0 flex items-center justify-center rounded-xl text-3xl shadow-md transition-colors sm:rounded-2xl sm:text-5xl ${
                     pogodena ? "bg-green-200" : "bg-pink-300 hover:bg-pink-400"
                   }`}
                   style={{ backfaceVisibility: "hidden" }}
@@ -223,7 +220,7 @@ export default function MemorijePage() {
 
                 {/* Lice (slika) */}
                 <div
-                  className={`absolute inset-0 overflow-hidden rounded-2xl shadow-md ${
+                  className={`absolute inset-0 overflow-hidden rounded-xl shadow-md sm:rounded-2xl ${
                     pogodena ? "ring-4 ring-green-400" : "ring-2 ring-pink-200"
                   }`}
                   style={{
@@ -236,7 +233,7 @@ export default function MemorijePage() {
                     alt={kartica.naziv}
                     fill
                     className="object-cover"
-                    sizes="96px"
+                    sizes="(max-width: 640px) 25vw, 128px"
                   />
                 </div>
               </div>
@@ -247,15 +244,15 @@ export default function MemorijePage() {
 
       {/* Pobjeda overlay */}
       {pobijedio && (
-        <div className="fixed inset-0 flex flex-col items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="flex flex-col items-center gap-6 rounded-3xl bg-white p-10 shadow-2xl">
-            <p className="text-6xl">🎉</p>
-            <h2 className="text-4xl font-extrabold text-pink-700">Bravo!</h2>
-            <p className="text-xl text-gray-600">Pronašao si sve parove!</p>
-            <p className="text-lg font-semibold text-purple-600">Broj pokušaja: {pokusaji}</p>
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+          <div className="flex w-full max-w-sm flex-col items-center gap-4 rounded-3xl bg-white p-6 text-center shadow-2xl sm:gap-6 sm:p-10">
+            <p className="text-5xl sm:text-6xl">🎉</p>
+            <h2 className="text-3xl font-extrabold text-pink-700 sm:text-4xl">Bravo!</h2>
+            <p className="text-lg text-gray-600 sm:text-xl">Pronašao si sve parove!</p>
+            <p className="text-base font-semibold text-purple-600 sm:text-lg">Broj pokušaja: {pokusaji}</p>
             <button
               onClick={novaIgra}
-              className="rounded-full bg-pink-400 px-8 py-3 text-xl font-bold text-white shadow-lg transition-all hover:scale-105 hover:bg-pink-500"
+              className="rounded-full bg-pink-400 px-8 py-3 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 hover:bg-pink-500 sm:text-xl"
             >
               Igraj ponovo!
             </button>
