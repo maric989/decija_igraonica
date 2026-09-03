@@ -71,6 +71,13 @@ export default function Home() {
             backgroundClass="bg-orange-200"
             description="Tipkaj slobodno i gledaj magiju!"
           />
+          <ActionCard
+            title="Pogodi Reč"
+            href="/pogodi-rec"
+            icon="PartyPopper"
+            backgroundClass="bg-indigo-200"
+            description="Pogađaj slova i sačuvaj balone!"
+          />
         </div>
 
       </div>

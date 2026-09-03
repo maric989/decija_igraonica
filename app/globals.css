@@ -35,7 +35,36 @@ body {
   }
 }
 
-.animate-shake {
-  animation: shake 0.45s ease-in-out;
+@keyframes balloon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes balloon-pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  35% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.animate-balloon-float {
+  animation: balloon-float 2.4s ease-in-out infinite;
+}
+
+.animate-balloon-pop {
+  animation: balloon-pop 0.45s ease-out forwards;
 }
 
