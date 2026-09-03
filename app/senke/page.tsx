@@ -11,6 +11,7 @@ import {
 import { RefreshCw } from "lucide-react";
 import confetti from "canvas-confetti";
 import NazadLink from "@/components/NazadLink";
+import GameTitleIcon from "@/components/GameTitleIcon";
 import { playNetacno, playPobjeda, playTacno } from "@/lib/sounds";
 
 type Pojam = {
@@ -20,10 +21,10 @@ type Pojam = {
 };
 
 const POJMOVI: Pojam[] = [
-  { id: "bager", src: "/senke-bager.png", naziv: "Bager" },
-  { id: "dinosaurus", src: "/senke-dinosaurus.png", naziv: "Dinosaurus" },
-  { id: "raketa", src: "/senke-raketa.png", naziv: "Raketa" },
-  { id: "kraba", src: "/senke-kraba.png", naziv: "Kraba" },
+  { id: "bager", src: "/senke/bager.png", naziv: "Bager" },
+  { id: "dinosaurus", src: "/senke/dinosaurus.png", naziv: "Dinosaurus" },
+  { id: "raketa", src: "/senke/raketa.png", naziv: "Raketa" },
+  { id: "kraba", src: "/senke/kraba.png", naziv: "Kraba" },
 ];
 
 function izmesaj<T>(niz: T[]): T[] {
@@ -211,8 +212,9 @@ export default function SenkePage() {
     <main className="flex min-h-screen flex-col items-center bg-sky-100 px-3 py-4 sm:px-4 sm:py-8">
       <div className="mb-6 flex w-full max-w-4xl flex-col items-center gap-4">
         <NazadLink />
-        <h1 className="text-center text-3xl font-extrabold text-sky-800 sm:text-4xl">
-          Senke
+        <h1 className="flex items-center justify-center gap-2 text-center text-3xl font-extrabold text-sky-800 sm:text-4xl">
+          <GameTitleIcon src="/icons/senke.jpeg" alt="" />
+          <span>Senke</span>
         </h1>
         <p className="text-center text-base font-semibold text-sky-700">
           Prevuci sliku na njenu senku!

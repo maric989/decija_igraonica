@@ -52,14 +52,6 @@ export default function Home() {
             description="Pogodi kojim slovom počinje reč!"
           />
           <ActionCard
-            title="Čarobna Tastatura"
-            href="/igraonica/carobna-tastatura"
-            imageSrc="/icons/carobna-tastatura.jpeg"
-            backgroundClass="bg-blue-200"
-            kategorija="SLOVA"
-            description="Uhvati slova koja padaju!"
-          />
-          <ActionCard
             title="Memorija"
             href="/igraonica/memorija"
             imageSrc="/icons/memorija.jpeg"
@@ -74,14 +66,6 @@ export default function Home() {
             backgroundClass="bg-yellow-200"
             kategorija="MATEMATIKA"
             description="Prebroj predmete na ekranu."
-          />
-          <ActionCard
-            title="Magična Pisaća Mašina"
-            href="/igraonica/magicna-pisaca-masina"
-            imageSrc="/icons/pisaca-masina.jpeg"
-            backgroundClass="bg-orange-200"
-            kategorija="SLOVA"
-            description="Tipkaj slobodno i gledaj magiju!"
           />
           <ActionCard
             title="Pogodi Reč"
@@ -102,10 +86,26 @@ export default function Home() {
           <ActionCard
             title="Senke"
             href="/senke"
-            imageSrc="/senke-bager.png"
+            imageSrc="/icons/senke.jpeg"
             backgroundClass="bg-slate-200"
             kategorija="LOGIKA"
             description="Poveži sliku sa njenom senkom!"
+          />
+          <ActionCard
+            title="Magična Pisaća Mašina"
+            href="/igraonica/magicna-pisaca-masina"
+            imageSrc="/icons/pisaca-masina.jpeg"
+            backgroundClass="bg-orange-200"
+            kategorija="SLOVA"
+            description="Tipkaj slobodno i gledaj magiju!"
+          />
+          <ActionCard
+            title="Čarobna Tastatura"
+            href="/igraonica/carobna-tastatura"
+            imageSrc="/icons/carobna-tastatura.jpeg"
+            backgroundClass="bg-blue-200"
+            kategorija="SLOVA"
+            description="Uhvati slova koja padaju!"
           />
         </div>
 

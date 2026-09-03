@@ -3,7 +3,7 @@
 - Ruta: `/senke`
 - Fajl: `app/senke/page.tsx`
 - Kategorija: logika
-- Ikona: `/senke-bager.png`
+- Ikona: `/icons/senke.jpeg`
 
 ## Za dete
 
@@ -11,7 +11,7 @@ Levo su šarene slike, desno njihove senke izmešanog reda. Prevlači sliku na p
 
 ## Kako radi
 
-- Slike: `/senke-bager.png`, `/senke-dinosaurus.png`, `/senke-raketa.png`, `/senke-kraba.png` (PNG sa providnom pozadinom)
+- Slike: `/senke/bager.png`, `/senke/dinosaurus.png`, `/senke/raketa.png`, `/senke/kraba.png`
 - Senke: iste slike sa `brightness-0 opacity-20 filter drop-shadow-md`
 - Drag-and-drop preko **framer-motion**; pogodak se meri preklapanjem prsta/miša sa drop zonom
 - Tačan par: `playTacno` + zeleni sjaj (`drop-shadow-green-500`)

@@ -36,6 +36,7 @@ Igre su podeljene u tri grupe:
 | `lib/azbuka.ts` | Sva ćirilična slova, reči, slike i audio |
 | `lib/sounds.ts` | Veseli / netačni / pobednički zvuci |
 | `public/icons/` | 3D slike za kartice i naslove igara |
+| `public/senke/` | Slike za igru Senke (bager, dinosaurus, raketa, kraba) |
 | `public/slova/` | MP3 „A kao avion“ za Uči slova |
 | `public/slike/azbuka/` | Slike pojmova uz slova |
 | `public/audio/` | Brojevi, kratka slova, latinica za Čarobnu tastaturu |
