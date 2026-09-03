@@ -28,7 +28,7 @@ Nema baze ni CMS-a. SEO živi u `lib/seo.ts`, `app/layout.tsx`, `app/sitemap.ts`
 | JSON-LD | `WebSite` + `WebApplication` (besplatno, preschool, `inLanguage: sr`) |
 | Font | Nunito (`latin` + `latin-ext`) |
 
-Početna ima kratak pasus ispod loga (indeksabilan tekst, ne samo kartice).
+Početna ima kratak pasus ispod loga (indeksabilan tekst, ne samo kartice). Sitni link **O nama** vodi na `/o-nama` (privatnost + kontakt, bez imena firme).
 
 ## Po igri
 

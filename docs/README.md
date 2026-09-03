@@ -5,6 +5,7 @@ Besplatna web aplikacija za decu predškolskog i ranog školskog uzrasta. Cilj j
 - Sajt: [https://www.decija-ucionica.com](https://www.decija-ucionica.com)
 - Jezik: srpski (ćirilica u igrama, latinica u naslovima interfejsa)
 - Publika: predškolci i prvačići, uz odraslu osobu u blizini
+- O nama / privatnost: `/o-nama` (kontakt: `maric989@gmail.com`)
 
 ## Šta aplikacija radi
 

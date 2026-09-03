@@ -7,6 +7,8 @@ export const SITE_NAME_ALT = "Moja Pametna Učionica";
 export const SITE_DESCRIPTION =
   "Dečija Učionica (Moja Pametna Učionica) — besplatne edukativne igre za predškolce: ćirilica, slova, brojevi i logika, bez naloga i reklama.";
 
+export const CONTACT_EMAIL = "maric989@gmail.com";
+
 export type IgraSeo = {
   path: string;
   title: string;

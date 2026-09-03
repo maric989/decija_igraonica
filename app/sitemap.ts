@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 1,
     },
+    {
+      url: `${SITE_URL}/o-nama`,
+      lastModified: "2026-09-04",
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
     ...IGRE_SEO.map((igra) => ({
       url: `${SITE_URL}${igra.path}`,
       lastModified: igra.lastModified,

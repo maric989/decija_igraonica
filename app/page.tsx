@@ -121,6 +121,12 @@ export default function Home() {
           />
         </div>
 
+        <p className="mt-10 text-center text-sm font-semibold text-sky-800/50">
+          <Link href="/o-nama" className="hover:text-sky-800">
+            O nama
+          </Link>
+        </p>
+
       </div>
     </main>
   );
