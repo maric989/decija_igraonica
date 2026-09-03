@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Home, RefreshCw, Star } from "lucide-react";
 import confetti from "canvas-confetti";
 import NazadLink from "@/components/NazadLink";
+import GameTitleIcon from "@/components/GameTitleIcon";
 import { playBalloonPop, playPobjeda, playTacno } from "@/lib/sounds";
 
 const ZIVOTI = 6;
@@ -248,10 +249,11 @@ export default function PogodiRecPage() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-indigo-50 px-3 py-4 sm:px-4 sm:py-8">
       <div className="mb-4 grid w-full max-w-3xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 sm:mb-6">
-        <NazadLink className="flex shrink-0 items-center gap-1 rounded-full bg-indigo-200 px-3 py-2 text-sm font-bold text-indigo-900 shadow-md transition-all hover:scale-105 hover:shadow-lg sm:gap-2 sm:px-5 sm:py-2.5 sm:text-base" />
+        <NazadLink />
 
-        <h1 className="truncate text-center text-xl font-extrabold text-indigo-800 sm:text-3xl">
-          Pogodi Reč
+        <h1 className="flex items-center justify-center gap-1 truncate text-center text-xl font-extrabold text-indigo-800 sm:gap-2 sm:text-3xl">
+          <GameTitleIcon src="/icons/pogodi-rec.jpeg" alt="" size="sm" />
+          <span className="truncate">Pogodi Reč</span>
         </h1>
 
         <div className="flex shrink-0 items-center gap-1 rounded-full bg-amber-300/90 px-3 py-2 shadow-md sm:gap-2 sm:px-5">

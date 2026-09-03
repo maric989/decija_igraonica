@@ -7,6 +7,7 @@ import confetti from "canvas-confetti";
 import { AZBUKA_PODACI, type SlovoData } from "@/lib/azbuka";
 import { playNetacno, playTacno } from "@/lib/sounds";
 import NazadLink from "@/components/NazadLink";
+import GameTitleIcon from "@/components/GameTitleIcon";
 
 const POJMOVI = AZBUKA_PODACI.filter(
   (p): p is SlovoData & { slika: string } => Boolean(p.slika),
@@ -114,9 +115,7 @@ export default function SlovoNaSlovoPage() {
     <main className="flex min-h-screen flex-col items-center bg-violet-50 px-4 py-8 sm:py-10">
       {/* Header */}
       <div className="mb-6 flex w-full max-w-2xl items-center justify-between">
-        <NazadLink
-          className="flex items-center gap-2 rounded-full bg-violet-200 px-5 py-2.5 font-bold text-violet-900 shadow-md transition-all hover:scale-105 hover:shadow-lg"
-        />
+        <NazadLink />
 
         <div className="flex items-center gap-2 rounded-full bg-amber-300/90 px-5 py-2 shadow-md">
           <Star className="h-5 w-5 fill-amber-700 text-amber-700" />
@@ -124,8 +123,9 @@ export default function SlovoNaSlovoPage() {
         </div>
       </div>
 
-      <h1 className="mb-2 text-center text-3xl font-extrabold text-violet-800 sm:text-4xl">
-        Slovo na Slovo ✨
+      <h1 className="mb-2 flex items-center justify-center gap-2 text-center text-3xl font-extrabold text-violet-800 sm:text-4xl">
+        <GameTitleIcon src="/icons/slovo-na-slovo.jpeg" alt="" />
+        Slovo na Slovo
       </h1>
       <p className="mb-8 text-center text-lg font-semibold text-violet-600">
         Kojim slovom počinje reč?

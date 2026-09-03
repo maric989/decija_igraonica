@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Star } from "lucide-react";
 import NazadLink from "@/components/NazadLink";
+import GameTitleIcon from "@/components/GameTitleIcon";
 
 // ─── Konstante ────────────────────────────────────────────────────────────────
 const ABECEDA = [
@@ -140,11 +141,7 @@ export default function CarobnaTastaturaPage() {
 
         {/* Navigacija */}
         <div className="absolute left-4 top-4 z-10">
-          <NazadLink
-            label="Izlaz"
-            iconClassName="h-4 w-4"
-            className="flex items-center gap-1 rounded-full bg-white/20 px-4 py-2 text-sm font-bold text-white backdrop-blur transition hover:bg-white/30"
-          />
+          <NazadLink label="Izlaz" />
         </div>
 
         {/* Rezultat */}
@@ -154,7 +151,8 @@ export default function CarobnaTastaturaPage() {
         </div>
 
         {/* Naslov */}
-        <div className="absolute inset-x-0 top-5 flex justify-center">
+        <div className="absolute inset-x-0 top-4 flex items-center justify-center gap-2">
+          <GameTitleIcon src="/icons/carobna-tastatura.jpeg" alt="" size="sm" />
           <span className="text-base font-bold tracking-widest text-white/50 uppercase">
             Čarobna Tastatura
           </span>

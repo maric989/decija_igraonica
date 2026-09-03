@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { BookOpen } from "lucide-react";
 import { AZBUKA_PODACI, type SlovoData } from "@/lib/azbuka";
 import NazadLink from "@/components/NazadLink";
+import GameTitleIcon from "@/components/GameTitleIcon";
 
 // ─── Komponenta ───────────────────────────────────────────────────────────────
 export default function UciSlovaPage() {
@@ -55,9 +55,9 @@ export default function UciSlovaPage() {
 
         {/* ── Header ── */}
         <header className="flex flex-col items-center gap-4 text-center">
-          <NazadLink className="flex cursor-pointer items-center gap-2 rounded-full bg-rose-200 px-6 py-3 text-lg font-bold text-rose-900 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl" />
+          <NazadLink />
           <div className="flex items-center gap-3">
-            <BookOpen className="h-10 w-10 text-rose-500 sm:h-12 sm:w-12" strokeWidth={2.25} />
+            <GameTitleIcon src="/icons/uci-slova.jpeg" alt="" />
             <h1 className="text-4xl font-extrabold text-rose-800 sm:text-5xl">
               Uči Slova
             </h1>

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Minus, Plus, RefreshCw, Settings2, Star } from "lucide-react";
 import NazadLink from "@/components/NazadLink";
+import GameTitleIcon from "@/components/GameTitleIcon";
 import { playNetacno, playPop, playTacno } from "@/lib/sounds";
 
 type Operacija = "+" | "-" | "mix";
@@ -148,15 +149,13 @@ export default function MatematikaPage() {
     window.setTimeout(() => setPogresanOdgovor(null), 500);
   }
 
-  const nazadKlasa =
-    "flex shrink-0 items-center gap-1 rounded-full bg-emerald-200 px-3 py-2 text-sm font-bold text-emerald-900 shadow-md transition-all hover:scale-105 hover:shadow-lg sm:gap-2 sm:px-5 sm:py-2.5 sm:text-base";
-
   return (
     <main className="flex min-h-screen flex-col items-center bg-lime-50 px-3 py-4 sm:px-4 sm:py-8">
       <div className="mb-4 grid w-full max-w-3xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 sm:mb-6">
-        <NazadLink className={nazadKlasa} />
-        <h1 className="truncate text-center text-lg font-extrabold text-emerald-800 sm:text-3xl">
-          Matematička Avantura
+        <NazadLink />
+        <h1 className="flex items-center justify-center gap-1 truncate text-center text-lg font-extrabold text-emerald-800 sm:gap-2 sm:text-3xl">
+          <GameTitleIcon src="/icons/matematika.jpeg" alt="" size="sm" />
+          <span className="truncate">Matematička Avantura</span>
         </h1>
         <div className="flex shrink-0 items-center gap-1 rounded-full bg-amber-300/90 px-3 py-2 shadow-md sm:gap-2 sm:px-5">
           <Star className="h-4 w-4 fill-amber-700 text-amber-700 sm:h-5 sm:w-5" />

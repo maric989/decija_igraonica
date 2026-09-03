@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Apple, Cat, Car, Heart, Star, Fish, Cake, Sun, type LucideIcon } from "lucide-react";
 import confetti from "canvas-confetti";
 import NazadLink from "@/components/NazadLink";
+import GameTitleIcon from "@/components/GameTitleIcon";
 
 // ─── Predmeti koji se broje ───────────────────────────────────────────────────
 type Predmet = { ikona: LucideIcon; boja: string; naziv: string };
@@ -163,12 +164,13 @@ export default function BrojalicaPage() {
 
       {/* Nazad */}
       <div className="mb-6 w-full max-w-lg">
-        <NazadLink className="inline-flex items-center gap-2 rounded-full bg-yellow-200 px-5 py-2.5 font-bold text-yellow-900 shadow-md transition-all hover:scale-105 hover:shadow-lg" />
+        <NazadLink />
       </div>
 
       {/* Naslov */}
-      <h1 className="mb-2 text-center text-4xl font-extrabold text-yellow-800 sm:text-5xl">
-        Prebroj predmete! 🌟
+      <h1 className="mb-2 flex items-center justify-center gap-2 text-center text-4xl font-extrabold text-yellow-800 sm:text-5xl">
+        <GameTitleIcon src="/icons/brojalica.jpeg" alt="" />
+        Prebroj predmete!
       </h1>
       <p className="mb-8 text-center text-base text-yellow-600">
         Klikni na predmete dok brojiš, pa odaberi broj!

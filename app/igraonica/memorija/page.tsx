@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { RefreshCw } from "lucide-react";
 import NazadLink from "@/components/NazadLink";
+import GameTitleIcon from "@/components/GameTitleIcon";
 
 // ─── Podaci ───────────────────────────────────────────────────────────────────
 const SLIKE = [
@@ -157,13 +158,11 @@ export default function MemorijePage() {
 
       {/* Header */}
       <div className="mb-4 grid w-full max-w-3xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 sm:mb-6 sm:gap-4">
-        <NazadLink
-          className="flex shrink-0 items-center gap-1 rounded-full bg-pink-200 px-3 py-2 text-sm font-bold text-pink-900 shadow-md transition-all hover:scale-105 hover:shadow-lg sm:gap-2 sm:px-5 sm:py-2.5 sm:text-base"
-          iconClassName="h-4 w-4 sm:h-5 sm:w-5"
-        />
+        <NazadLink />
 
-        <h1 className="truncate text-center text-xl font-extrabold text-pink-800 sm:text-3xl md:text-4xl">
-          Memorija 🧠
+        <h1 className="flex items-center justify-center gap-1 truncate text-center text-xl font-extrabold text-pink-800 sm:gap-2 sm:text-3xl md:text-4xl">
+          <GameTitleIcon src="/icons/memorija.jpeg" alt="" size="sm" />
+          <span className="truncate">Memorija</span>
         </h1>
 
         <button
