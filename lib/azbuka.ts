@@ -18,7 +18,7 @@ export const AZBUKA_PODACI: SlovoData[] = [
   { slovo: "Ж", rec: "ЖИРАФА",    audioRec: "/audio/reci/zh-zhirafa.mp3",   audioSlovo: "/audio/slova/zh.mp3?v=2", slika: "/slike/azbuka/zirafa.jpeg",    boja: "bg-green-100"  },
   { slovo: "З", rec: "ЗЕБРА",     audioRec: "/audio/reci/z-zebra.mp3",      audioSlovo: "/audio/slova/z.mp3?v=2",  slika: "/slike/azbuka/zebra.jpeg",     boja: "bg-yellow-100" },
   { slovo: "И", rec: "ИГРА",      audioRec: "/audio/reci/i-igra.mp3",       audioSlovo: "/audio/slova/i.mp3?v=2",  slika: "/slike/azbuka/igra.jpeg",      boja: "bg-purple-100" },
-  { slovo: "Ј", rec: "ЈАБУКА",    audioRec: "/audio/reci/j-jabuka.mp3?v=3", audioSlovo: "/audio/slova/j.mp3?v=3", slika: "/slike/azbuka/jabuka.jpeg",    boja: "bg-red-100"    },
+  { slovo: "Ј", rec: "ЈАБУКА",    audioRec: "/audio/reci/j-jabuka.mp3?v=5", audioSlovo: "/audio/slova/j.mp3?v=5", slika: "/slike/azbuka/jabuka.jpeg",    boja: "bg-red-100"    },
   { slovo: "К", rec: "КЊИГА",     audioRec: "/audio/reci/k-knjiga.mp3",     audioSlovo: "/audio/slova/k.mp3?v=2",  slika: "/slike/azbuka/knjiga.jpeg",    boja: "bg-blue-100"   },
   { slovo: "Л", rec: "ЛАВ",       audioRec: "/audio/reci/l-lav.mp3",        audioSlovo: "/audio/slova/l.mp3?v=2",  slika: "/slike/azbuka/lav.jpeg",       boja: "bg-green-100"  },
   { slovo: "Љ", rec: "ЉУЉАШКА",   audioRec: "/audio/reci/lj-ljuljaska.mp3", audioSlovo: "/audio/slova/lj.mp3?v=2", slika: "/slike/azbuka/ljuljaska.jpeg", boja: "bg-yellow-100" },
