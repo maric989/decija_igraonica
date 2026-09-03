@@ -72,3 +72,7 @@ Otvori [http://localhost:3000](http://localhost:3000).
 - [Matematička Avantura](./matematika.md)
 - [Vaga](./vaga.md)
 - [Senke](./senke.md)
+
+## Buduće igre
+
+- [Ideje: Veseli Oblici, Od Najmanjeg do Najvećeg, Sastavi Reč, Muzička Pamtilica, Čuvari Prirode, Koliko je sati?](./ideje.md)
