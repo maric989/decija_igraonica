@@ -55,6 +55,10 @@ Otvori [http://localhost:3000](http://localhost:3000).
 
 - [Ikone: JPEG, PNG, konverzija](./ikone.md)
 
+## SEO
+
+- [SEO: šta je postavljeno i šta unaprediti](./seo.md)
+
 ## Igre
 
 - [Uči Slova](./uci-slova.md)

@@ -19,4 +19,4 @@ Na levom tasu je nekoliko jabuka (2–10). Treba da prevuče iste toliko jabuka 
 
 ## Beleške
 
-Vežba brojanje i pojam jednakosti kroz vagu, ne kroz sabiranje na papiru.
+Vežba brojanje i pojam jednakosti kroz vagu, ne kroz sabiranje na papiru. Na telefonu je `100dvh` bez skrola: korpa je na dnu, vaga u sredini.

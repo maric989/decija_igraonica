@@ -41,7 +41,7 @@ function Jabuka({ velika = false }: { velika?: boolean }) {
       height={velika ? 64 : 48}
       draggable={false}
       className={`pointer-events-none object-contain drop-shadow-md ${
-        velika ? "h-16 w-16" : "h-12 w-12"
+        velika ? "h-14 w-14 sm:h-16 sm:w-16" : "h-8 w-8 sm:h-11 sm:w-11"
       }`}
     />
   );
@@ -59,7 +59,7 @@ function Tas({
   return (
     <div
       ref={tasRef}
-      className={`relative flex min-h-[128px] h-auto w-32 flex-wrap items-center justify-center gap-1 rounded-2xl border-2 p-2 pb-6 shadow-xl ${
+      className={`relative flex min-h-[5.5rem] w-[6.75rem] flex-wrap items-center justify-center gap-0.5 rounded-2xl border-2 p-1.5 pb-5 shadow-xl sm:min-h-[7rem] sm:w-32 sm:p-2 sm:pb-6 ${
         highlight === "ok"
           ? "border-green-400 bg-green-50/90"
           : highlight === "hover"
@@ -70,7 +70,7 @@ function Tas({
       {Array.from({ length: broj }, (_, i) => (
         <Jabuka key={i} />
       ))}
-      <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-2xl font-black text-slate-700 shadow-md">
+      <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white px-3 py-0.5 text-lg font-black text-slate-700 shadow-md sm:-bottom-5 sm:px-4 sm:text-2xl">
         {broj}
       </span>
     </div>
@@ -108,7 +108,7 @@ function KorpaJabuka({
       whileDrag={{ scale: 1.12, cursor: "grabbing", zIndex: 80 }}
       onDrag={(_, info) => onDragMove(info.point)}
       onDragEnd={handleDragEnd}
-      className={`relative z-30 ${
+      className={`relative z-30 touch-none ${
         disabled ? "cursor-default opacity-40" : "cursor-grab touch-none active:cursor-grabbing"
       }`}
     >
@@ -157,61 +157,67 @@ export default function VagaPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-amber-50 px-3 py-4 sm:px-4 sm:py-8">
-      <div className="mb-4 flex w-full max-w-3xl flex-col items-center gap-3 sm:mb-8">
-        <NazadLink />
-        <h1 className="flex items-center justify-center gap-2 text-center text-3xl font-extrabold text-amber-800 sm:text-4xl">
-          <GameTitleIcon src="/icons/vaga.png" alt="" />
+    <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-amber-50">
+      <NazadLink
+        className="absolute top-4 left-4 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-bold text-slate-700 shadow-sm hover:bg-white"
+        iconClassName="h-4 w-4"
+      />
+
+      <header className="mt-4 mb-2 flex flex-col items-center gap-1 px-16">
+        <h1 className="flex items-center justify-center gap-1 text-center text-2xl font-extrabold text-amber-800 sm:text-3xl">
+          <GameTitleIcon src="/icons/vaga.png" alt="" size="sm" />
           <span>Vaga</span>
         </h1>
-        <p className="relative z-10 mb-16 text-center text-base font-semibold text-amber-800/80">
+        <p className="text-center text-sm font-semibold text-amber-800/80">
           Stavi isto jabuka na desnu stranu!
         </p>
-      </div>
+      </header>
 
-      <div className="relative mx-auto mt-24 min-h-80 w-full max-w-lg">
-        <div
-          className="absolute bottom-0 left-1/2 z-0 h-48 w-12 -translate-x-1/2 rounded-t-full bg-gradient-to-b from-amber-700 to-amber-900 shadow-inner"
-          aria-hidden
-        />
-
-        <motion.div
-          className="absolute top-16 right-0 left-0 z-10 mx-auto h-8 w-full max-w-lg rounded-full border-b-4 border-amber-800/40 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 shadow-lg"
-          style={{ transformOrigin: "center center" }}
-          animate={{ rotate: tiltAngle }}
-          transition={{ type: "spring", stiffness: 90, damping: 16 }}
-        />
-
-        <div
-          className="absolute top-20 left-1/2 z-30 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-amber-900 bg-gradient-to-br from-amber-200 via-amber-500 to-amber-800 shadow-md"
-          aria-hidden
-        >
-          <span className="absolute top-1/2 left-1/2 h-0.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-950/70" />
-          <span className="absolute top-1/2 left-1/2 h-3.5 w-0.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-950/70" />
-        </div>
-
-        <motion.div
-          className="absolute top-20 -left-8 z-20"
-          animate={{ y: -tiltAngle * 1.5 }}
-          transition={{ type: "spring", stiffness: 90, damping: 16 }}
-        >
-          <Tas broj={targetWeight} />
-        </motion.div>
-
-        <motion.div
-          className="absolute top-20 -right-8 z-20"
-          animate={{ y: tiltAngle * 1.5 }}
-          transition={{ type: "spring", stiffness: 90, damping: 16 }}
-        >
-          <Tas
-            broj={currentWeight}
-            tasRef={desniTasRef}
-            highlight={ravnoteza ? "ok" : nadTasim ? "hover" : "idle"}
+      <div className="flex min-h-0 flex-1 items-center justify-center px-3">
+        <div className="relative h-52 w-full max-w-sm sm:h-64">
+          <div
+            className="absolute top-5 left-1/2 z-0 h-40 w-10 -translate-x-1/2 rounded-t-full rounded-b-2xl bg-gradient-to-b from-amber-600 to-amber-950 shadow-inner sm:h-48 sm:w-12"
+            aria-hidden
           />
-        </motion.div>
+
+          <motion.div
+            className="absolute top-4 right-3 left-3 z-10 h-7 rounded-full border-b-4 border-amber-800/40 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 shadow-lg sm:h-8"
+            style={{ transformOrigin: "center center" }}
+            animate={{ rotate: tiltAngle }}
+            transition={{ type: "spring", stiffness: 90, damping: 16 }}
+          />
+
+          <div
+            className="absolute top-7 left-1/2 z-30 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-amber-900 bg-gradient-to-br from-amber-200 via-amber-500 to-amber-800 shadow-md sm:h-7 sm:w-7"
+            aria-hidden
+          >
+            <span className="absolute top-1/2 left-1/2 h-0.5 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-950/70" />
+            <span className="absolute top-1/2 left-1/2 h-3 w-0.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-950/70" />
+          </div>
+
+          <motion.div
+            className="absolute top-12 left-0 z-20"
+            animate={{ y: -tiltAngle * 1.5 }}
+            transition={{ type: "spring", stiffness: 90, damping: 16 }}
+          >
+            <Tas broj={targetWeight} />
+          </motion.div>
+
+          <motion.div
+            className="absolute top-12 right-0 z-20"
+            animate={{ y: tiltAngle * 1.5 }}
+            transition={{ type: "spring", stiffness: 90, damping: 16 }}
+          >
+            <Tas
+              broj={currentWeight}
+              tasRef={desniTasRef}
+              highlight={ravnoteza ? "ok" : nadTasim ? "hover" : "idle"}
+            />
+          </motion.div>
+        </div>
       </div>
 
-      <div className="mx-auto mt-20 flex max-w-sm flex-col items-center gap-4 rounded-3xl border-2 border-white bg-white/50 p-6 shadow-lg backdrop-blur-md">
+      <div className="mx-4 mt-auto mb-6 flex max-w-sm shrink-0 flex-col items-center gap-2 self-center rounded-3xl border-2 border-white bg-white/50 p-4 shadow-lg backdrop-blur-md touch-none">
         <KorpaJabuka
           disabled={ravnoteza}
           onDrop={naDrop}
@@ -223,20 +229,19 @@ export default function VagaPage() {
             setNadTasim(pogodioCilj(point, desniTasRef.current));
           }}
         />
-        <p className="text-center font-medium text-slate-500">
+        <p className="text-center text-sm font-medium text-slate-500">
           Prevucite jabuku na desni tas
         </p>
+        {currentWeight > 0 && !ravnoteza && (
+          <button
+            type="button"
+            onClick={() => setCurrentWeight(0)}
+            className="rounded-full bg-white px-4 py-1.5 text-sm font-bold text-amber-800 shadow-sm hover:bg-amber-100"
+          >
+            Isprazni tas
+          </button>
+        )}
       </div>
-
-      {currentWeight > 0 && !ravnoteza && (
-        <button
-          type="button"
-          onClick={() => setCurrentWeight(0)}
-          className="mt-6 rounded-full bg-white px-5 py-2 text-sm font-bold text-amber-800 shadow-sm hover:bg-amber-100"
-        >
-          Isprazni tas
-        </button>
-      )}
 
       {ravnoteza && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
