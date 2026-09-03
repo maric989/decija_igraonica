@@ -3,7 +3,7 @@
 - Ruta: `/senke`
 - Fajl: `app/senke/page.tsx`
 - Kategorija: logika
-- Ikona: `/icons/senke.jpeg`
+- Ikona: `/icons/senke.png`
 
 ## Za dete
 

@@ -86,7 +86,7 @@ export default function Home() {
           <ActionCard
             title="Senke"
             href="/senke"
-            imageSrc="/icons/senke.jpeg"
+            imageSrc="/icons/senke.png"
             backgroundClass="bg-slate-200"
             kategorija="LOGIKA"
             description="Poveži sliku sa njenom senkom!"

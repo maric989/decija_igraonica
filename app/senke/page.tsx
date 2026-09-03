@@ -213,7 +213,7 @@ export default function SenkePage() {
       <div className="mb-6 flex w-full max-w-4xl flex-col items-center gap-4">
         <NazadLink />
         <h1 className="flex items-center justify-center gap-2 text-center text-3xl font-extrabold text-sky-800 sm:text-4xl">
-          <GameTitleIcon src="/icons/senke.jpeg" alt="" />
+          <GameTitleIcon src="/icons/senke.png" alt="" />
           <span>Senke</span>
         </h1>
         <p className="text-center text-base font-semibold text-sky-700">

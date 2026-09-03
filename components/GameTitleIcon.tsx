@@ -15,7 +15,9 @@ export default function GameTitleIcon({ src, alt, size = "md" }: GameTitleIconPr
       alt={alt}
       width={80}
       height={80}
-      className={`${dim} shrink-0 object-contain mix-blend-multiply transition-transform duration-300 hover:scale-110`}
+      className={`${dim} shrink-0 object-contain transition-transform duration-300 hover:scale-110 ${
+        src.endsWith(".png") ? "" : "mix-blend-multiply"
+      }`}
       priority
     />
   );
