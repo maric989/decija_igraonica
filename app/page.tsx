@@ -84,6 +84,14 @@ export default function Home() {
             description="Sabiranje i oduzimanje kroz igru!"
           />
           <ActionCard
+            title="Vaga"
+            href="/vaga"
+            imageSrc="/icons/vaga.png"
+            backgroundClass="bg-amber-200"
+            kategorija="MATEMATIKA"
+            description="Uravnoteži vagu jabukama!"
+          />
+          <ActionCard
             title="Senke"
             href="/senke"
             imageSrc="/icons/senke.png"

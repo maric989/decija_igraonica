@@ -30,7 +30,7 @@ const ICONS = {
 
 export type ActionCardIcon = keyof typeof ICONS;
 
-type ActionCardProps = {
+export type ActionCardProps = {
   title: string;
   href: string;
   backgroundClass: string;

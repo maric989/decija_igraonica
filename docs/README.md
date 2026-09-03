@@ -15,7 +15,7 @@ Igre su podeljene u tri grupe:
 | Kategorija | Igre |
 |---|---|
 | **Slova** | Uči Slova, Slovo na Slovo, Čarobna Tastatura, Magična Pisaća Mašina, Pogodi Reč |
-| **Matematika** | Uči Brojeve, Brojalica, Matematička Avantura |
+| **Matematika** | Uči Brojeve, Brojalica, Matematička Avantura, Vaga |
 | **Logika** | Memorija, Senke |
 
 ## Tehnologija
@@ -35,8 +35,9 @@ Igre su podeljene u tri grupe:
 | `components/` | Zajednički UI (kartice, Nazad, ikona naslova) |
 | `lib/azbuka.ts` | Sva ćirilična slova, reči, slike i audio |
 | `lib/sounds.ts` | Veseli / netačni / pobednički zvuci |
-| `public/icons/` | 3D slike za kartice i naslove igara |
+| `public/icons/` | 3D slike za kartice i naslove igara ([kako se obrađuju](./ikone.md)) |
 | `public/senke/` | Slike za igru Senke (bager, dinosaurus, raketa, kraba) |
+| `public/vaga/` | Jabuka za igru Vaga (`apple.png`) |
 | `public/slova/` | MP3 „A kao avion“ za Uči slova |
 | `public/slike/azbuka/` | Slike pojmova uz slova |
 | `public/audio/` | Brojevi, kratka slova, latinica za Čarobnu tastaturu |
@@ -50,6 +51,10 @@ npm run dev
 
 Otvori [http://localhost:3000](http://localhost:3000).
 
+## Slike i ikone
+
+- [Ikone: JPEG, PNG, konverzija](./ikone.md)
+
 ## Igre
 
 - [Uči Slova](./uci-slova.md)
@@ -61,4 +66,5 @@ Otvori [http://localhost:3000](http://localhost:3000).
 - [Magična Pisaća Mašina](./magicna-pisaca-masina.md)
 - [Pogodi Reč](./pogodi-rec.md)
 - [Matematička Avantura](./matematika.md)
+- [Vaga](./vaga.md)
 - [Senke](./senke.md)
