@@ -30,8 +30,7 @@ export default function Home() {
           <ActionCard
             title="Uči Slova"
             href="/uci-slova"
-            icon="BookOpen"
-            iconClass="text-rose-500"
+            imageSrc="/icons/uci-slova.jpeg"
             backgroundClass="bg-rose-200"
             kategorija="SLOVA"
             description="Uči slova kroz šarene kartice!"
@@ -39,8 +38,7 @@ export default function Home() {
           <ActionCard
             title="Uči Brojeve"
             href="/uci-brojeve"
-            icon="Calculator"
-            iconClass="text-emerald-500"
+            imageSrc="/icons/uci-brojeve.jpeg"
             backgroundClass="bg-emerald-200"
             kategorija="MATEMATIKA"
             description="Upoznaj brojeve od 1 do 10!"
@@ -48,8 +46,7 @@ export default function Home() {
           <ActionCard
             title="Slovo na Slovo"
             href="/slovo-na-slovo"
-            icon="Sparkles"
-            iconClass="text-violet-500"
+            imageSrc="/icons/slovo-na-slovo.jpeg"
             backgroundClass="bg-violet-200"
             kategorija="SLOVA"
             description="Pogodi kojim slovom počinje reč!"
@@ -57,8 +54,7 @@ export default function Home() {
           <ActionCard
             title="Čarobna Tastatura"
             href="/igraonica/carobna-tastatura"
-            icon="Keyboard"
-            iconClass="text-blue-500"
+            imageSrc="/icons/carobna-tastatura.jpeg"
             backgroundClass="bg-blue-200"
             kategorija="SLOVA"
             description="Uhvati slova koja padaju!"
@@ -66,8 +62,7 @@ export default function Home() {
           <ActionCard
             title="Memorija"
             href="/igraonica/memorija"
-            icon="Puzzle"
-            iconClass="text-pink-500"
+            imageSrc="/icons/memorija.jpeg"
             backgroundClass="bg-pink-200"
             kategorija="LOGIKA"
             description="Pronađi parove slova i slika."
@@ -75,8 +70,7 @@ export default function Home() {
           <ActionCard
             title="Brojalica"
             href="/igraonica/brojalica"
-            icon="Hash"
-            iconClass="text-yellow-600"
+            imageSrc="/icons/brojalica.jpeg"
             backgroundClass="bg-yellow-200"
             kategorija="MATEMATIKA"
             description="Prebroj predmete na ekranu."
@@ -84,8 +78,7 @@ export default function Home() {
           <ActionCard
             title="Magična Pisaća Mašina"
             href="/igraonica/magicna-pisaca-masina"
-            icon="Type"
-            iconClass="text-orange-500"
+            imageSrc="/icons/pisaca-masina.jpeg"
             backgroundClass="bg-orange-200"
             kategorija="SLOVA"
             description="Tipkaj slobodno i gledaj magiju!"
@@ -93,8 +86,7 @@ export default function Home() {
           <ActionCard
             title="Pogodi Reč"
             href="/pogodi-rec"
-            icon="PartyPopper"
-            iconClass="text-indigo-500"
+            imageSrc="/icons/pogodi-rec.jpeg"
             backgroundClass="bg-indigo-200"
             kategorija="SLOVA"
             description="Pogađaj slova i sačuvaj balone!"
@@ -102,8 +94,7 @@ export default function Home() {
           <ActionCard
             title="Matematička Avantura"
             href="/matematika"
-            icon="PlusCircle"
-            iconClass="text-lime-600"
+            imageSrc="/icons/matematika.jpeg"
             backgroundClass="bg-lime-200"
             kategorija="MATEMATIKA"
             description="Sabiranje i oduzimanje kroz igru!"

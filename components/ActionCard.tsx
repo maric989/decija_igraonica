@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   BookOpen,
   Calculator,
@@ -32,23 +33,25 @@ export type ActionCardIcon = keyof typeof ICONS;
 type ActionCardProps = {
   title: string;
   href: string;
-  icon: ActionCardIcon;
-  iconClass: string;
   backgroundClass: string;
   kategorija: string;
   description?: string;
+  imageSrc?: string;
+  icon?: ActionCardIcon;
+  iconClass?: string;
 };
 
 export default function ActionCard({
   title,
   href,
-  icon,
-  iconClass,
   backgroundClass,
   kategorija,
   description,
+  imageSrc,
+  icon,
+  iconClass,
 }: ActionCardProps) {
-  const Icon = ICONS[icon];
+  const Icon = icon ? ICONS[icon] : null;
 
   return (
     <Link
@@ -60,12 +63,22 @@ export default function ActionCard({
       <span className="absolute top-3 left-3 rounded-full bg-white/60 px-3 py-1 text-xs font-bold tracking-wide text-slate-700 shadow-sm">
         {kategorija}
       </span>
-      <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/70 shadow-inner transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-6 sm:h-24 sm:w-24">
-        <Icon
-          className={`h-10 w-10 ${iconClass} transition-transform duration-300 ease-in-out group-hover:scale-110 sm:h-12 sm:w-12`}
-          strokeWidth={2.25}
+      {imageSrc ? (
+        <Image
+          src={imageSrc}
+          alt={title}
+          width={80}
+          height={80}
+          className="h-20 w-20 object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24"
         />
-      </span>
+      ) : Icon ? (
+        <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/70 shadow-inner transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-6 sm:h-24 sm:w-24">
+          <Icon
+            className={`h-10 w-10 ${iconClass ?? ""} transition-transform duration-300 ease-in-out group-hover:scale-110 sm:h-12 sm:w-12`}
+            strokeWidth={2.25}
+          />
+        </span>
+      ) : null}
       <span className="text-center text-2xl font-bold sm:text-3xl">{title}</span>
       {description && (
         <span className="text-center text-sm font-medium text-slate-600 sm:text-base">
