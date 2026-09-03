@@ -52,7 +52,7 @@ export default function Home() {
           />
           <ActionCard
             title="Magična Pisaća Mašina"
-            href="/igraonica/magicna-masina"
+            href="/igraonica/magicna-pisaca-masina"
             icon={Type}
             backgroundClass="bg-orange-200"
             description="Tipkaj slobodno i gledaj magiju!"

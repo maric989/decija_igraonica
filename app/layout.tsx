@@ -10,8 +10,32 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Moja Pametna Učionica",
-  description: "Dečija edukativna aplikacija za učenje slova, brojeva i igru",
+  metadataBase: new URL("https://decija-igraonica.vercel.app/"),
+  title: {
+    default: "Moja Pametna Učionica | Edukativne igre za decu",
+    template: "%s | Moja Pametna Učionica",
+  },
+  description:
+    "Besplatna i bezbedna aplikacija za učenje ćirilice, slova, brojeva i logike za decu predškolskog uzrasta.",
+  applicationName: "Moja Pametna Učionica",
+  keywords: [
+    "edukativne igre za decu",
+    "učenje ćirilice",
+    "azbuka za decu",
+    "učenje brojeva",
+    "igrice za predškolce",
+    "slova za decu",
+    "razvoj logike",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "sr_RS",
+    url: "https://decija-igraonica.vercel.app/",
+    title: "Moja Pametna Učionica | Edukativne igre",
+    description:
+      "Besplatna i bezbedna aplikacija za učenje ćirilice i brojeva. Naučite slova kroz igru!",
+    siteName: "Moja Pametna Učionica",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -131,7 +131,7 @@ export default function MagicnaPisacaMasinaPage() {
         {/* Header */}
         <header className="flex w-full items-center justify-between">
           <Link
-            href="/igraonica"
+            href="/"
             className="flex items-center gap-2 rounded-full bg-amber-700 px-4 py-2 text-sm font-bold text-amber-100 shadow-md transition-all hover:scale-105 hover:bg-amber-600"
           >
             <ArrowLeft className="h-4 w-4" />

@@ -141,7 +141,7 @@ export default function CarobnaTastaturaPage() {
         {/* Navigacija */}
         <div className="absolute left-4 top-4 z-10">
           <Link
-            href="/igraonica"
+            href="/"
             className="flex items-center gap-1 rounded-full bg-white/20 px-4 py-2 text-sm font-bold text-white backdrop-blur transition hover:bg-white/30"
           >
             <ArrowLeft className="h-4 w-4" />

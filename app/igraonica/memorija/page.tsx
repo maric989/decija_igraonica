@@ -158,7 +158,7 @@ export default function MemorijePage() {
       {/* Header */}
       <div className="mb-6 flex w-full max-w-3xl items-center justify-between">
         <Link
-          href="/igraonica"
+          href="/"
           className="flex items-center gap-2 rounded-full bg-pink-200 px-5 py-2.5 font-bold text-pink-900 shadow-md transition-all hover:scale-105 hover:shadow-lg"
         >
           <ArrowLeft className="h-5 w-5" />
