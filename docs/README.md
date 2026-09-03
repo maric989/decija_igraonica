@@ -16,7 +16,7 @@ Igre su podeljene u tri grupe:
 |---|---|
 | **Slova** | Uči Slova, Slovo na Slovo, Čarobna Tastatura, Magična Pisaća Mašina, Pogodi Reč |
 | **Matematika** | Uči Brojeve, Brojalica, Matematička Avantura |
-| **Logika** | Memorija |
+| **Logika** | Memorija, Senke |
 
 ## Tehnologija
 
@@ -60,3 +60,4 @@ Otvori [http://localhost:3000](http://localhost:3000).
 - [Magična Pisaća Mašina](./magicna-pisaca-masina.md)
 - [Pogodi Reč](./pogodi-rec.md)
 - [Matematička Avantura](./matematika.md)
+- [Senke](./senke.md)

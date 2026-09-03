@@ -69,7 +69,9 @@ export default function ActionCard({
           alt={title}
           width={80}
           height={80}
-          className="h-20 w-20 object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24"
+          className={`h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24 ${
+            imageSrc.endsWith(".png") ? "" : "mix-blend-multiply"
+          }`}
         />
       ) : Icon ? (
         <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/70 shadow-inner transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-6 sm:h-24 sm:w-24">

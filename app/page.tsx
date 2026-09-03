@@ -99,6 +99,14 @@ export default function Home() {
             kategorija="MATEMATIKA"
             description="Sabiranje i oduzimanje kroz igru!"
           />
+          <ActionCard
+            title="Senke"
+            href="/senke"
+            imageSrc="/senke-bager.png"
+            backgroundClass="bg-slate-200"
+            kategorija="LOGIKA"
+            description="Poveži sliku sa njenom senkom!"
+          />
         </div>
 
       </div>
