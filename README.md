@@ -4,7 +4,8 @@ Besplatne edukativne igre za predškolce: **ćirilica**, slova, brojevi i logika
 
 - Sajt: [https://www.decija-ucionica.com](https://www.decija-ucionica.com)
 - Na početnoj je mreža kartica; svaka vodi u jednu igru
-- Jezik: srpski (ćirilica u igrama, latinica u naslovima)
+- Jezik: srpski (podrazumevano ćirilica u UI; prekidač Ћирилица / Latinica na početnoj)
+- Igre uče ćirilicu — slova i reči u igrama se ne prebacuju na latinicu
 - Kontakt / privatnost: `/o-nama`
 
 Vidljivi naziv na početnoj je **Moja Pametna Učionica**; u tabu i SEO-u je Dečija Učionica.

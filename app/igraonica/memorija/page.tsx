@@ -5,6 +5,7 @@ import Image from "next/image";
 import { RefreshCw } from "lucide-react";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
+import { useT } from "@/components/PismoProvider";
 
 // ─── Podaci ───────────────────────────────────────────────────────────────────
 const SLIKE = [
@@ -86,6 +87,7 @@ function playPobjeda() {
 
 // ─── Komponenta ───────────────────────────────────────────────────────────────
 export default function MemorijePage() {
+  const t = useT();
   const [tabla, setTabla] = useState<Kartica[]>([]);
   const [otkrivene, setOtkrivene] = useState<string[]>([]); // uid-ovi
   const [pogodene, setPogodene] = useState<string[]>([]);   // id-ovi (parovi)
@@ -162,7 +164,7 @@ export default function MemorijePage() {
 
         <h1 className="flex items-center justify-center gap-1 truncate text-center text-xl font-extrabold text-pink-800 sm:gap-2 sm:text-3xl md:text-4xl">
           <GameTitleIcon src="/icons/memorija.jpeg" alt="" size="sm" />
-          <span className="truncate">Memorija</span>
+          <span className="truncate">{t("Memorija")}</span>
         </h1>
 
         <button
@@ -170,18 +172,18 @@ export default function MemorijePage() {
           className="flex shrink-0 items-center gap-1 rounded-full bg-pink-200 px-3 py-2 text-sm font-bold text-pink-900 shadow-md transition-all hover:scale-105 hover:shadow-lg sm:gap-2 sm:px-5 sm:py-2.5 sm:text-base"
         >
           <RefreshCw className="h-4 w-4 sm:h-5 sm:w-5" />
-          Nova
+          {t("Nova")}
         </button>
       </div>
 
       {/* Statistika */}
       <div className="mb-4 flex w-full max-w-3xl justify-center gap-3 text-center sm:mb-5 sm:gap-6">
         <div className="min-w-0 flex-1 rounded-2xl bg-pink-200 px-3 py-2 shadow sm:flex-none sm:px-5">
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-pink-600 sm:text-xs">Pronađeno</p>
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-pink-600 sm:text-xs">{t("Pronađeno")}</p>
           <p className="text-xl font-extrabold text-pink-900 sm:text-2xl">{pogodene.length} / {SLIKE.length}</p>
         </div>
         <div className="min-w-0 flex-1 rounded-2xl bg-purple-200 px-3 py-2 shadow sm:flex-none sm:px-5">
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-purple-600 sm:text-xs">Pokušaji</p>
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-purple-600 sm:text-xs">{t("Pokušaji")}</p>
           <p className="text-xl font-extrabold text-purple-900 sm:text-2xl">{pokusaji}</p>
         </div>
       </div>
@@ -229,7 +231,7 @@ export default function MemorijePage() {
                 >
                   <Image
                     src={kartica.src}
-                    alt={kartica.naziv}
+                    alt={t(kartica.naziv)}
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 25vw, 128px"
@@ -246,14 +248,14 @@ export default function MemorijePage() {
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
           <div className="flex w-full max-w-sm flex-col items-center gap-4 rounded-3xl bg-white p-6 text-center shadow-2xl sm:gap-6 sm:p-10">
             <p className="text-5xl sm:text-6xl">🎉</p>
-            <h2 className="text-3xl font-extrabold text-pink-700 sm:text-4xl">Bravo!</h2>
-            <p className="text-lg text-gray-600 sm:text-xl">Pronašao si sve parove!</p>
-            <p className="text-base font-semibold text-purple-600 sm:text-lg">Broj pokušaja: {pokusaji}</p>
+            <h2 className="text-3xl font-extrabold text-pink-700 sm:text-4xl">{t("Bravo!")}</h2>
+            <p className="text-lg text-gray-600 sm:text-xl">{t("Pronašao si sve parove!")}</p>
+            <p className="text-base font-semibold text-purple-600 sm:text-lg">{t("Broj pokušaja:")} {pokusaji}</p>
             <button
               onClick={novaIgra}
               className="rounded-full bg-pink-400 px-8 py-3 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 hover:bg-pink-500 sm:text-xl"
             >
-              Igraj ponovo!
+              {t("Igraj ponovo!")}
             </button>
           </div>
         </div>

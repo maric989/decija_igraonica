@@ -5,6 +5,7 @@ import { Minus, Plus, RefreshCw, Settings2, Star } from "lucide-react";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
 import { playNetacno, playPop, playTacno } from "@/lib/sounds";
+import { useT } from "@/components/PismoProvider";
 
 type Operacija = "+" | "-" | "mix";
 type Tezina = "lako" | "srednje" | "tesko";
@@ -92,6 +93,7 @@ function BrojSaIkonama({ n, emoji }: { n: number; emoji: string }) {
 }
 
 export default function MatematikaPage() {
+  const t = useT();
   const [ekran, setEkran] = useState<Ekran>("podesavanje");
   const [operacija, setOperacija] = useState<Operacija>("+");
   const [tezina, setTezina] = useState<Tezina>("lako");
@@ -155,7 +157,7 @@ export default function MatematikaPage() {
         <NazadLink />
         <h1 className="flex items-center justify-center gap-1 truncate text-center text-lg font-extrabold text-emerald-800 sm:gap-2 sm:text-3xl">
           <GameTitleIcon src="/icons/matematika.jpeg" alt="" size="sm" />
-          <span className="truncate">Matematička Avantura</span>
+          <span className="truncate">{t("Matematička Avantura")}</span>
         </h1>
         <div className="flex shrink-0 items-center gap-1 rounded-full bg-amber-300/90 px-3 py-2 shadow-md sm:gap-2 sm:px-5">
           <Star className="h-4 w-4 fill-amber-700 text-amber-700 sm:h-5 sm:w-5" />
@@ -166,12 +168,12 @@ export default function MatematikaPage() {
       {ekran === "podesavanje" ? (
         <div className="flex w-full max-w-xl flex-col items-center gap-8">
           <p className="text-center text-lg font-semibold text-emerald-700">
-            Izaberi operaciju i težinu, pa kreni!
+            {t("Izaberi operaciju i težinu, pa kreni!")}
           </p>
 
           <section className="w-full">
             <h2 className="mb-3 text-center text-sm font-bold uppercase tracking-wide text-emerald-600">
-              Operacija
+              {t("Operacija")}
             </h2>
             <div className="grid grid-cols-3 gap-3">
               {(
@@ -192,7 +194,7 @@ export default function MatematikaPage() {
                   }`}
                 >
                   <span className="text-2xl font-black sm:text-3xl">{opcija.znak}</span>
-                  <span className="text-xs font-bold sm:text-sm">{opcija.label}</span>
+                  <span className="text-xs font-bold sm:text-sm">{t(opcija.label)}</span>
                 </button>
               ))}
             </div>
@@ -200,7 +202,7 @@ export default function MatematikaPage() {
 
           <section className="w-full">
             <h2 className="mb-3 text-center text-sm font-bold uppercase tracking-wide text-emerald-600">
-              Težina
+              {t("Težina")}
             </h2>
             <div className="grid grid-cols-3 gap-3">
               {(
@@ -221,7 +223,7 @@ export default function MatematikaPage() {
                   }`}
                 >
                   <span className="text-2xl">{nivo.emoji}</span>
-                  <span className="text-sm font-extrabold">{nivo.label}</span>
+                  <span className="text-sm font-extrabold">{t(nivo.label)}</span>
                   <span className="text-xs font-semibold opacity-80">{nivo.opis}</span>
                 </button>
               ))}
@@ -233,7 +235,7 @@ export default function MatematikaPage() {
             onClick={zapocniIgru}
             className="rounded-full bg-emerald-400 px-10 py-4 text-xl font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-emerald-500"
           >
-            Započni igru
+            {t("Započni igru")}
           </button>
         </div>
       ) : (
@@ -245,7 +247,7 @@ export default function MatematikaPage() {
               className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-emerald-800 shadow-md transition-all hover:scale-105"
             >
               <Settings2 className="h-4 w-4" />
-              Promeni nivo / operaciju
+              {t("Promeni nivo / operaciju")}
             </button>
 
             <div className="flex w-full flex-col items-center rounded-3xl bg-white p-6 shadow-xl">
@@ -296,7 +298,7 @@ export default function MatematikaPage() {
             </div>
 
             {tacanOdgovor !== null && (
-              <p className="animate-bounce text-2xl font-extrabold text-green-600">Bravo! ⭐</p>
+              <p className="animate-bounce text-2xl font-extrabold text-green-600">{t("Bravo! ⭐")}</p>
             )}
 
             <button
@@ -308,7 +310,7 @@ export default function MatematikaPage() {
               className="flex items-center gap-2 text-sm font-bold text-emerald-600 hover:text-emerald-800"
             >
               <RefreshCw className="h-4 w-4" />
-              Sledeći zadatak
+              {t("Sledeći zadatak")}
             </button>
           </div>
         )

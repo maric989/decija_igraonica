@@ -7,6 +7,7 @@ import confetti from "canvas-confetti";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
 import { playBalloonPop, playPobjeda, playTacno } from "@/lib/sounds";
+import { useT } from "@/components/PismoProvider";
 
 const ZIVOTI = 6;
 
@@ -113,6 +114,7 @@ function slovoSaTastature(e: KeyboardEvent): string | null {
 }
 
 function VeseliLik({ zivi, pucaIndex }: { zivi: number; pucaIndex: number | null }) {
+  const t = useT();
   return (
     <div className="relative flex flex-col items-center">
       <div className="mb-1 flex h-28 items-end justify-center gap-1 sm:h-32 sm:gap-2">
@@ -153,7 +155,7 @@ function VeseliLik({ zivi, pucaIndex }: { zivi: number; pucaIndex: number | null
         </div>
         <div className="-mt-1 h-10 w-16 rounded-t-3xl bg-sky-400 sm:h-12 sm:w-20" />
         <p className="mt-2 text-sm font-bold text-indigo-700 sm:text-base">
-          {zivi === 0 ? "Ох не! 🎈" : "Drži balone! 🎈"}
+          {zivi === 0 ? t("Ох не! 🎈") : t("Drži balone! 🎈")}
         </p>
       </div>
     </div>
@@ -161,6 +163,7 @@ function VeseliLik({ zivi, pucaIndex }: { zivi: number; pucaIndex: number | null
 }
 
 export default function PogodiRecPage() {
+  const t = useT();
   const [pojam, setPojam] = useState<RecIgre | null>(null);
   const [pogodjena, setPogodjena] = useState<Set<string>>(() => new Set());
   const [zivi, setZivi] = useState(ZIVOTI);
@@ -239,7 +242,7 @@ export default function PogodiRecPage() {
   if (!pojam) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-indigo-50">
-        <p className="text-xl font-bold text-indigo-700">Učitavanje...</p>
+        <p className="text-xl font-bold text-indigo-700">{t("Učitavanje...")}</p>
       </main>
     );
   }
@@ -253,7 +256,7 @@ export default function PogodiRecPage() {
 
         <h1 className="flex items-center justify-center gap-1 truncate text-center text-xl font-extrabold text-indigo-800 sm:gap-2 sm:text-3xl">
           <GameTitleIcon src="/icons/pogodi-rec.jpeg" alt="" size="sm" />
-          <span className="truncate">Pogodi Reč</span>
+          <span className="truncate">{t("Pogodi Reč")}</span>
         </h1>
 
         <div className="flex shrink-0 items-center gap-1 rounded-full bg-amber-300/90 px-3 py-2 shadow-md sm:gap-2 sm:px-5">
@@ -265,7 +268,7 @@ export default function PogodiRecPage() {
       <VeseliLik zivi={zivi} pucaIndex={pucaIndex} />
 
       <p className="mt-4 rounded-full bg-white/80 px-4 py-1.5 text-sm font-bold text-indigo-600 shadow sm:text-base">
-        Kategorija: {pojam.kategorija}
+        {t("Kategorija:")} {pojam.kategorija}
       </p>
 
       <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
@@ -290,7 +293,7 @@ export default function PogodiRecPage() {
 
       {status === "pobeda" && (
         <div className="mt-6 flex w-full max-w-sm flex-col items-center gap-3 rounded-3xl bg-white p-5 text-center shadow-xl">
-          <p className="text-2xl font-extrabold text-green-600">Bravo! 🎉</p>
+          <p className="text-2xl font-extrabold text-green-600">{t("Bravo! 🎉")}</p>
           {pojam.slika ? (
             <div className="relative h-36 w-36 overflow-hidden rounded-2xl border-4 border-green-200">
               <Image src={pojam.slika} alt={pojam.rec} fill className="object-cover" sizes="144px" />
@@ -304,16 +307,16 @@ export default function PogodiRecPage() {
             onClick={() => novaIgra(pojam.rec)}
             className="rounded-full bg-green-400 px-6 py-3 text-lg font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-green-500"
           >
-            Sledeća reč
+            {t("Sledeća reč")}
           </button>
         </div>
       )}
 
       {status === "poraz" && (
         <div className="mt-6 flex w-full max-w-sm flex-col items-center gap-3 rounded-3xl bg-white p-5 text-center shadow-xl">
-          <p className="text-2xl font-extrabold text-orange-600">Baloni su pukli!</p>
+          <p className="text-2xl font-extrabold text-orange-600">{t("Baloni su pukli!")}</p>
           <p className="text-lg text-slate-600">
-            Reč je bila: <span className="font-extrabold text-indigo-800">{pojam.rec}</span>
+            {t("Reč je bila:")} <span className="font-extrabold text-indigo-800">{pojam.rec}</span>
           </p>
           {pojam.slika && (
             <div className="relative h-28 w-28 overflow-hidden rounded-2xl border-4 border-orange-200">
@@ -326,7 +329,7 @@ export default function PogodiRecPage() {
             className="flex items-center gap-2 rounded-full bg-indigo-400 px-6 py-3 text-lg font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-indigo-500"
           >
             <RefreshCw className="h-5 w-5" />
-            Pokušaj ponovo
+            {t("Pokušaj ponovo")}
           </button>
         </div>
       )}

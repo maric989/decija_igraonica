@@ -13,6 +13,7 @@ import confetti from "canvas-confetti";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
 import { playPop, playPobjeda } from "@/lib/sounds";
+import { useT } from "@/components/PismoProvider";
 
 const JABUKA_SRC = "/vaga/apple.png";
 
@@ -86,6 +87,7 @@ function KorpaJabuka({
   onDrop: (point: { x: number; y: number }) => boolean;
   onDragMove: (point: { x: number; y: number }) => void;
 }) {
+  const t = useT();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -100,7 +102,7 @@ function KorpaJabuka({
   return (
     <motion.div
       role="img"
-      aria-label="Jabuka"
+      aria-label={t("Jabuka")}
       drag={!disabled}
       dragMomentum={false}
       dragElastic={0.12}
@@ -118,6 +120,7 @@ function KorpaJabuka({
 }
 
 export default function VagaPage() {
+  const t = useT();
   const [targetWeight, setTargetWeight] = useState(0);
   const [currentWeight, setCurrentWeight] = useState(0);
   const [nadTasim, setNadTasim] = useState(false);
@@ -166,10 +169,10 @@ export default function VagaPage() {
       <header className="mt-4 mb-2 flex flex-col items-center gap-1 px-16">
         <h1 className="flex items-center justify-center gap-1 text-center text-2xl font-extrabold text-amber-800 sm:text-3xl">
           <GameTitleIcon src="/icons/vaga.png" alt="" size="sm" />
-          <span>Vaga</span>
+          <span>{t("Vaga")}</span>
         </h1>
         <p className="text-center text-sm font-semibold text-amber-800/80">
-          Stavi isto jabuka na desnu stranu!
+          {t("Stavi isto jabuka na desnu stranu!")}
         </p>
       </header>
 
@@ -230,7 +233,7 @@ export default function VagaPage() {
           }}
         />
         <p className="text-center text-sm font-medium text-slate-500">
-          Prevucite jabuku na desni tas
+          {t("Prevucite jabuku na desni tas")}
         </p>
         {currentWeight > 0 && !ravnoteza && (
           <button
@@ -238,7 +241,7 @@ export default function VagaPage() {
             onClick={() => setCurrentWeight(0)}
             className="rounded-full bg-white px-4 py-1.5 text-sm font-bold text-amber-800 shadow-sm hover:bg-amber-100"
           >
-            Isprazni tas
+            {t("Isprazni tas")}
           </button>
         )}
       </div>
@@ -247,15 +250,15 @@ export default function VagaPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
           <div className="flex w-full max-w-sm flex-col items-center gap-4 rounded-3xl bg-white p-8 text-center shadow-2xl">
             <Jabuka velika />
-            <h2 className="text-3xl font-extrabold text-green-600">Bravo!</h2>
-            <p className="text-lg text-slate-600">Vaga je u ravnoteži!</p>
+            <h2 className="text-3xl font-extrabold text-green-600">{t("Bravo!")}</h2>
+            <p className="text-lg text-slate-600">{t("Vaga je u ravnoteži!")}</p>
             <button
               type="button"
               onClick={novaIgra}
               className="flex items-center gap-2 rounded-full bg-amber-600 px-8 py-3 text-lg font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-amber-700"
             >
               <RefreshCw className="h-5 w-5" />
-              Sledeći zadatak
+              {t("Sledeći zadatak")}
             </button>
           </div>
         </div>

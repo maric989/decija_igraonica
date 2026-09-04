@@ -15,6 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { playPop } from "@/lib/sounds";
+import { useT } from "@/components/PismoProvider";
 
 const ICONS = {
   BookOpen,
@@ -51,6 +52,7 @@ export default function ActionCard({
   icon,
   iconClass,
 }: ActionCardProps) {
+  const t = useT();
   const Icon = icon ? ICONS[icon] : null;
 
   return (
@@ -61,12 +63,12 @@ export default function ActionCard({
       className={`group relative ${backgroundClass} flex min-h-52 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl border-4 border-white/70 p-8 pt-12 text-slate-800 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl sm:min-h-56`}
     >
       <span className="absolute top-3 left-3 rounded-full bg-white/60 px-3 py-1 text-xs font-bold tracking-wide text-slate-700 shadow-sm">
-        {kategorija}
+        {t(kategorija)}
       </span>
       {imageSrc ? (
         <Image
           src={imageSrc}
-          alt={title}
+          alt={t(title)}
           width={80}
           height={80}
           className={`h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24 ${
@@ -81,10 +83,10 @@ export default function ActionCard({
           />
         </span>
       ) : null}
-      <span className="text-center text-2xl font-bold sm:text-3xl">{title}</span>
+      <span className="text-center text-2xl font-bold sm:text-3xl">{t(title)}</span>
       {description && (
         <span className="text-center text-sm font-medium text-slate-600 sm:text-base">
-          {description}
+          {t(description)}
         </span>
       )}
     </Link>

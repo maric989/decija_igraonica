@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
+import { useT } from "@/components/PismoProvider";
 
 const BROJEVI = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
 
@@ -41,6 +42,7 @@ const BROJEVI_AUDIO: Record<(typeof BROJEVI)[number], string> = {
 };
 
 export default function UciBrojevePage() {
+  const t = useT();
   const [activeNumber, setActiveNumber] = useState<number | null>(null);
   const resetTimeoutRef = useRef<number | null>(null);
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
@@ -74,7 +76,7 @@ export default function UciBrojevePage() {
           <div className="flex items-center gap-3">
             <GameTitleIcon src="/icons/uci-brojeve.jpeg" alt="" />
             <h1 className="text-4xl font-extrabold text-emerald-800 sm:text-5xl">
-              Uči Brojeve
+              {t("Uči Brojeve")}
             </h1>
           </div>
         </header>
@@ -85,7 +87,7 @@ export default function UciBrojevePage() {
               key={broj}
               type="button"
               onClick={() => handleNumberClick(broj)}
-              aria-label={`Broj ${broj}`}
+              aria-label={t(`Broj ${broj}`)}
               className={`${PASTELNE_BOJE[index % PASTELNE_BOJE.length]} ${
                 activeNumber === broj ? "z-10 -translate-y-1 shadow-xl" : "shadow-lg hover:-translate-y-1 hover:shadow-xl"
               } relative flex aspect-square cursor-pointer flex-col items-center justify-center rounded-3xl border-4 border-white p-4 transition-all`}

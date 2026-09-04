@@ -12,6 +12,7 @@ import { RefreshCw } from "lucide-react";
 import confetti from "canvas-confetti";
 import NazadLink from "@/components/NazadLink";
 import { playNetacno, playPobjeda, playTacno } from "@/lib/sounds";
+import { useT } from "@/components/PismoProvider";
 
 type Pojam = {
   id: string;
@@ -62,10 +63,11 @@ function Slicica({
   spojen?: boolean;
   priority?: boolean;
 }) {
+  const t = useT();
   return (
     <Image
       src={src}
-      alt={naziv}
+      alt={t(naziv)}
       width={96}
       height={96}
       draggable={false}
@@ -96,6 +98,7 @@ function DraggableSlika({
   ) => { kind: "match"; zone: DOMRect } | { kind: "miss" } | { kind: "away" };
   onMatched: () => void;
 }) {
+  const t = useT();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -147,7 +150,7 @@ function DraggableSlika({
       onDrag={(_, info) => onDragMove(info.point)}
       onDragEnd={handleDragEnd}
       className={`relative z-20 cursor-grab touch-none active:cursor-grabbing ${SLIKA_KLASA}`}
-      aria-label={pojam.naziv}
+      aria-label={t(pojam.naziv)}
     >
       <Slicica src={pojam.src} naziv={pojam.naziv} priority />
     </motion.div>
@@ -155,6 +158,7 @@ function DraggableSlika({
 }
 
 export default function SenkePage() {
+  const t = useT();
   const [senke, setSenke] = useState<Pojam[]>(POJMOVI);
   const [spojeno, setSpojeno] = useState<string[]>([]);
   const [prevlacenje, setPrevlacenje] = useState<string | null>(null);
@@ -227,10 +231,10 @@ export default function SenkePage() {
             className="h-10 w-10 shrink-0 object-contain"
             priority
           />
-          <span>Senke</span>
+          <span>{t("Senke")}</span>
         </h1>
         <p className="text-center text-sm font-semibold text-sky-700 sm:text-base">
-          Prevuci sliku na njenu senku!
+          {t("Prevuci sliku na njenu senku!")}
         </p>
       </header>
 
@@ -302,15 +306,15 @@ export default function SenkePage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
           <div className="flex w-full max-w-sm flex-col items-center gap-4 rounded-3xl bg-white p-8 text-center shadow-2xl">
             <p className="text-5xl">🎉</p>
-            <h2 className="text-3xl font-extrabold text-green-600">Bravo!</h2>
-            <p className="text-lg text-slate-600">Sve senke su na svom mestu.</p>
+            <h2 className="text-3xl font-extrabold text-green-600">{t("Bravo!")}</h2>
+            <p className="text-lg text-slate-600">{t("Sve senke su na svom mestu.")}</p>
             <button
               type="button"
               onClick={novaIgra}
               className="flex items-center gap-2 rounded-full bg-sky-600 px-8 py-3 text-lg font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-sky-700"
             >
               <RefreshCw className="h-5 w-5" />
-              Igraj ponovo
+              {t("Igraj ponovo")}
             </button>
           </div>
         </div>

@@ -3,11 +3,12 @@ import { Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import JsonLd from "@/components/JsonLd";
+import { PismoProvider } from "@/components/PismoProvider";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, sajtJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const nunito = Nunito({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-nunito",
 });
@@ -53,10 +54,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="sr" className={`${nunito.variable} h-full antialiased`}>
+    <html lang="sr-Cyrl" className={`${nunito.variable} h-full antialiased`}>
       <body className={`${nunito.className} min-h-full flex flex-col`}>
-        <JsonLd data={sajtJsonLd()} />
-        {children}
+        <PismoProvider>
+          <JsonLd data={sajtJsonLd()} />
+          {children}
+        </PismoProvider>
         <Analytics />
         <SpeedInsights />
       </body>

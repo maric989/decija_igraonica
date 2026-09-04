@@ -8,6 +8,7 @@ import { AZBUKA_PODACI, type SlovoData } from "@/lib/azbuka";
 import { playNetacno, playTacno } from "@/lib/sounds";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
+import { useT } from "@/components/PismoProvider";
 
 const POJMOVI = AZBUKA_PODACI.filter(
   (p): p is SlovoData & { slika: string } => Boolean(p.slika),
@@ -42,6 +43,7 @@ function napraviOpcije(tacno: string): string[] {
 }
 
 export default function SlovoNaSlovoPage() {
+  const t = useT();
   const [pojam, setPojam] = useState<(typeof POJMOVI)[number] | null>(null);
   const [opcije, setOpcije] = useState<string[]>([]);
   const [poeni, setPoeni] = useState(0);
@@ -106,7 +108,7 @@ export default function SlovoNaSlovoPage() {
   if (!pojam) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-violet-50">
-        <p className="text-xl font-bold text-violet-700">Učitavanje...</p>
+        <p className="text-xl font-bold text-violet-700">{t("Učitavanje...")}</p>
       </main>
     );
   }
@@ -125,10 +127,10 @@ export default function SlovoNaSlovoPage() {
 
       <h1 className="mb-2 flex items-center justify-center gap-2 text-center text-3xl font-extrabold text-violet-800 sm:text-4xl">
         <GameTitleIcon src="/icons/slovo-na-slovo.jpeg" alt="" />
-        Slovo na Slovo
+        {t("Slovo na Slovo")}
       </h1>
       <p className="mb-8 text-center text-lg font-semibold text-violet-600">
-        Kojim slovom počinje reč?
+        {t("Kojim slovom počinje reč?")}
       </p>
 
       {/* Slika */}
@@ -152,7 +154,7 @@ export default function SlovoNaSlovoPage() {
 
       {status === "tacno" && (
         <p className="mb-4 animate-bounce text-2xl font-extrabold text-green-600">
-          Bravo! {pojam.rec}
+          {t("Bravo!")} {pojam.rec}
         </p>
       )}
 

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Star } from "lucide-react";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
+import { useT } from "@/components/PismoProvider";
 
 // ─── Konstante ────────────────────────────────────────────────────────────────
 const ABECEDA = [
@@ -70,6 +71,7 @@ function playNetacno() {
 
 // ─── Komponenta ───────────────────────────────────────────────────────────────
 export default function CarobnaTastaturaPage() {
+  const t = useT();
   const [trenutnoSlovo, setTrenutnoSlovo] = useState<Slovo>(() => randomSlovo());
   const [pozicija, setPozicija] = useState(0);
   const [rezultat, setRezultat] = useState(0);
@@ -154,7 +156,7 @@ export default function CarobnaTastaturaPage() {
         <div className="absolute inset-x-0 top-4 flex items-center justify-center gap-2">
           <GameTitleIcon src="/icons/carobna-tastatura.jpeg" alt="" size="sm" />
           <span className="text-base font-bold tracking-widest text-white/50 uppercase">
-            Čarobna Tastatura
+            {t("Čarobna Tastatura")}
           </span>
         </div>
 

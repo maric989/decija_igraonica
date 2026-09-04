@@ -5,6 +5,7 @@ import { Apple, Cat, Car, Heart, Star, Fish, Cake, Sun, type LucideIcon } from "
 import confetti from "canvas-confetti";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
+import { useT } from "@/components/PismoProvider";
 
 // ─── Predmeti koji se broje ───────────────────────────────────────────────────
 type Predmet = { ikona: LucideIcon; boja: string; naziv: string };
@@ -76,6 +77,7 @@ function playNetacno() {
 
 // ─── Komponenta ───────────────────────────────────────────────────────────────
 export default function BrojalicaPage() {
+  const t = useT();
   const [trazeniBroj, setTrazeniBroj]   = useState(1);
   const [opcije, setOpcije]             = useState<number[]>([]);
   const [predmet, setPredmet]           = useState<Predmet>(PREDMETI[0]);
@@ -170,10 +172,10 @@ export default function BrojalicaPage() {
       {/* Naslov */}
       <h1 className="mb-2 flex items-center justify-center gap-2 text-center text-4xl font-extrabold text-yellow-800 sm:text-5xl">
         <GameTitleIcon src="/icons/brojalica.jpeg" alt="" />
-        Prebroj predmete!
+        {t("Prebroj predmete!")}
       </h1>
       <p className="mb-8 text-center text-base text-yellow-600">
-        Klikni na predmete dok brojiš, pa odaberi broj!
+        {t("Klikni na predmete dok brojiš, pa odaberi broj!")}
       </p>
 
       {/* Kontejner s ikonicama — grid max 5 po redu */}
@@ -190,7 +192,7 @@ export default function BrojalicaPage() {
                   ? "scale-90 opacity-40"
                   : "hover:scale-110 active:scale-95"
               }`}
-              aria-label={`Predmet ${i + 1}`}
+              aria-label={t(`Predmet ${i + 1}`)}
             >
               <Ikona
                 className={`h-14 w-14 sm:h-16 sm:w-16 ${kliknut ? "text-gray-400" : predmet.boja}`}
@@ -204,8 +206,8 @@ export default function BrojalicaPage() {
       {/* Mini hint */}
       <p className="mb-6 text-sm text-yellow-500">
         {kliknuti.size > 0
-          ? `Označio si ${kliknuti.size} ${predmet.naziv}${kliknuti.size === 1 ? "u" : "e"}`
-          : "Klikni na svaki predmet dok brojiš →"}
+          ? t(`Označio si ${kliknuti.size} ${predmet.naziv}${kliknuti.size === 1 ? "u" : "e"}`)
+          : t("Klikni na svaki predmet dok brojiš →")}
       </p>
 
       {/* Opcije */}
@@ -225,10 +227,10 @@ export default function BrojalicaPage() {
       {/* Poruka */}
       <div className="flex h-12 items-center justify-center">
         {poruka === "tacno" && (
-          <p className="animate-bounce text-3xl font-bold text-green-600">🎉 Bravo!</p>
+          <p className="animate-bounce text-3xl font-bold text-green-600">🎉 {t("Bravo!")}</p>
         )}
         {poruka === "netacno" && (
-          <p className="text-3xl font-bold text-red-500">😅 Pokušaj ponovo!</p>
+          <p className="text-3xl font-bold text-red-500">😅 {t("Pokušaj ponovo!")}</p>
         )}
       </div>
 

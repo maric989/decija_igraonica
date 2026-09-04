@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
+import { useT } from "@/components/PismoProvider";
 
 const BOJE = [
   "text-red-500",
@@ -56,6 +57,7 @@ function reproducirajKlik() {
 }
 
 export default function MagicnaPisacaMasinaPage() {
+  const t = useT();
   const [otipkaniTekst, setOtipkaniTekst] = useState("");
   const [letecaSlova, setLetecaSlova] = useState<LeteceSlovoType[]>([]);
   const [aktivnoSlovo, setAktivnoSlovo] = useState<string | null>(null);
@@ -133,7 +135,7 @@ export default function MagicnaPisacaMasinaPage() {
           <NazadLink />
           <h1 className="flex items-center justify-center gap-2 text-center text-2xl font-extrabold text-amber-100 drop-shadow-lg sm:text-3xl">
             <GameTitleIcon src="/icons/pisaca-masina.jpeg" alt="" size="sm" />
-            Magična Pisaća Mašina
+            {t("Magična Pisaća Mašina")}
           </h1>
           <div className="w-28" />
         </header>
@@ -188,7 +190,7 @@ export default function MagicnaPisacaMasinaPage() {
                 aktivnoSlovo === "RAZMAK" ? "bg-yellow-400 scale-95 shadow-inner" : "bg-amber-100"
               }`}
             >
-              RAZMAK
+              {t("RAZMAK")}
             </button>
             <button
               onPointerDown={(e) => { e.preventDefault(); handleType("\n"); }}

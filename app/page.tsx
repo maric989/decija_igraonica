@@ -1,8 +1,13 @@
+"use client";
+
 import ActionCard from "@/components/ActionCard";
+import PismoSwitch from "@/components/PismoSwitch";
+import { useT } from "@/components/PismoProvider";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const t = useT();
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-sky-100 px-6 py-12">
       <div className="flex w-full max-w-6xl flex-col items-center">
@@ -14,21 +19,25 @@ export default function Home() {
           >
             <Image
               src="/logo.png"
-              alt="Moja Pametna Učionica Logo"
+              alt={t("Moja Pametna Učionica Logo")}
               width={48}
               height={48}
               className="h-12 w-12 rounded-xl object-contain transition-transform hover:scale-105"
               priority
             />
             <span className="text-2xl sm:text-4xl md:text-5xl">
-              Moja Pametna Učionica
+              {t("Moja Pametna Učionica")}
             </span>
           </Link>
         </h1>
 
-        <p className="mb-10 max-w-2xl text-center text-base text-sky-800/80 sm:text-lg">
-          Besplatne igre za ćirilicu i brojeve — za predškolce, bez naloga i reklama.
+        <p className="mb-6 max-w-2xl text-center text-base text-sky-800/80 sm:text-lg">
+          {t("Besplatne igre za ćirilicu i brojeve — za predškolce, bez naloga i reklama.")}
         </p>
+
+        <div className="mb-10">
+          <PismoSwitch />
+        </div>
 
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <ActionCard
@@ -123,7 +132,7 @@ export default function Home() {
 
         <p className="mt-10 text-center text-sm font-semibold text-sky-800/50">
           <Link href="/o-nama" className="hover:text-sky-800">
-            O nama
+            {t("O nama")}
           </Link>
         </p>
 

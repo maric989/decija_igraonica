@@ -5,9 +5,11 @@ import Image from "next/image";
 import { AZBUKA_PODACI, type SlovoData } from "@/lib/azbuka";
 import NazadLink from "@/components/NazadLink";
 import GameTitleIcon from "@/components/GameTitleIcon";
+import { useT } from "@/components/PismoProvider";
 
 // ─── Komponenta ───────────────────────────────────────────────────────────────
 export default function UciSlovaPage() {
+  const t = useT();
   const [flippedSlovo, setFlippedSlovo] = useState<string | null>(null);
   const resetTimeoutRef = useRef<number | null>(null);
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
@@ -59,11 +61,11 @@ export default function UciSlovaPage() {
           <div className="flex items-center gap-3">
             <GameTitleIcon src="/icons/uci-slova.jpeg" alt="" />
             <h1 className="text-4xl font-extrabold text-rose-800 sm:text-5xl">
-              Uči Slova
+              {t("Uči Slova")}
             </h1>
           </div>
           <p className="text-sm text-rose-600 sm:text-base">
-            Klikni na slovo da vidiš reč! 👆
+            {t("Klikni na slovo da vidiš reč! 👆")}
           </p>
         </header>
 
@@ -79,7 +81,7 @@ export default function UciSlovaPage() {
                 onClick={() => handleCardClick(data)}
                 className="aspect-square cursor-pointer"
                 style={{ perspective: "1000px" }}
-                aria-label={`Slovo ${data.slovo}`}
+                aria-label={t(`Slovo ${data.slovo}`)}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => e.key === "Enter" && handleCardClick(data)}
