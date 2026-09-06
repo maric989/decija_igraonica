@@ -20,4 +20,4 @@ Veliki analogni sat. Dva moda: **Pročitaj sat** (podrazumevano) i **Namesti sat
 
 ## Beleške
 
-Layout je `h-[100dvh]` bez skrola. Pored zadatka u „Namesti“ stoji i digitalni `3:30` da povežu analogni i digitalni sat.
+Layout je `h-[100dvh]` bez skrola. Sat se smanjuje prema visini (tablet / landscape), a dugmad za odgovor su prikovana uz dno iznad `safe-area`.

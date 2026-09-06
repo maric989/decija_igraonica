@@ -103,7 +103,7 @@ function AnalogniSat({
 }) {
   return (
     <div
-      className={`relative mb-6 flex h-64 w-64 items-center justify-center rounded-full border-8 border-emerald-400 bg-white shadow-[0_8px_0_#34d399] md:mb-8 md:h-80 md:w-80 ${
+      className={`relative flex aspect-square h-full max-h-[20rem] w-auto max-w-full items-center justify-center rounded-full border-8 border-emerald-400 bg-white shadow-[0_8px_0_#34d399] ${
         shaking ? "animate-shake" : ""
       }`}
     >
@@ -117,7 +117,7 @@ function AnalogniSat({
             type="button"
             disabled={!clickable}
             onClick={() => onHourClick?.(broj)}
-            className={`absolute z-30 flex h-10 w-10 items-center justify-center rounded-full text-2xl font-bold transition-colors md:h-12 md:w-12 ${
+            className={`absolute z-30 flex h-8 w-8 items-center justify-center rounded-full text-xl font-bold transition-colors sm:h-10 sm:w-10 sm:text-2xl md:h-12 md:w-12 ${
               aktivan ? "bg-orange-100 text-orange-600" : "text-emerald-800"
             } ${clickable ? "cursor-pointer hover:bg-emerald-100 active:scale-95" : "pointer-events-none"}`}
             style={{
@@ -132,14 +132,14 @@ function AnalogniSat({
       })}
 
       <motion.div
-        className="absolute bottom-1/2 left-1/2 z-[5] h-28 w-2 rounded-full bg-emerald-700 md:h-36"
+        className="absolute bottom-1/2 left-1/2 z-[5] h-[44%] w-1.5 rounded-full bg-emerald-700 sm:w-2"
         style={{ originX: 0.5, originY: 1 }}
         animate={{ rotate: minutUgao(vreme.minutes), x: "-50%" }}
         transition={{ type: "spring", stiffness: 160, damping: 16 }}
       />
 
       <motion.div
-        className="absolute bottom-1/2 left-1/2 z-10 h-20 w-3 rounded-full bg-orange-500 md:h-24"
+        className="absolute bottom-1/2 left-1/2 z-10 h-[30%] w-2.5 rounded-full bg-orange-500 sm:w-3"
         style={{ originX: 0.5, originY: 1 }}
         animate={{ rotate: satUgao(vreme.hour, vreme.minutes), x: "-50%" }}
         transition={{ type: "spring", stiffness: 160, damping: 16 }}
@@ -278,149 +278,155 @@ export default function SatPage() {
   }
 
   return (
-    <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-emerald-50">
+    <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-emerald-50 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
       <NazadLink className="absolute top-4 left-4 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 font-bold text-slate-700 shadow-sm transition-colors hover:bg-white" />
 
-      <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-4 py-8 pt-16">
-        <h1 className="mb-3 flex items-center justify-center gap-2 text-2xl font-extrabold text-emerald-800 sm:mb-4 sm:text-3xl">
-          <GameTitleIcon src="/icons/sat.png" alt="" size="sm" />
-          <span>{t("Koliko je sati?")}</span>
-        </h1>
+      <div className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col px-4 pt-16">
+        <header className="flex shrink-0 flex-col items-center">
+          <h1 className="mb-2 flex items-center justify-center gap-2 text-xl font-extrabold text-emerald-800 sm:text-2xl md:text-3xl">
+            <GameTitleIcon src="/icons/sat.png" alt="" size="sm" />
+            <span>{t("Koliko je sati?")}</span>
+          </h1>
 
-        <div className="mb-4 flex flex-col items-center gap-2">
-          <div className="flex rounded-full bg-white/80 p-1 shadow-sm">
-            <button
-              type="button"
-              onClick={() => promeniMod("procitaj")}
-              className={`rounded-full px-4 py-2 text-sm font-extrabold transition-colors sm:px-5 sm:text-base ${
-                mode === "procitaj"
-                  ? "bg-emerald-500 text-white shadow-sm"
-                  : "text-emerald-800 hover:bg-emerald-100"
-              }`}
-            >
-              {t("Pročitaj sat")}
-            </button>
-            <button
-              type="button"
-              onClick={() => promeniMod("namesti")}
-              className={`rounded-full px-4 py-2 text-sm font-extrabold transition-colors sm:px-5 sm:text-base ${
-                mode === "namesti"
-                  ? "bg-emerald-500 text-white shadow-sm"
-                  : "text-emerald-800 hover:bg-emerald-100"
-              }`}
-            >
-              {t("Namesti sat")}
-            </button>
+          <div className="mb-2 flex flex-wrap items-center justify-center gap-2">
+            <div className="flex rounded-full bg-white/80 p-1 shadow-sm">
+              <button
+                type="button"
+                onClick={() => promeniMod("procitaj")}
+                className={`rounded-full px-3 py-1.5 text-sm font-extrabold transition-colors sm:px-5 sm:py-2 sm:text-base ${
+                  mode === "procitaj"
+                    ? "bg-emerald-500 text-white shadow-sm"
+                    : "text-emerald-800 hover:bg-emerald-100"
+                }`}
+              >
+                {t("Pročitaj sat")}
+              </button>
+              <button
+                type="button"
+                onClick={() => promeniMod("namesti")}
+                className={`rounded-full px-3 py-1.5 text-sm font-extrabold transition-colors sm:px-5 sm:py-2 sm:text-base ${
+                  mode === "namesti"
+                    ? "bg-emerald-500 text-white shadow-sm"
+                    : "text-emerald-800 hover:bg-emerald-100"
+                }`}
+              >
+                {t("Namesti sat")}
+              </button>
+            </div>
+
+            <div className="flex rounded-full bg-white/80 p-1 shadow-sm">
+              <button
+                type="button"
+                onClick={() => promeniTezinu("lako")}
+                className={`rounded-full px-4 py-1.5 text-sm font-extrabold transition-colors ${
+                  tezina === "lako"
+                    ? "bg-emerald-500 text-white shadow-sm"
+                    : "text-emerald-800 hover:bg-emerald-100"
+                }`}
+              >
+                {t("Lako")}
+              </button>
+              <button
+                type="button"
+                onClick={() => promeniTezinu("tesko")}
+                className={`rounded-full px-4 py-1.5 text-sm font-extrabold transition-colors ${
+                  tezina === "tesko"
+                    ? "bg-orange-500 text-white shadow-sm"
+                    : "text-emerald-800 hover:bg-orange-100"
+                }`}
+              >
+                {t("Teško")}
+              </button>
+            </div>
           </div>
 
-          <div className="flex rounded-full bg-white/80 p-1 shadow-sm">
-            <button
-              type="button"
-              onClick={() => promeniTezinu("lako")}
-              className={`rounded-full px-4 py-1.5 text-sm font-extrabold transition-colors ${
-                tezina === "lako"
-                  ? "bg-emerald-500 text-white shadow-sm"
-                  : "text-emerald-800 hover:bg-emerald-100"
-              }`}
-            >
-              {t("Lako")}
-            </button>
-            <button
-              type="button"
-              onClick={() => promeniTezinu("tesko")}
-              className={`rounded-full px-4 py-1.5 text-sm font-extrabold transition-colors ${
-                tezina === "tesko"
-                  ? "bg-orange-500 text-white shadow-sm"
-                  : "text-emerald-800 hover:bg-orange-100"
-              }`}
-            >
-              {t("Teško")}
-            </button>
-          </div>
+          <p className="mb-1 text-center text-lg font-extrabold text-emerald-900 sm:text-xl md:text-2xl">
+            {mode === "namesti" ? namestiTekst : t("Koliko je sati?")}
+          </p>
+
+          {mode === "namesti" && (
+            <p className="mb-1 rounded-full bg-white/80 px-4 py-1 text-lg font-black text-orange-600 shadow-sm">
+              {formatVreme(target)}
+            </p>
+          )}
+        </header>
+
+        <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden py-1">
+          <AnalogniSat
+            vreme={prikaz}
+            clickable={mode === "namesti" && !bravo}
+            onHourClick={klikniBrojNaSatu}
+            shaking={shaking}
+          />
         </div>
 
-        <p className="mb-3 text-center text-xl font-extrabold text-emerald-900 sm:text-2xl">
-          {mode === "namesti" ? namestiTekst : t("Koliko je sati?")}
-        </p>
+        <div className="flex shrink-0 flex-col items-center pb-4 pt-2">
+          {mode === "namesti" && tezina === "tesko" && (
+            <div className="mb-3 flex items-center justify-center gap-2">
+              {MINUTI_TESKO.map((minutes) => {
+                const aktivno = current.minutes === minutes;
+                return (
+                  <button
+                    key={minutes}
+                    type="button"
+                    disabled={bravo}
+                    onClick={() => klikniMinute(minutes)}
+                    className={`rounded-2xl px-3 py-2 text-lg font-extrabold transition-all sm:px-4 sm:text-xl ${
+                      aktivno
+                        ? "bg-orange-500 text-white shadow-[0_4px_0_#c2410c]"
+                        : "bg-white text-emerald-800 shadow-sm hover:bg-orange-50"
+                    }`}
+                  >
+                    :{String(minutes).padStart(2, "0")}
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
-        {mode === "namesti" && (
-          <p className="mb-3 rounded-full bg-white/80 px-4 py-1 text-lg font-black text-orange-600 shadow-sm">
-            {formatVreme(target)}
-          </p>
-        )}
+          {mode === "namesti" ? (
+            <button
+              type="button"
+              disabled={bravo}
+              onClick={potvrdi}
+              className="rounded-2xl bg-gradient-to-b from-emerald-400 to-emerald-600 px-10 py-3 text-2xl font-extrabold text-white shadow-[0_6px_0_#047857] transition-all hover:translate-y-1 hover:shadow-[0_4px_0_#047857] active:translate-y-2 active:shadow-none disabled:opacity-60 sm:py-4"
+            >
+              {t("Potvrdi")}
+            </button>
+          ) : (
+            <div className="flex items-center justify-center gap-3 sm:gap-4">
+              {options.map((vreme) => {
+                const kljuc = formatVreme(vreme);
+                const greska = errorKey === kljuc;
+                return (
+                  <button
+                    key={kljuc}
+                    type="button"
+                    disabled={bravo}
+                    onClick={() => klikniOpciju(vreme)}
+                    className={`flex items-center justify-center rounded-2xl font-extrabold text-white transition-all hover:translate-y-1 active:translate-y-2 active:shadow-none ${
+                      tezina === "lako"
+                        ? "h-16 w-16 text-3xl sm:h-20 sm:w-20 sm:text-4xl"
+                        : "h-14 min-w-[5rem] px-3 text-xl sm:h-20 sm:min-w-[6.5rem] sm:text-3xl"
+                    } ${
+                      greska
+                        ? "animate-shake bg-gradient-to-b from-red-400 to-red-600 shadow-[0_6px_0_#991b1b] hover:shadow-[0_4px_0_#991b1b]"
+                        : "bg-gradient-to-b from-orange-400 to-orange-500 shadow-[0_6px_0_#c2410c] hover:shadow-[0_4px_0_#c2410c]"
+                    }`}
+                  >
+                    {tezina === "lako" ? vreme.hour : kljuc}
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
-        <AnalogniSat
-          vreme={prikaz}
-          clickable={mode === "namesti" && !bravo}
-          onHourClick={klikniBrojNaSatu}
-          shaking={shaking}
-        />
-
-        {mode === "namesti" && tezina === "tesko" && (
-          <div className="mb-4 flex items-center justify-center gap-2">
-            {MINUTI_TESKO.map((minutes) => {
-              const aktivno = current.minutes === minutes;
-              return (
-                <button
-                  key={minutes}
-                  type="button"
-                  disabled={bravo}
-                  onClick={() => klikniMinute(minutes)}
-                  className={`rounded-2xl px-3 py-2 text-lg font-extrabold transition-all sm:px-4 sm:text-xl ${
-                    aktivno
-                      ? "bg-orange-500 text-white shadow-[0_4px_0_#c2410c]"
-                      : "bg-white text-emerald-800 shadow-sm hover:bg-orange-50"
-                  }`}
-                >
-                  :{String(minutes).padStart(2, "0")}
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {mode === "namesti" ? (
-          <button
-            type="button"
-            disabled={bravo}
-            onClick={potvrdi}
-            className="rounded-2xl bg-gradient-to-b from-emerald-400 to-emerald-600 px-10 py-4 text-2xl font-extrabold text-white shadow-[0_6px_0_#047857] transition-all hover:translate-y-1 hover:shadow-[0_4px_0_#047857] active:translate-y-2 active:shadow-none disabled:opacity-60"
-          >
-            {t("Potvrdi")}
-          </button>
-        ) : (
-          <div className="flex items-center justify-center gap-3 sm:gap-4">
-            {options.map((vreme) => {
-              const kljuc = formatVreme(vreme);
-              const greska = errorKey === kljuc;
-              return (
-                <button
-                  key={kljuc}
-                  type="button"
-                  disabled={bravo}
-                  onClick={() => klikniOpciju(vreme)}
-                  className={`flex items-center justify-center rounded-2xl font-extrabold text-white transition-all hover:translate-y-1 active:translate-y-2 active:shadow-none ${
-                    tezina === "lako"
-                      ? "h-20 w-20 text-4xl"
-                      : "h-16 min-w-[5.5rem] px-3 text-2xl sm:h-20 sm:min-w-[6.5rem] sm:text-3xl"
-                  } ${
-                    greska
-                      ? "animate-shake bg-gradient-to-b from-red-400 to-red-600 shadow-[0_6px_0_#991b1b] hover:shadow-[0_4px_0_#991b1b]"
-                      : "bg-gradient-to-b from-orange-400 to-orange-500 shadow-[0_6px_0_#c2410c] hover:shadow-[0_4px_0_#c2410c]"
-                  }`}
-                >
-                  {tezina === "lako" ? vreme.hour : kljuc}
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {bravo && (
-          <p className="mt-4 animate-bounce text-3xl font-extrabold text-green-600 md:text-4xl">
-            {t("Bravo!")}
-          </p>
-        )}
+          {bravo && (
+            <p className="mt-2 animate-bounce text-2xl font-extrabold text-green-600 sm:text-3xl">
+              {t("Bravo!")}
+            </p>
+          )}
+        </div>
       </div>
     </main>
   );
