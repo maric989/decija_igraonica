@@ -152,8 +152,8 @@ export default function MatematikaPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-lime-50 px-3 py-4 sm:px-4 sm:py-8">
-      <div className="mb-4 grid w-full max-w-3xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 sm:mb-6">
+    <main className="igrica-ekran bg-lime-50 px-3 sm:px-4">
+      <div className="mb-2 grid w-full max-w-3xl shrink-0 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 self-center pt-3 sm:mb-3 sm:pt-4">
         <NazadLink />
         <h1 className="flex items-center justify-center gap-1 truncate text-center text-lg font-extrabold text-emerald-800 sm:gap-2 sm:text-3xl">
           <GameTitleIcon src="/icons/matematika.jpeg" alt="" size="sm" />
@@ -166,7 +166,8 @@ export default function MatematikaPage() {
       </div>
 
       {ekran === "podesavanje" ? (
-        <div className="flex w-full max-w-xl flex-col items-center gap-8">
+        <div className="flex min-h-0 w-full max-w-xl flex-1 flex-col items-center self-center overflow-y-auto">
+          <div className="flex w-full flex-col items-center gap-6 py-2 sm:gap-8">
           <p className="text-center text-lg font-semibold text-emerald-700">
             {t("Izaberi operaciju i težinu, pa kreni!")}
           </p>
@@ -237,82 +238,87 @@ export default function MatematikaPage() {
           >
             {t("Započni igru")}
           </button>
+          </div>
         </div>
       ) : (
         zadatak && (
-          <div className="flex w-full max-w-xl flex-col items-center gap-6">
-            <button
-              type="button"
-              onClick={promeniNivo}
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-emerald-800 shadow-md transition-all hover:scale-105"
-            >
-              <Settings2 className="h-4 w-4" />
-              {t("Promeni nivo / operaciju")}
-            </button>
+          <>
+            <div className="flex min-h-0 w-full max-w-xl flex-1 flex-col items-center justify-center self-center overflow-y-auto py-1">
+              <button
+                type="button"
+                onClick={promeniNivo}
+                className="mb-3 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-emerald-800 shadow-md transition-all hover:scale-105"
+              >
+                <Settings2 className="h-4 w-4" />
+                {t("Promeni nivo / operaciju")}
+              </button>
 
-            <div className="flex w-full flex-col items-center rounded-3xl bg-white p-6 shadow-xl">
-              <div className="flex items-start justify-center gap-3 sm:gap-5">
-                {tezina === "lako" ? (
-                  <>
-                    <BrojSaIkonama n={zadatak.a} emoji="⭐" />
-                    <span className="mt-2 text-4xl font-black text-emerald-500 sm:text-5xl">
-                      {zadatak.op === "+" ? <Plus className="h-10 w-10" /> : <Minus className="h-10 w-10" />}
-                    </span>
-                    <BrojSaIkonama n={zadatak.b} emoji="🍎" />
-                  </>
-                ) : (
-                  <>
-                    <span className="text-6xl font-extrabold text-emerald-800 sm:text-7xl">{zadatak.a}</span>
-                    <span className="text-5xl font-black text-emerald-500 sm:text-6xl">
-                      {zadatak.op === "+" ? "+" : "−"}
-                    </span>
-                    <span className="text-6xl font-extrabold text-emerald-800 sm:text-7xl">{zadatak.b}</span>
-                  </>
-                )}
+              <div className="flex w-full flex-col items-center rounded-3xl bg-white p-4 shadow-xl sm:p-6">
+                <div className="flex items-start justify-center gap-3 sm:gap-5">
+                  {tezina === "lako" ? (
+                    <>
+                      <BrojSaIkonama n={zadatak.a} emoji="⭐" />
+                      <span className="mt-2 text-4xl font-black text-emerald-500 sm:text-5xl">
+                        {zadatak.op === "+" ? <Plus className="h-10 w-10" /> : <Minus className="h-10 w-10" />}
+                      </span>
+                      <BrojSaIkonama n={zadatak.b} emoji="🍎" />
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-5xl font-extrabold text-emerald-800 sm:text-6xl lg:text-7xl">{zadatak.a}</span>
+                      <span className="text-4xl font-black text-emerald-500 sm:text-5xl lg:text-6xl">
+                        {zadatak.op === "+" ? "+" : "−"}
+                      </span>
+                      <span className="text-5xl font-extrabold text-emerald-800 sm:text-6xl lg:text-7xl">{zadatak.b}</span>
+                    </>
+                  )}
+                </div>
+                <p className="mt-3 text-3xl font-black text-emerald-400 sm:mt-4 sm:text-4xl">= ?</p>
               </div>
-              <p className="mt-4 text-4xl font-black text-emerald-400">= ?</p>
             </div>
 
-            <div className="grid w-full grid-cols-2 gap-3 sm:gap-4">
-              {zadatak.opcije.map((opcija, i) => {
-                const jeTacno = tacanOdgovor === opcija;
-                const jePogresno = pogresanOdgovor === opcija;
-                let boja: string = BOJE_ODGOVORA[i];
-                if (jeTacno) boja = "bg-green-400 text-white ring-4 ring-green-200 scale-105";
-                if (jePogresno) boja = "animate-shake bg-red-400 text-white";
+            <div className="igrica-dno w-full max-w-xl self-center">
+              <div className="grid w-full grid-cols-2 gap-2 sm:gap-4">
+                {zadatak.opcije.map((opcija, i) => {
+                  const jeTacno = tacanOdgovor === opcija;
+                  const jePogresno = pogresanOdgovor === opcija;
+                  let boja: string = BOJE_ODGOVORA[i];
+                  if (jeTacno) boja = "bg-green-400 text-white ring-4 ring-green-200 scale-105";
+                  if (jePogresno) boja = "animate-shake bg-red-400 text-white";
 
-                return (
-                  <button
-                    key={`${zadatak.a}-${zadatak.op}-${zadatak.b}-${opcija}`}
-                    type="button"
-                    disabled={tacanOdgovor !== null}
-                    onClick={() => proveriOdgovor(opcija)}
-                    className={`flex min-h-20 items-center justify-center rounded-3xl text-4xl font-extrabold shadow-lg transition-all sm:min-h-24 sm:text-5xl ${boja} ${
-                      tacanOdgovor !== null ? "cursor-default" : "cursor-pointer active:scale-95"
-                    }`}
-                  >
-                    {opcija}
-                  </button>
-                )}
+                  return (
+                    <button
+                      key={`${zadatak.a}-${zadatak.op}-${zadatak.b}-${opcija}`}
+                      type="button"
+                      disabled={tacanOdgovor !== null}
+                      onClick={() => proveriOdgovor(opcija)}
+                      className={`flex min-h-16 items-center justify-center rounded-3xl text-3xl font-extrabold shadow-lg transition-all sm:min-h-20 sm:text-4xl lg:min-h-24 lg:text-5xl ${boja} ${
+                        tacanOdgovor !== null ? "cursor-default" : "cursor-pointer active:scale-95"
+                      }`}
+                    >
+                      {opcija}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {tacanOdgovor !== null && (
+                <p className="mt-2 animate-bounce text-2xl font-extrabold text-green-600">{t("Bravo! ⭐")}</p>
               )}
+
+              <button
+                type="button"
+                onClick={() => {
+                  if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+                  noviZadatak();
+                }}
+                className="mt-2 flex items-center gap-2 text-sm font-bold text-emerald-600 hover:text-emerald-800"
+              >
+                <RefreshCw className="h-4 w-4" />
+                {t("Sledeći zadatak")}
+              </button>
             </div>
-
-            {tacanOdgovor !== null && (
-              <p className="animate-bounce text-2xl font-extrabold text-green-600">{t("Bravo! ⭐")}</p>
-            )}
-
-            <button
-              type="button"
-              onClick={() => {
-                if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
-                noviZadatak();
-              }}
-              className="flex items-center gap-2 text-sm font-bold text-emerald-600 hover:text-emerald-800"
-            >
-              <RefreshCw className="h-4 w-4" />
-              {t("Sledeći zadatak")}
-            </button>
-          </div>
+          </>
         )
       )}
     </main>

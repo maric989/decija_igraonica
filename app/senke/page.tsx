@@ -27,7 +27,7 @@ const POJMOVI: Pojam[] = [
   { id: "kraba", src: "/senke/kraba.png", naziv: "Kraba" },
 ];
 
-const SLIKA_KLASA = "h-20 w-20 object-contain sm:h-24 sm:w-24";
+const SLIKA_KLASA = "h-16 w-16 object-contain sm:h-20 sm:w-20 lg:h-24 lg:w-24";
 
 function izmesaj<T>(niz: T[]): T[] {
   const kopija = [...niz];
@@ -218,7 +218,7 @@ export default function SenkePage() {
   }
 
   return (
-    <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-sky-100">
+    <main className="igrica-ekran bg-sky-100">
       <NazadLink className="absolute top-4 left-4 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 font-bold text-slate-700 shadow-sm transition-colors hover:bg-white" />
 
       <header className="mt-4 mb-2 flex flex-col items-center px-4">
@@ -238,7 +238,7 @@ export default function SenkePage() {
         </p>
       </header>
 
-      <div className="flex flex-1 flex-row items-center justify-center gap-4 overflow-hidden px-4 w-full">
+      <div className="flex min-h-0 flex-1 flex-row items-center justify-center gap-4 overflow-hidden px-4 w-full">
         <section className="relative z-20 flex flex-col items-center gap-4">
           {POJMOVI.map((pojam) => {
             const matched = spojeno.includes(pojam.id);

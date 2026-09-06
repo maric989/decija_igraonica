@@ -136,10 +136,10 @@ export default function CarobnaTastaturaPage() {
 
   // ─── Render ───────────────────────────────────────────────────────────────
   return (
-    <div className="flex h-screen flex-col overflow-hidden font-sans">
+    <div className="igrica-ekran font-sans">
 
-      {/* ── NEBO (70%) ───────────────────────────────────────────────────── */}
-      <div className="relative flex-[7] overflow-hidden rounded-b-3xl bg-indigo-900">
+      {/* ── NEBO ─────────────────────────────────────────────────────────── */}
+      <div className="relative min-h-0 flex-1 overflow-hidden rounded-b-3xl bg-indigo-900">
 
         {/* Navigacija */}
         <div className="absolute left-4 top-4 z-10">
@@ -200,9 +200,9 @@ export default function CarobnaTastaturaPage() {
         ))}
       </div>
 
-      {/* ── TASTATURA (30%) ──────────────────────────────────────────────── */}
-      <div className="flex-[3] overflow-y-auto bg-indigo-950 px-2 py-3 sm:px-4 sm:py-4">
-        <div className="grid grid-cols-7 gap-1.5 sm:gap-2 lg:grid-cols-13">
+      {/* ── TASTATURA ────────────────────────────────────────────────────── */}
+      <div className="igrica-dno w-full bg-indigo-950 px-2 sm:px-4">
+        <div className="grid w-full grid-cols-7 gap-1.5 sm:gap-2 lg:grid-cols-13">
           {ABECEDA.map((slovo, i) => (
             <button
               key={slovo}

@@ -69,7 +69,7 @@ export default function UciBrojevePage() {
   }
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center bg-emerald-100 px-4 py-8 sm:px-6 sm:py-12">
+    <main className="igrica-skrol flex w-full flex-col items-center bg-emerald-100 px-4 py-8 sm:px-6 sm:py-12">
       <div className="flex w-full max-w-4xl flex-col items-center gap-8">
         <header className="flex flex-col items-center gap-4 text-center">
           <NazadLink />

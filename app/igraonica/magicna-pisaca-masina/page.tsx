@@ -123,17 +123,17 @@ export default function MagicnaPisacaMasinaPage() {
   }, [otipkaniTekst]);
 
   return (
-    <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden bg-amber-900 px-4 py-6 sm:py-10">
+    <main className="igrica-ekran bg-amber-900 px-4">
       {/* Leteća slova (magija) */}
       {letecaSlova.map((s) => (
         <LeteceSlovoElement key={s.id} slovoObj={s} />
       ))}
 
-      <div className="flex w-full max-w-3xl flex-col items-center gap-6">
+      <div className="mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col pt-4">
         {/* Header */}
-        <header className="flex w-full items-center justify-between">
+        <header className="mb-3 flex w-full shrink-0 items-center justify-between">
           <NazadLink />
-          <h1 className="flex items-center justify-center gap-2 text-center text-2xl font-extrabold text-amber-100 drop-shadow-lg sm:text-3xl">
+          <h1 className="flex items-center justify-center gap-2 text-center text-xl font-extrabold text-amber-100 drop-shadow-lg sm:text-2xl lg:text-3xl">
             <GameTitleIcon src="/icons/pisaca-masina.jpeg" alt="" size="sm" />
             {t("Magična Pisaća Mašina")}
           </h1>
@@ -141,7 +141,7 @@ export default function MagicnaPisacaMasinaPage() {
         </header>
 
         {/* Papir */}
-        <section className="w-full rounded-2xl bg-orange-50 p-8 shadow-2xl min-h-[50vh] max-h-[60vh] overflow-y-auto border-4 border-amber-200 relative">
+        <section className="relative min-h-0 w-full flex-1 overflow-y-auto rounded-2xl border-4 border-amber-200 bg-orange-50 p-6 shadow-2xl sm:p-8">
           {/* Linije na papiru */}
           <div
             className="pointer-events-none absolute inset-0 rounded-2xl"
@@ -161,7 +161,7 @@ export default function MagicnaPisacaMasinaPage() {
         </section>
 
         {/* Virtualna tipkovnica */}
-        <div className="flex w-full flex-col items-center gap-2 rounded-2xl bg-amber-800 p-4 shadow-xl">
+        <div className="igrica-dno mt-3 w-full gap-1.5 rounded-2xl bg-amber-800 px-3 shadow-xl sm:px-4">
           {REDOVI_TASTATURE.map((red, i) => (
             <div key={i} className="flex gap-1.5 sm:gap-2">
               {red.map((slovo) => (
@@ -171,7 +171,7 @@ export default function MagicnaPisacaMasinaPage() {
                     e.preventDefault();
                     handleType(slovo);
                   }}
-                  className={`flex h-10 w-10 items-center justify-center rounded-lg text-base font-bold text-amber-900 shadow-md transition-all active:scale-90 hover:bg-yellow-200 sm:h-12 sm:w-12 sm:text-lg select-none ${
+                  className={`flex h-9 w-9 items-center justify-center rounded-lg text-sm font-bold text-amber-900 shadow-md transition-all active:scale-90 hover:bg-yellow-200 sm:h-11 sm:w-11 sm:text-base lg:h-12 lg:w-12 lg:text-lg select-none ${
                     aktivnoSlovo === slovo
                       ? "bg-yellow-400 scale-90 shadow-inner"
                       : "bg-amber-100"
@@ -186,7 +186,7 @@ export default function MagicnaPisacaMasinaPage() {
           <div className="flex gap-2 mt-1">
             <button
               onPointerDown={(e) => { e.preventDefault(); handleType(" "); }}
-              className={`h-10 w-48 rounded-lg text-sm font-bold text-amber-900 shadow-md transition-all active:scale-95 hover:bg-yellow-200 sm:h-12 sm:w-64 select-none ${
+              className={`h-9 w-40 rounded-lg text-sm font-bold text-amber-900 shadow-md transition-all active:scale-95 hover:bg-yellow-200 sm:h-11 sm:w-56 lg:h-12 lg:w-64 select-none ${
                 aktivnoSlovo === "RAZMAK" ? "bg-yellow-400 scale-95 shadow-inner" : "bg-amber-100"
               }`}
             >
@@ -194,7 +194,7 @@ export default function MagicnaPisacaMasinaPage() {
             </button>
             <button
               onPointerDown={(e) => { e.preventDefault(); handleType("\n"); }}
-              className={`h-10 w-20 rounded-lg text-sm font-bold text-amber-900 shadow-md transition-all active:scale-95 hover:bg-yellow-200 sm:h-12 sm:w-24 select-none ${
+              className={`h-9 w-16 rounded-lg text-sm font-bold text-amber-900 shadow-md transition-all active:scale-95 hover:bg-yellow-200 sm:h-11 sm:w-20 lg:h-12 lg:w-24 select-none ${
                 aktivnoSlovo === "↵" ? "bg-yellow-400 scale-95 shadow-inner" : "bg-amber-200"
               }`}
             >
@@ -202,7 +202,7 @@ export default function MagicnaPisacaMasinaPage() {
             </button>
             <button
               onPointerDown={(e) => { e.preventDefault(); setOtipkaniTekst((p) => p.slice(0, -1)); highlightTipku("⌫"); }}
-              className={`h-10 w-20 rounded-lg text-sm font-bold text-red-900 shadow-md transition-all active:scale-95 hover:bg-red-300 sm:h-12 sm:w-24 select-none ${
+              className={`h-9 w-16 rounded-lg text-sm font-bold text-red-900 shadow-md transition-all active:scale-95 hover:bg-red-300 sm:h-11 sm:w-20 lg:h-12 lg:w-24 select-none ${
                 aktivnoSlovo === "⌫" ? "bg-red-400 scale-95 shadow-inner" : "bg-red-200"
               }`}
             >

@@ -205,7 +205,7 @@ export default function PoredjenjePage() {
   }
 
   return (
-    <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-orange-50">
+    <main className="igrica-ekran bg-orange-50">
       <NazadLink className="absolute top-4 left-4 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 font-bold text-slate-700 shadow-sm transition-colors hover:bg-white" />
 
       <header className="mt-4 mb-1 flex flex-col items-center px-16">
@@ -218,8 +218,8 @@ export default function PoredjenjePage() {
         </p>
       </header>
 
-      <div className="relative mx-auto flex w-full max-w-4xl flex-1 flex-col">
-        <div className="flex flex-1 flex-wrap items-center justify-center gap-8 p-8 md:gap-16">
+      <div className="relative mx-auto flex min-h-0 w-full max-w-4xl flex-1 flex-col">
+        <div className="flex min-h-0 flex-1 flex-wrap items-center justify-center gap-6 p-4 md:gap-16">
           {raspored.map((predmet) => {
             if (placedItems.includes(predmet.id)) return null;
             return (
@@ -241,7 +241,7 @@ export default function PoredjenjePage() {
           })}
         </div>
 
-        <div className="mt-auto flex w-full items-end justify-center gap-4 pb-12 md:gap-12">
+        <div className="flex w-full shrink-0 items-end justify-center gap-4 pb-2 md:gap-12">
           {PREDMETI.map((predmet) => {
             const placed = placedItems.includes(predmet.id);
             const aktivanCilj =

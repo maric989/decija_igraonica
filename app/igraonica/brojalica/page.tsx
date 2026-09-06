@@ -162,78 +162,76 @@ export default function BrojalicaPage() {
   const Ikona = predmet.ikona;
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-yellow-50 px-4 py-10">
+    <main className="igrica-ekran bg-yellow-50 px-4">
+      <div className="mx-auto flex min-h-0 w-full max-w-lg flex-1 flex-col pt-6">
+        <div className="mb-3 w-full shrink-0">
+          <NazadLink />
+        </div>
 
-      {/* Nazad */}
-      <div className="mb-6 w-full max-w-lg">
-        <NazadLink />
+        <h1 className="mb-1 flex shrink-0 items-center justify-center gap-2 text-center text-3xl font-extrabold text-yellow-800 sm:text-4xl lg:text-5xl">
+          <GameTitleIcon src="/icons/brojalica.jpeg" alt="" />
+          {t("Brojalica")}
+        </h1>
+        <p className="mb-3 shrink-0 text-center text-sm text-yellow-600 sm:mb-4 sm:text-base">
+          {t("Prebroj predmete! Klikni na predmete dok brojiš, pa odaberi broj!")}
+        </p>
+
+        <div className="igrica-sredina py-1">
+          <div className="mb-2 flex flex-wrap items-center justify-center gap-3 rounded-3xl bg-white p-4 shadow-xl sm:gap-4 sm:p-6" style={{ maxWidth: "360px" }}>
+            {Array.from({ length: trazeniBroj }).map((_, i) => {
+              const kliknut = kliknuti.has(i);
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => klikIkonica(i)}
+                  className={`flex items-center justify-center rounded-2xl p-1 transition-all duration-200 focus:outline-none ${
+                    kliknut
+                      ? "scale-90 opacity-40"
+                      : "hover:scale-110 active:scale-95"
+                  }`}
+                  aria-label={t(`Predmet ${i + 1}`)}
+                >
+                  <Ikona
+                    className={`h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16 ${kliknut ? "text-gray-400" : predmet.boja}`}
+                    strokeWidth={1.75}
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          <p className="text-sm text-yellow-500">
+            {kliknuti.size > 0
+              ? t(`Označio si ${kliknuti.size} ${predmet.naziv}${kliknuti.size === 1 ? "u" : "e"}`)
+              : t("Klikni na svaki predmet dok brojiš →")}
+          </p>
+        </div>
+
+        <div className="igrica-dno">
+          <div className="mb-3 flex gap-4 sm:gap-5">
+            {opcije.map((broj) => (
+              <button
+                key={broj}
+                type="button"
+                onClick={() => proveriOdgovor(broj)}
+                className="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-yellow-200 text-4xl font-bold text-yellow-800 shadow-lg transition-all duration-200 hover:scale-110 hover:bg-yellow-300 active:scale-95 lg:h-24 lg:w-24 lg:text-5xl"
+              >
+                {broj}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex h-10 items-center justify-center">
+            {poruka === "tacno" && (
+              <p className="animate-bounce text-3xl font-bold text-green-600">🎉 {t("Bravo!")}</p>
+            )}
+            {poruka === "netacno" && (
+              <p className="text-3xl font-bold text-red-500">😅 {t("Pokušaj ponovo!")}</p>
+            )}
+          </div>
+        </div>
       </div>
-
-      {/* Naslov */}
-      <h1 className="mb-2 flex items-center justify-center gap-2 text-center text-4xl font-extrabold text-yellow-800 sm:text-5xl">
-        <GameTitleIcon src="/icons/brojalica.jpeg" alt="" />
-        {t("Brojalica")}
-      </h1>
-      <p className="mb-8 text-center text-base text-yellow-600">
-        {t("Prebroj predmete! Klikni na predmete dok brojiš, pa odaberi broj!")}
-      </p>
-
-      {/* Kontejner s ikonicama — grid max 5 po redu */}
-      <div className="mb-3 flex flex-wrap items-center justify-center gap-3 rounded-3xl bg-white p-6 shadow-xl sm:gap-4 sm:p-8" style={{ maxWidth: "360px" }}>
-        {Array.from({ length: trazeniBroj }).map((_, i) => {
-          const kliknut = kliknuti.has(i);
-          return (
-            <button
-              key={i}
-              type="button"
-              onClick={() => klikIkonica(i)}
-              className={`flex items-center justify-center rounded-2xl p-1 transition-all duration-200 focus:outline-none ${
-                kliknut
-                  ? "scale-90 opacity-40"
-                  : "hover:scale-110 active:scale-95"
-              }`}
-              aria-label={t(`Predmet ${i + 1}`)}
-            >
-              <Ikona
-                className={`h-14 w-14 sm:h-16 sm:w-16 ${kliknut ? "text-gray-400" : predmet.boja}`}
-                strokeWidth={1.75}
-              />
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Mini hint */}
-      <p className="mb-6 text-sm text-yellow-500">
-        {kliknuti.size > 0
-          ? t(`Označio si ${kliknuti.size} ${predmet.naziv}${kliknuti.size === 1 ? "u" : "e"}`)
-          : t("Klikni na svaki predmet dok brojiš →")}
-      </p>
-
-      {/* Opcije */}
-      <div className="mb-8 flex gap-5">
-        {opcije.map((broj) => (
-          <button
-            key={broj}
-            type="button"
-            onClick={() => proveriOdgovor(broj)}
-            className="flex h-24 w-24 cursor-pointer items-center justify-center rounded-full bg-yellow-200 text-5xl font-bold text-yellow-800 shadow-lg transition-all duration-200 hover:scale-110 hover:bg-yellow-300 active:scale-95"
-          >
-            {broj}
-          </button>
-        ))}
-      </div>
-
-      {/* Poruka */}
-      <div className="flex h-12 items-center justify-center">
-        {poruka === "tacno" && (
-          <p className="animate-bounce text-3xl font-bold text-green-600">🎉 {t("Bravo!")}</p>
-        )}
-        {poruka === "netacno" && (
-          <p className="text-3xl font-bold text-red-500">😅 {t("Pokušaj ponovo!")}</p>
-        )}
-      </div>
-
     </main>
   );
 }

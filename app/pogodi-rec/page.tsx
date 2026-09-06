@@ -117,7 +117,7 @@ function VeseliLik({ zivi, pucaIndex }: { zivi: number; pucaIndex: number | null
   const t = useT();
   return (
     <div className="relative flex flex-col items-center">
-      <div className="mb-1 flex h-28 items-end justify-center gap-1 sm:h-32 sm:gap-2">
+      <div className="mb-1 flex h-20 items-end justify-center gap-1 sm:h-24 lg:h-32 lg:gap-2">
         {BALON_BOJE.map((boja, i) => {
           const pukao = i >= zivi;
           const puca = pucaIndex === i;
@@ -130,11 +130,11 @@ function VeseliLik({ zivi, pucaIndex }: { zivi: number; pucaIndex: number | null
                   style={{ animationDelay: puca ? "0ms" : boja.delay }}
                 >
                   <span
-                    className={`block h-10 w-8 rounded-full shadow-md sm:h-12 sm:w-10 ${boja.telo}`}
+                    className={`block h-8 w-6 rounded-full shadow-md sm:h-10 sm:w-8 lg:h-12 lg:w-10 ${boja.telo}`}
                   />
                   <span className="absolute -bottom-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 bg-inherit" />
                   <span
-                    className={`absolute left-1/2 top-full h-10 w-0.5 -translate-x-1/2 ${boja.konac} sm:h-12`}
+                    className={`absolute left-1/2 top-full h-8 w-0.5 -translate-x-1/2 ${boja.konac} sm:h-10 lg:h-12`}
                   />
                 </div>
               ) : (
@@ -145,15 +145,15 @@ function VeseliLik({ zivi, pucaIndex }: { zivi: number; pucaIndex: number | null
         })}
       </div>
 
-      <div className="relative z-10 mt-6 flex flex-col items-center">
-        <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full border-4 border-amber-300 bg-amber-200 shadow-lg sm:h-24 sm:w-24">
+      <div className="relative z-10 mt-4 flex flex-col items-center lg:mt-6">
+        <div className="flex h-16 w-16 flex-col items-center justify-center rounded-full border-4 border-amber-300 bg-amber-200 shadow-lg sm:h-20 sm:w-20 lg:h-24 lg:w-24">
           <div className="mb-1 flex gap-3">
             <span className="h-2.5 w-2.5 rounded-full bg-slate-800" />
             <span className="h-2.5 w-2.5 rounded-full bg-slate-800" />
           </div>
           <div className="h-3 w-6 rounded-b-full border-b-4 border-slate-800" />
         </div>
-        <div className="-mt-1 h-10 w-16 rounded-t-3xl bg-sky-400 sm:h-12 sm:w-20" />
+        <div className="-mt-1 h-8 w-14 rounded-t-3xl bg-sky-400 sm:h-10 sm:w-16 lg:h-12 lg:w-20" />
         <p className="mt-2 text-sm font-bold text-indigo-700 sm:text-base">
           {zivi === 0 ? t("Ох не! 🎈") : t("Drži balone! 🎈")}
         </p>
@@ -241,8 +241,8 @@ export default function PogodiRecPage() {
 
   if (!pojam) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-indigo-50">
-        <p className="text-xl font-bold text-indigo-700">{t("Učitavanje...")}</p>
+      <main className="igrica-ekran bg-indigo-50">
+        <p className="m-auto text-xl font-bold text-indigo-700">{t("Učitavanje...")}</p>
       </main>
     );
   }
@@ -250,8 +250,8 @@ export default function PogodiRecPage() {
   const slovaReci = pojam.rec.split("");
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-indigo-50 px-3 py-4 sm:px-4 sm:py-8">
-      <div className="mb-4 grid w-full max-w-3xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 sm:mb-6">
+    <main className="igrica-ekran bg-indigo-50 px-3 sm:px-4">
+      <div className="mb-2 grid w-full max-w-3xl shrink-0 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 self-center pt-3 sm:mb-3 sm:pt-4">
         <NazadLink />
 
         <h1 className="flex items-center justify-center gap-1 truncate text-center text-xl font-extrabold text-indigo-800 sm:gap-2 sm:text-3xl">
@@ -265,106 +265,110 @@ export default function PogodiRecPage() {
         </div>
       </div>
 
-      <VeseliLik zivi={zivi} pucaIndex={pucaIndex} />
+      <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-center overflow-y-auto py-1">
+        <VeseliLik zivi={zivi} pucaIndex={pucaIndex} />
 
-      <p className="mt-4 rounded-full bg-white/80 px-4 py-1.5 text-sm font-bold text-indigo-600 shadow sm:text-base">
-        {t("Kategorija:")} {pojam.kategorija}
-      </p>
+        <p className="mt-2 rounded-full bg-white/80 px-4 py-1.5 text-sm font-bold text-indigo-600 shadow sm:mt-3 sm:text-base">
+          {t("Kategorija:")} {pojam.kategorija}
+        </p>
 
-      <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
-        {slovaReci.map((slovo, i) => {
-          const otkriveno = pogodjena.has(slovo) || status === "poraz";
-          return (
-            <span
-              key={`${pojam.rec}-${i}`}
-              className={`flex h-12 w-10 items-center justify-center rounded-xl border-b-4 text-3xl font-extrabold sm:h-16 sm:w-14 sm:text-4xl ${
-                otkriveno
-                  ? status === "poraz" && !pogodjena.has(slovo)
-                    ? "border-orange-300 bg-orange-50 text-orange-700"
-                    : "border-indigo-400 bg-white text-indigo-800"
-                  : "border-indigo-200 bg-white text-transparent"
-              }`}
+        <div className="mt-3 flex flex-wrap justify-center gap-2 sm:mt-4 sm:gap-3">
+          {slovaReci.map((slovo, i) => {
+            const otkriveno = pogodjena.has(slovo) || status === "poraz";
+            return (
+              <span
+                key={`${pojam.rec}-${i}`}
+                className={`flex h-10 w-8 items-center justify-center rounded-xl border-b-4 text-2xl font-extrabold sm:h-14 sm:w-12 sm:text-3xl lg:h-16 lg:w-14 lg:text-4xl ${
+                  otkriveno
+                    ? status === "poraz" && !pogodjena.has(slovo)
+                      ? "border-orange-300 bg-orange-50 text-orange-700"
+                      : "border-indigo-400 bg-white text-indigo-800"
+                    : "border-indigo-200 bg-white text-transparent"
+                }`}
+              >
+                {otkriveno ? slovo : "_"}
+              </span>
+            );
+          })}
+        </div>
+
+        {status === "pobeda" && (
+          <div className="mt-3 flex w-full max-w-sm flex-col items-center gap-2 rounded-3xl bg-white p-4 text-center shadow-xl sm:mt-4 sm:gap-3 sm:p-5">
+            <p className="text-2xl font-extrabold text-green-600">{t("Bravo! 🎉")}</p>
+            {pojam.slika ? (
+              <div className="relative h-28 w-28 overflow-hidden rounded-2xl border-4 border-green-200 sm:h-36 sm:w-36">
+                <Image src={pojam.slika} alt={pojam.rec} fill className="object-cover" sizes="144px" />
+              </div>
+            ) : (
+              <Home className="h-16 w-16 text-green-500" />
+            )}
+            <p className="text-xl font-bold text-indigo-800">{pojam.rec}</p>
+            <button
+              type="button"
+              onClick={() => novaIgra(pojam.rec)}
+              className="rounded-full bg-green-400 px-6 py-3 text-lg font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-green-500"
             >
-              {otkriveno ? slovo : "_"}
-            </span>
-          );
-        })}
+              {t("Sledeća reč")}
+            </button>
+          </div>
+        )}
+
+        {status === "poraz" && (
+          <div className="mt-3 flex w-full max-w-sm flex-col items-center gap-2 rounded-3xl bg-white p-4 text-center shadow-xl sm:mt-4 sm:gap-3 sm:p-5">
+            <p className="text-2xl font-extrabold text-orange-600">{t("Baloni su pukli!")}</p>
+            <p className="text-lg text-slate-600">
+              {t("Reč je bila:")} <span className="font-extrabold text-indigo-800">{pojam.rec}</span>
+            </p>
+            {pojam.slika && (
+              <div className="relative h-24 w-24 overflow-hidden rounded-2xl border-4 border-orange-200 sm:h-28 sm:w-28">
+                <Image src={pojam.slika} alt={pojam.rec} fill className="object-cover" sizes="112px" />
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => novaIgra(pojam.rec)}
+              className="flex items-center gap-2 rounded-full bg-indigo-400 px-6 py-3 text-lg font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-indigo-500"
+            >
+              <RefreshCw className="h-5 w-5" />
+              {t("Pokušaj ponovo")}
+            </button>
+          </div>
+        )}
       </div>
 
-      {status === "pobeda" && (
-        <div className="mt-6 flex w-full max-w-sm flex-col items-center gap-3 rounded-3xl bg-white p-5 text-center shadow-xl">
-          <p className="text-2xl font-extrabold text-green-600">{t("Bravo! 🎉")}</p>
-          {pojam.slika ? (
-            <div className="relative h-36 w-36 overflow-hidden rounded-2xl border-4 border-green-200">
-              <Image src={pojam.slika} alt={pojam.rec} fill className="object-cover" sizes="144px" />
+      <div className="igrica-dno w-full max-w-xl self-center">
+        <div className="flex w-full flex-col items-center gap-1.5 sm:gap-2">
+          {REDOVI_TASTATURE.map((red, ri) => (
+            <div key={ri} className="flex w-full justify-center gap-1 sm:gap-1.5">
+              {red.map((slovo, si) => {
+                const iskorisceno = pogodjena.has(slovo);
+                const tacno = iskorisceno && pojam.rec.includes(slovo);
+                const boja = DUGME_BOJE[(ri * 6 + si) % DUGME_BOJE.length];
+
+                return (
+                  <button
+                    key={slovo}
+                    type="button"
+                    disabled={iskorisceno || status !== "igra"}
+                    onPointerDown={(e) => {
+                      e.preventDefault();
+                      handleGuess(slovo);
+                    }}
+                    className={`flex h-8 min-w-0 flex-1 items-center justify-center rounded-lg text-sm font-extrabold shadow-md transition-all sm:h-11 sm:max-w-12 sm:text-base lg:h-12 lg:text-lg ${
+                      iskorisceno
+                        ? tacno
+                          ? "cursor-default bg-green-300 text-green-800"
+                          : "cursor-default bg-gray-300 text-gray-500"
+                        : `cursor-pointer active:scale-90 ${boja}`
+                    } ${red.length === 6 ? "max-w-12" : ""}`}
+                  >
+                    {slovo}
+                  </button>
+                );
+              })}
             </div>
-          ) : (
-            <Home className="h-16 w-16 text-green-500" />
-          )}
-          <p className="text-xl font-bold text-indigo-800">{pojam.rec}</p>
-          <button
-            type="button"
-            onClick={() => novaIgra(pojam.rec)}
-            className="rounded-full bg-green-400 px-6 py-3 text-lg font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-green-500"
-          >
-            {t("Sledeća reč")}
-          </button>
+          ))}
         </div>
-      )}
-
-      {status === "poraz" && (
-        <div className="mt-6 flex w-full max-w-sm flex-col items-center gap-3 rounded-3xl bg-white p-5 text-center shadow-xl">
-          <p className="text-2xl font-extrabold text-orange-600">{t("Baloni su pukli!")}</p>
-          <p className="text-lg text-slate-600">
-            {t("Reč je bila:")} <span className="font-extrabold text-indigo-800">{pojam.rec}</span>
-          </p>
-          {pojam.slika && (
-            <div className="relative h-28 w-28 overflow-hidden rounded-2xl border-4 border-orange-200">
-              <Image src={pojam.slika} alt={pojam.rec} fill className="object-cover" sizes="112px" />
-            </div>
-          )}
-          <button
-            type="button"
-            onClick={() => novaIgra(pojam.rec)}
-            className="flex items-center gap-2 rounded-full bg-indigo-400 px-6 py-3 text-lg font-extrabold text-white shadow-lg transition-all hover:scale-105 hover:bg-indigo-500"
-          >
-            <RefreshCw className="h-5 w-5" />
-            {t("Pokušaj ponovo")}
-          </button>
-        </div>
-      )}
-
-      <div className="mt-8 flex w-full max-w-xl flex-col items-center gap-1.5 sm:gap-2">
-        {REDOVI_TASTATURE.map((red, ri) => (
-          <div key={ri} className="flex w-full justify-center gap-1 sm:gap-1.5">
-            {red.map((slovo, si) => {
-              const iskorisceno = pogodjena.has(slovo);
-              const tacno = iskorisceno && pojam.rec.includes(slovo);
-              const boja = DUGME_BOJE[(ri * 6 + si) % DUGME_BOJE.length];
-
-              return (
-                <button
-                  key={slovo}
-                  type="button"
-                  disabled={iskorisceno || status !== "igra"}
-                  onPointerDown={(e) => {
-                    e.preventDefault();
-                    handleGuess(slovo);
-                  }}
-                  className={`flex h-9 min-w-0 flex-1 items-center justify-center rounded-lg text-base font-extrabold shadow-md transition-all sm:h-12 sm:max-w-12 sm:text-lg ${
-                    iskorisceno
-                      ? tacno
-                        ? "cursor-default bg-green-300 text-green-800"
-                        : "cursor-default bg-gray-300 text-gray-500"
-                      : `cursor-pointer active:scale-90 ${boja}`
-                  } ${red.length === 6 ? "max-w-12" : ""}`}
-                >
-                  {slovo}
-                </button>
-              );
-            })}
-          </div>
-        ))}
       </div>
     </main>
   );

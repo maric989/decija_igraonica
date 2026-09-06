@@ -160,7 +160,7 @@ export default function VagaPage() {
   }
 
   return (
-    <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-amber-50">
+    <main className="igrica-ekran bg-amber-50">
       <NazadLink
         className="absolute top-4 left-4 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-bold text-slate-700 shadow-sm hover:bg-white"
         iconClassName="h-4 w-4"
@@ -220,7 +220,7 @@ export default function VagaPage() {
         </div>
       </div>
 
-      <div className="mx-4 mt-auto mb-6 flex max-w-sm shrink-0 flex-col items-center gap-2 self-center rounded-3xl border-2 border-white bg-white/50 p-4 shadow-lg backdrop-blur-md touch-none">
+      <div className="mx-4 mt-auto flex max-w-sm shrink-0 flex-col items-center gap-2 self-center rounded-3xl border-2 border-white bg-white/50 p-3 shadow-lg backdrop-blur-md touch-none sm:p-4">
         <KorpaJabuka
           disabled={ravnoteza}
           onDrop={naDrop}

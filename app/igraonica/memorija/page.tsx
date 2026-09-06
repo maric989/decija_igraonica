@@ -156,7 +156,7 @@ export default function MemorijePage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-pink-50 px-3 py-4 sm:px-4 sm:py-8">
+    <main className="igrica-skrol flex flex-col items-center bg-pink-50 px-3 py-4 sm:px-4 sm:py-8">
 
       {/* Header */}
       <div className="mb-4 grid w-full max-w-3xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 sm:mb-6 sm:gap-4">

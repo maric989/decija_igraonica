@@ -271,14 +271,14 @@ export default function SatPage() {
 
   if (!spremno) {
     return (
-      <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-emerald-50">
+      <main className="igrica-ekran bg-emerald-50">
         <p className="m-auto text-xl font-bold text-emerald-700">{t("Učitavanje...")}</p>
       </main>
     );
   }
 
   return (
-    <main className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-emerald-50 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+    <main className="igrica-ekran bg-emerald-50">
       <NazadLink className="absolute top-4 left-4 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 font-bold text-slate-700 shadow-sm transition-colors hover:bg-white" />
 
       <div className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col px-4 pt-16">
@@ -360,7 +360,7 @@ export default function SatPage() {
           />
         </div>
 
-        <div className="flex shrink-0 flex-col items-center pb-4 pt-2">
+        <div className="igrica-dno">
           {mode === "namesti" && tezina === "tesko" && (
             <div className="mb-3 flex items-center justify-center gap-2">
               {MINUTI_TESKO.map((minutes) => {

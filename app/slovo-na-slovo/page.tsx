@@ -107,83 +107,86 @@ export default function SlovoNaSlovoPage() {
 
   if (!pojam) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-violet-50">
-        <p className="text-xl font-bold text-violet-700">{t("Učitavanje...")}</p>
+      <main className="igrica-ekran bg-violet-50">
+        <p className="m-auto text-xl font-bold text-violet-700">{t("Učitavanje...")}</p>
       </main>
     );
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-violet-50 px-4 py-8 sm:py-10">
-      {/* Header */}
-      <div className="mb-6 flex w-full max-w-2xl items-center justify-between">
-        <NazadLink />
+    <main className="igrica-ekran bg-violet-50 px-4">
+      <div className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col pt-4">
+        <div className="mb-2 flex w-full shrink-0 items-center justify-between">
+          <NazadLink />
 
-        <div className="flex items-center gap-2 rounded-full bg-amber-300/90 px-5 py-2 shadow-md">
-          <Star className="h-5 w-5 fill-amber-700 text-amber-700" />
-          <span className="text-xl font-extrabold text-amber-900">{poeni}</span>
-        </div>
-      </div>
-
-      <h1 className="mb-2 flex items-center justify-center gap-2 text-center text-3xl font-extrabold text-violet-800 sm:text-4xl">
-        <GameTitleIcon src="/icons/slovo-na-slovo.jpeg" alt="" />
-        {t("Slovo na Slovo")}
-      </h1>
-      <p className="mb-8 text-center text-lg font-semibold text-violet-600">
-        {t("Kojim slovom počinje reč?")}
-      </p>
-
-      {/* Slika */}
-      <div className="relative mb-8 h-56 w-56 overflow-hidden rounded-3xl border-4 border-white shadow-xl sm:h-64 sm:w-64">
-        <Image
-          src={pojam.slika}
-          alt={pojam.rec}
-          fill
-          className="object-cover"
-          sizes="256px"
-          priority
-        />
-        {status === "tacno" && (
-          <div className="absolute inset-0 flex items-center justify-center bg-green-500/30">
-            <span className="animate-bounce rounded-full bg-white p-3 shadow-lg">
-              <Check className="h-12 w-12 text-green-600" strokeWidth={3} />
-            </span>
+          <div className="flex items-center gap-2 rounded-full bg-amber-300/90 px-5 py-2 shadow-md">
+            <Star className="h-5 w-5 fill-amber-700 text-amber-700" />
+            <span className="text-xl font-extrabold text-amber-900">{poeni}</span>
           </div>
-        )}
-      </div>
+        </div>
 
-      {status === "tacno" && (
-        <p className="mb-4 animate-bounce text-2xl font-extrabold text-green-600">
-          {t("Bravo!")} {pojam.rec}
-        </p>
-      )}
+        <div className="igrica-sredina py-1">
+          <h1 className="mb-1 flex items-center justify-center gap-2 text-center text-2xl font-extrabold text-violet-800 sm:text-3xl lg:text-4xl">
+            <GameTitleIcon src="/icons/slovo-na-slovo.jpeg" alt="" />
+            {t("Slovo na Slovo")}
+          </h1>
+          <p className="mb-3 text-center text-base font-semibold text-violet-600 sm:mb-4 sm:text-lg">
+            {t("Kojim slovom počinje reč?")}
+          </p>
 
-      {/* Opcije */}
-      <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-        {opcije.map((slovo, i) => {
-          const jePogresno = pogresnoSlovo === slovo;
-          const jeTacno = status === "tacno" && slovo === pojam.slovo;
+          <div className="relative mb-3 h-36 w-36 overflow-hidden rounded-3xl border-4 border-white shadow-xl sm:mb-4 sm:h-48 sm:w-48 lg:h-64 lg:w-64">
+            <Image
+              src={pojam.slika}
+              alt={pojam.rec}
+              fill
+              className="object-cover"
+              sizes="256px"
+              priority
+            />
+            {status === "tacno" && (
+              <div className="absolute inset-0 flex items-center justify-center bg-green-500/30">
+                <span className="animate-bounce rounded-full bg-white p-3 shadow-lg">
+                  <Check className="h-12 w-12 text-green-600" strokeWidth={3} />
+                </span>
+              </div>
+            )}
+          </div>
 
-          let dugmeBoja: string = BOJE_DUGMADI[i % BOJE_DUGMADI.length];
-          if (jeTacno) dugmeBoja = "bg-green-300 text-green-900 ring-4 ring-green-400 scale-110";
-          if (jePogresno) dugmeBoja = "animate-shake bg-orange-300 text-orange-900";
+          {status === "tacno" && (
+            <p className="animate-bounce text-2xl font-extrabold text-green-600">
+              {t("Bravo!")} {pojam.rec}
+            </p>
+          )}
+        </div>
 
-          return (
-            <button
-              key={`${pojam.slovo}-${slovo}`}
-              type="button"
-              disabled={status === "tacno"}
-              onClick={() => proveriOdgovor(slovo)}
-              className={`flex h-24 w-24 items-center justify-center rounded-3xl text-5xl font-extrabold shadow-lg transition-all duration-200 sm:h-28 sm:w-28 ${dugmeBoja} ${
-                status === "tacno"
-                  ? "cursor-default"
-                  : "cursor-pointer hover:scale-110 active:scale-95"
-              }`}
-            >
-              {slovo}
-            </button>
-          );
-        })}
+        <div className="igrica-dno">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6">
+            {opcije.map((slovo, i) => {
+              const jePogresno = pogresnoSlovo === slovo;
+              const jeTacno = status === "tacno" && slovo === pojam.slovo;
+
+              let dugmeBoja: string = BOJE_DUGMADI[i % BOJE_DUGMADI.length];
+              if (jeTacno) dugmeBoja = "bg-green-300 text-green-900 ring-4 ring-green-400 scale-110";
+              if (jePogresno) dugmeBoja = "animate-shake bg-orange-300 text-orange-900";
+
+              return (
+                <button
+                  key={`${pojam.slovo}-${slovo}`}
+                  type="button"
+                  disabled={status === "tacno"}
+                  onClick={() => proveriOdgovor(slovo)}
+                  className={`flex h-20 w-20 items-center justify-center rounded-3xl text-4xl font-extrabold shadow-lg transition-all duration-200 sm:h-24 sm:w-24 sm:text-5xl lg:h-28 lg:w-28 ${dugmeBoja} ${
+                    status === "tacno"
+                      ? "cursor-default"
+                      : "cursor-pointer hover:scale-110 active:scale-95"
+                  }`}
+                >
+                  {slovo}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </main>
   );
