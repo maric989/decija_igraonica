@@ -19,6 +19,7 @@ Detalji po igri, ikone i SEO: [`docs/`](./docs/README.md).
 | Uči Slova | `/uci-slova` |
 | Uči Brojeve | `/uci-brojeve` |
 | Slovo na Slovo | `/slovo-na-slovo` |
+| Sastavi Reč | `/sastavi-rec` |
 | Memorija | `/igraonica/memorija` |
 | Brojalica | `/igraonica/brojalica` |
 | Pogodi Reč | `/pogodi-rec` |

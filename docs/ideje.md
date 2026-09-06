@@ -29,29 +29,6 @@ Vežba prepoznavanje geometrijskih oblika. Lica na oblicima drže isti veseli to
 
 ---
 
-# Sastavi Reč
-
-- Ruta: `/sastavi-rec`
-- Fajl: `app/sastavi-rec/page.tsx`
-- Kategorija: slova
-- Ikona: `/icons/sastavi-rec.jpeg` (razbacane kockice sa slovima)
-
-## Za dete
-
-Vidi sliku (npr. MAČKA) i prazna polja ispod. Slova su razbacana na dnu. Klikće slova pravim redom da sastavi reč.
-
-## Kako radi
-
-- Korak između Slovo na Slovo i Pogodi Reč: dete vidi sva potrebna slova, ali ih ređa.
-- Pogrešno slovo: zacrveni se i vrati nazad (`playNetacno`).
-- Tačna reč: slika, audio, `playTacno` / Bravo.
-
-## Beleške
-
-Reči i slike iz `lib/azbuka.ts`. Kockice su ćirilica. Kratke reči (3–5 slova) za predškolce.
-
----
-
 # Muzička Pamtilica
 
 - Ruta: `/igraonica/muzicka-pamtilica`

@@ -40,6 +40,13 @@ export const IGRE_SEO: IgraSeo[] = [
     lastModified: "2026-09-03",
   },
   {
+    path: "/sastavi-rec",
+    title: "Sastavi Reč",
+    description:
+      "Klikni slova pravim redom i sastavi reč sa slike. Igra ćirilice za predškolce.",
+    lastModified: "2026-09-06",
+  },
+  {
     path: "/pogodi-rec",
     title: "Pogodi Reč",
     description:

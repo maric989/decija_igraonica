@@ -65,6 +65,14 @@ export default function Home() {
             description="Pogodi kojim slovom počinje reč!"
           />
           <ActionCard
+            title="Sastavi Reč"
+            href="/sastavi-rec"
+            imageSrc="/icons/sastavi-rec.png"
+            backgroundClass="bg-cyan-200"
+            kategorija="SLOVA"
+            description="Klikni slova i sastavi reč!"
+          />
+          <ActionCard
             title="Memorija"
             href="/igraonica/memorija"
             imageSrc="/icons/memorija.jpeg"
