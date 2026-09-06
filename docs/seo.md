@@ -1,5 +1,7 @@
 # SEO — šta je postavljeno
 
+Inventar po URL (title, description, h1, rupe): [seo-review.md](./seo-review.md).
+
 Sajt: [https://www.decija-ucionica.com](https://www.decija-ucionica.com). Next.js 16 App Router, metadata API, deploy na Vercel.
 
 Nema baze ni CMS-a. SEO živi u `lib/seo.ts`, `app/layout.tsx`, `app/sitemap.ts` i `app/<ruta>/layout.tsx`.
@@ -8,8 +10,8 @@ Nema baze ni CMS-a. SEO živi u `lib/seo.ts`, `app/layout.tsx`, `app/sitemap.ts`
 
 | Gde | Ime |
 |---|---|
-| `<title>`, OG `siteName`, `applicationName` | **Dečija Učionica** |
-| Logo na početnoj, `alternateName` u JSON-LD, description | Moja Pametna Učionica |
+| `<title>`, OG `siteName`, `applicationName`, h1 na početnoj | **Dečija Učionica** |
+| Podnaslov na početnoj, `alternateName` u JSON-LD | Moja Pametna Učionica |
 | Domen | decija-ucionica.com |
 
 Šablon naslova: `%s | Dečija Učionica`. Title igre je kratak, **bez** `|` (npr. `Vaga` → `Vaga | Dečija Učionica`).
@@ -18,17 +20,17 @@ Nema baze ni CMS-a. SEO živi u `lib/seo.ts`, `app/layout.tsx`, `app/sitemap.ts`
 
 | Polje | Vrednost |
 |---|---|
-| `html lang` | `sr` |
+| `html lang` | `sr-Cyrl` (prekidač menja u `sr-Latn`) |
 | `metadataBase` | `https://www.decija-ucionica.com/` |
 | `title.default` | Dečija Učionica \| Edukativne igre za predškolce |
 | `title.template` | `%s \| Dečija Učionica` |
-| `description` | Dečija Učionica (Moja Pametna Učionica) — besplatne igre, ćirilica, predškolci, bez naloga |
+| `description` | `SITE_DESCRIPTION` iz `lib/seo.ts` (predškolci, ćirilica, 3D igrice, bez naloga) |
 | `twitter.card` | `summary_large_image` |
 | `alternates.canonical` | `/` |
 | JSON-LD | `WebSite` + `WebApplication` (besplatno, preschool, `inLanguage: sr`) |
 | Font | Nunito (`latin` + `latin-ext`) |
 
-Početna ima kratak pasus ispod loga (indeksabilan tekst, ne samo kartice). Sitni link **O nama** vodi na `/o-nama` (privatnost + kontakt, bez imena firme).
+Početna ima kratak pasus ispod loga, mrežu kartica i **Česta pitanja** (akordeon + JSON-LD `FAQPage`). Sitni link **O nama** vodi na `/o-nama` (privatnost + kontakt, bez imena firme). `/o-nama` ima JSON-LD `AboutPage` + `Organization` (email).
 
 ## Po igri
 
@@ -37,7 +39,7 @@ Početna ima kratak pasus ispod loga (indeksabilan tekst, ne samo kartice). Sitn
 - `title` + `description`
 - `openGraph.title` / `description` (isti kao meta)
 - `alternates.canonical` = pathname (Next dodaje `metadataBase`)
-- JSON-LD `LearningResource` + `educationalLevel: preschool`
+- JSON-LD `LearningResource` + `BreadcrumbList` (Početna → igra)
 
 ## Sitemap (`app/sitemap.ts`)
 
@@ -53,7 +55,7 @@ Izlaz: `https://www.decija-ucionica.com/sitemap.xml`
 
 ## Robots
 
-`https://www.decija-ucionica.com/robots.txt` — `Allow: /`, pokazuje na sitemap.
+`https://www.decija-ucionica.com/robots.txt` — `Allow: /` za sve, plus eksplicitno za AI botove: GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended. Sitemap URL na dnu.
 
 ## Ikone i deljenje
 
@@ -78,6 +80,8 @@ Po-igri `opengraph-image` (ikona na pastelnoj pozadini) **nije** urađen — sve
 |---|---|
 | Brend, opis, OG, Twitter, JSON-LD sajta | `lib/seo.ts`, `app/layout.tsx` |
 | Title/opis/datum jedne igre | `lib/seo.ts` (`IGRE_SEO`) |
+| FAQ početne | `lib/seo.ts` (`FAQ_POCETNA`, `faqJsonLd`) + `components/FaqPocetna.tsx` |
+| robots.txt / AI botovi | `app/robots.ts` |
 | Sitemap | `app/sitemap.ts` (čita `IGRE_SEO`) |
 | Redirect alias | `next.config.ts` |
 | Favicon / OG default slika | `app/icon.png`, `app/opengraph-image.png` |

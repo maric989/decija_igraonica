@@ -172,10 +172,10 @@ export default function BrojalicaPage() {
       {/* Naslov */}
       <h1 className="mb-2 flex items-center justify-center gap-2 text-center text-4xl font-extrabold text-yellow-800 sm:text-5xl">
         <GameTitleIcon src="/icons/brojalica.jpeg" alt="" />
-        {t("Prebroj predmete!")}
+        {t("Brojalica")}
       </h1>
       <p className="mb-8 text-center text-base text-yellow-600">
-        {t("Klikni na predmete dok brojiš, pa odaberi broj!")}
+        {t("Prebroj predmete! Klikni na predmete dok brojiš, pa odaberi broj!")}
       </p>
 
       {/* Kontejner s ikonicama — grid max 5 po redu */}

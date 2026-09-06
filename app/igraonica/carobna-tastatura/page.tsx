@@ -152,13 +152,12 @@ export default function CarobnaTastaturaPage() {
           <span className="text-xl font-extrabold text-yellow-900">{rezultat}</span>
         </div>
 
-        {/* Naslov */}
-        <div className="absolute inset-x-0 top-4 flex items-center justify-center gap-2">
+        <h1 className="absolute inset-x-0 top-4 flex items-center justify-center gap-2">
           <GameTitleIcon src="/icons/carobna-tastatura.jpeg" alt="" size="sm" />
-          <span className="text-base font-bold tracking-widest text-white/50 uppercase">
+          <span className="text-base font-bold tracking-widest text-white/80 uppercase">
             {t("Čarobna Tastatura")}
           </span>
-        </div>
+        </h1>
 
         {/* Balon sa slovom */}
         <div

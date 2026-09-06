@@ -10,7 +10,7 @@ export default function PismoSwitch() {
     <div
       role="group"
       aria-label="Pismo"
-      className="flex rounded-full border border-white/50 bg-white/80 p-1 shadow-md"
+      className="flex rounded-full border-4 border-white bg-white p-1 shadow-[0_5px_0_#7dd3fc]"
     >
       <button
         type="button"

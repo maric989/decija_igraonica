@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import ONamaSadrzaj from "./sadrzaj";
-import { SITE_NAME } from "@/lib/seo";
-
-const DESCRIPTION =
-  "Privatnost, kontakt i kako radi Dečija učionica — besplatne igre za predškolce, bez naloga i reklama.";
+import { O_NAMA_DESCRIPTION, SITE_NAME, oNamaJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "O nama",
-  description: DESCRIPTION,
+  description: O_NAMA_DESCRIPTION,
   alternates: { canonical: "/o-nama" },
   openGraph: {
     title: "O nama",
-    description: DESCRIPTION,
+    description: O_NAMA_DESCRIPTION,
     url: "/o-nama",
     siteName: SITE_NAME,
     locale: "sr_RS",
@@ -20,10 +18,15 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "O nama",
-    description: DESCRIPTION,
+    description: O_NAMA_DESCRIPTION,
   },
 };
 
 export default function ONamaPage() {
-  return <ONamaSadrzaj />;
+  return (
+    <>
+      <JsonLd data={oNamaJsonLd()} />
+      <ONamaSadrzaj />
+    </>
+  );
 }

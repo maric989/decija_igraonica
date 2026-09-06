@@ -58,7 +58,8 @@ Otvori [http://localhost:3000](http://localhost:3000).
 
 ## SEO
 
-- [SEO: šta je postavljeno i šta unaprediti](./seo.md)
+- [SEO review po strani](./seo-review.md) — title, opis, h1, šta nedostaje (za review)
+- [SEO: kako je podešeno](./seo.md)
 
 ## Igre
 

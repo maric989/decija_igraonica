@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/o-nama`,
-      lastModified: "2026-09-04",
+      lastModified: "2026-09-06",
       changeFrequency: "yearly",
       priority: 0.3,
     },

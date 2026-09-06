@@ -1,8 +1,11 @@
 "use client";
 
 import ActionCard from "@/components/ActionCard";
+import FaqPocetna from "@/components/FaqPocetna";
+import JsonLd from "@/components/JsonLd";
 import PismoSwitch from "@/components/PismoSwitch";
 import { useT } from "@/components/PismoProvider";
+import { faqJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,30 +15,32 @@ export default function Home() {
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-sky-100 px-6 py-12">
       <div className="flex w-full max-w-6xl flex-col items-center">
 
-        <h1 className="text-center font-extrabold text-sky-800">
-          <Link
-            href="/"
-            className="mx-auto mb-4 flex w-fit items-center justify-center gap-3 rounded-full border border-white/50 bg-white/80 px-4 py-3 shadow-md backdrop-blur-md sm:px-8"
-          >
+        <div className="mb-6 flex flex-col items-center justify-center gap-4">
+          <Link href="/" className="flex flex-col items-center justify-center gap-4">
             <Image
               src="/logo.png"
-              alt={t("Moja Pametna Učionica Logo")}
-              width={48}
-              height={48}
-              className="h-12 w-12 rounded-xl object-contain transition-transform hover:scale-105"
+              alt={t("Dečija Učionica Logo")}
+              width={96}
+              height={96}
+              className="h-20 w-20 object-contain drop-shadow-md transition-transform hover:scale-105 md:h-24 md:w-24"
               priority
             />
-            <span className="text-2xl sm:text-4xl md:text-5xl">
-              {t("Moja Pametna Učionica")}
+            <span className="flex flex-col items-center gap-1">
+              <h1 className="text-center text-5xl font-extrabold tracking-tight text-sky-900 drop-shadow-sm md:text-6xl">
+                {t("Dečija Učionica")}
+              </h1>
+              <p className="text-center text-xl font-bold text-sky-700 md:text-2xl">
+                {t("Moja Pametna Učionica")}
+              </p>
             </span>
           </Link>
-        </h1>
+        </div>
 
-        <p className="mb-6 max-w-2xl text-center text-base text-sky-800/80 sm:text-lg">
+        <p className="mx-auto mb-8 max-w-2xl text-center text-lg font-medium leading-relaxed text-sky-800/80 md:text-xl">
           {t("Besplatne igre za ćirilicu i brojeve — za predškolce, bez naloga i reklama.")}
         </p>
 
-        <div className="mb-10">
+        <div className="mb-12">
           <PismoSwitch />
         </div>
 
@@ -154,6 +159,8 @@ export default function Home() {
           />
         </div>
 
+        <FaqPocetna />
+
         <p className="mt-10 text-center text-sm font-semibold text-sky-800/50">
           <Link href="/o-nama" className="hover:text-sky-800">
             {t("O nama")}
@@ -161,6 +168,7 @@ export default function Home() {
         </p>
 
       </div>
+      <JsonLd data={faqJsonLd()} />
     </main>
   );
 }
