@@ -68,6 +68,13 @@ export const IGRE_SEO: IgraSeo[] = [
     lastModified: "2026-09-03",
   },
   {
+    path: "/poredjenje",
+    title: "Poređenje",
+    description:
+      "Poređaj predmete od najmanjeg do najvećeg. Igra veličine za predškolce.",
+    lastModified: "2026-09-04",
+  },
+  {
     path: "/igraonica/brojalica",
     title: "Brojalica",
     description:

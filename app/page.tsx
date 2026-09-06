@@ -105,6 +105,14 @@ export default function Home() {
             description="Uravnoteži vagu jabukama!"
           />
           <ActionCard
+            title="Poređenje"
+            href="/poredjenje"
+            imageSrc="/icons/poredjenje.png"
+            backgroundClass="bg-orange-200"
+            kategorija="MATEMATIKA"
+            description="Poređaj od najmanjeg do najvećeg!"
+          />
+          <ActionCard
             title="Senke"
             href="/senke"
             imageSrc="/icons/senke.png"

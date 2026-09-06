@@ -29,30 +29,6 @@ Vežba prepoznavanje geometrijskih oblika. Lica na oblicima drže isti veseli to
 
 ---
 
-# Od Najmanjeg do Najvećeg
-
-- Ruta: `/poredjenje`
-- Fajl: `app/poredjenje/page.tsx`
-- Kategorija: logika / matematika
-- Ikona: `/icons/poredjenje.jpeg` (tri mede različite veličine)
-
-## Za dete
-
-Na ekranu je 5 nasumično razbacanih predmeta iste vrste (npr. 5 jabuka ili 5 autića) različitih veličina. Prevlači ih na postolja od najmanjeg do najvećeg.
-
-## Kako radi
-
-- Vežba: malo, srednje, veliko i gradacija.
-- Drag-and-drop preko **framer-motion** (kao Senke).
-- Predmeti mogu biti Lucide ikone sa različitim `scale` vrednostima.
-- Pogrešno mesto: predmet se vrati. Tačan redosled: Bravo.
-
-## Beleške
-
-Svi predmeti iste vrste u jednom krugu, da dete poredi samo veličinu. Pet komada je dovoljno za predškolce (ne samo tri: malo / srednje / veliko).
-
----
-
 # Sastavi Reč
 
 - Ruta: `/sastavi-rec`

@@ -136,5 +136,6 @@ Iste JPEG-ove (bela pozadina) pretvorili smo u PNG u `public/senke/*.png`, jer i
 | `carobna-tastatura.jpeg` | JPEG + multiply | OK |
 | `senke.png` | PNG, bez multiply | konvertovano zbog sivog okvira |
 | `vaga.png` | PNG, bez multiply | konvertovano zbog sivog okvira |
+| `poredjenje.png` | PNG, bez multiply | konvertovano zbog sivog okvira |
 
 Ako ubaciš novi logo i na kartici vidiš kutiju oko slike — nemoj jačati multiply. Idi na PNG.

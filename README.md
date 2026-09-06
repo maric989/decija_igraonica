@@ -24,6 +24,7 @@ Detalji po igri, ikone i SEO: [`docs/`](./docs/README.md).
 | Pogodi Reč | `/pogodi-rec` |
 | Matematička Avantura | `/matematika` |
 | Vaga | `/vaga` |
+| Poređenje | `/poredjenje` |
 | Senke | `/senke` |
 | Magična Pisaća Mašina | `/igraonica/magicna-pisaca-masina` |
 | Čarobna Tastatura | `/igraonica/carobna-tastatura` |
