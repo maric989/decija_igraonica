@@ -54,14 +54,6 @@ export default function Home() {
             description="Uči slova kroz šarene kartice!"
           />
           <ActionCard
-            title="Uči Brojeve"
-            href="/uci-brojeve"
-            imageSrc="/icons/uci-brojeve.jpeg"
-            backgroundClass="bg-emerald-200"
-            kategorija="MATEMATIKA"
-            description="Upoznaj brojeve od 1 do 10!"
-          />
-          <ActionCard
             title="Slovo na Slovo"
             href="/slovo-na-slovo"
             imageSrc="/icons/slovo-na-slovo.jpeg"
@@ -140,6 +132,14 @@ export default function Home() {
             backgroundClass="bg-slate-200"
             kategorija="LOGIKA"
             description="Poveži sliku sa njenom senkom!"
+          />
+          <ActionCard
+            title="Uči Brojeve"
+            href="/uci-brojeve"
+            imageSrc="/icons/uci-brojeve.jpeg"
+            backgroundClass="bg-emerald-200"
+            kategorija="MATEMATIKA"
+            description="Upoznaj brojeve od 1 do 10!"
           />
           <ActionCard
             title="Magična Pisaća Mašina"
