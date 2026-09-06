@@ -75,26 +75,3 @@ Tri kante: plava (papir), žuta (plastika), zelena (staklo). Predmeti padaju odo
 
 Edukacija o reciklaži, ne takmičenje na vreme. Boje kanti držati kao u Srbiji (plava / žuta / zelena) da naučeno važi i van ekrana.
 
----
-
-# Koliko je sati?
-
-- Ruta: `/sat`
-- Fajl: `app/sat/page.tsx`
-- Kategorija: matematika / svet oko nas
-- Ikona: `/icons/sat.jpeg` (veseo zidni sat)
-
-## Za dete
-
-Veliki analogni sat sa kazaljkama. Glas kaže: „Namesti sat na 3 sata.“ Dete prstom okreće veliku kazaljku.
-
-## Kako radi
-
-- Dva moda: **Namesti sat** (okreće kazaljku) i **Koji je ovo sat?** (bira broj).
-- Prvo samo puni sati (1:00, 2:00…). Za stariju decu: pola (3:30).
-- Brojevi 1–12 u krugu; vežba i analogni sat i brojanje.
-
-## Beleške
-
-Počni od moda „Namesti sat“ i punih sati. Digitalni prikaz pored analognog pomaže da povežu 3:00 sa kazaljkama. Kazaljka za minute može biti zaključana na 12 dok se ne uvede pola.
-

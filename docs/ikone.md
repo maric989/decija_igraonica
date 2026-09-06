@@ -138,5 +138,6 @@ Iste JPEG-ove (bela pozadina) pretvorili smo u PNG u `public/senke/*.png`, jer i
 | `vaga.png` | PNG, bez multiply | konvertovano zbog sivog okvira |
 | `poredjenje.png` | PNG, bez multiply | konvertovano zbog sivog okvira |
 | `sastavi-rec.png` | PNG, bez multiply | konvertovano zbog sivog okvira (uglovi ~251) |
+| `sat.png` | PNG, bez multiply | iz `procitaj-sat.jpeg`; konvertovano (dno ~253) |
 
 Ako ubaciš novi logo i na kartici vidiš kutiju oko slike — nemoj jačati multiply. Idi na PNG.

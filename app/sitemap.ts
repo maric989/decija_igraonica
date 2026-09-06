@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { IGRE_SEO, SITE_URL } from "@/lib/seo";
 
-const HOME_LAST_MODIFIED = "2026-09-03";
+const HOME_LAST_MODIFIED = "2026-09-06";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

@@ -16,7 +16,7 @@ Igre su podeljene u tri grupe:
 | Kategorija | Igre |
 |---|---|
 | **Slova** | Uči Slova, Slovo na Slovo, Sastavi Reč, Čarobna Tastatura, Magična Pisaća Mašina, Pogodi Reč |
-| **Matematika** | Uči Brojeve, Brojalica, Matematička Avantura, Vaga, Poređenje |
+| **Matematika** | Uči Brojeve, Brojalica, Matematička Avantura, Vaga, Poređenje, Koliko je sati? |
 | **Logika** | Memorija, Senke |
 
 ## Tehnologija
@@ -74,8 +74,9 @@ Otvori [http://localhost:3000](http://localhost:3000).
 - [Matematička Avantura](./matematika.md)
 - [Vaga](./vaga.md)
 - [Poređenje](./poredjenje.md)
+- [Koliko je sati?](./sat.md)
 - [Senke](./senke.md)
 
 ## Buduće igre
 
-- [Ideje: Veseli Oblici, Muzička Pamtilica, Čuvari Prirode, Koliko je sati?](./ideje.md)
+- [Ideje: Veseli Oblici, Muzička Pamtilica, Čuvari Prirode](./ideje.md)

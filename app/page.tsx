@@ -121,6 +121,14 @@ export default function Home() {
             description="Poređaj od najmanjeg do najvećeg!"
           />
           <ActionCard
+            title="Koliko je sati?"
+            href="/sat"
+            imageSrc="/icons/sat.png"
+            backgroundClass="bg-teal-200"
+            kategorija="MATEMATIKA"
+            description="Namesti sat i pročitaj koliko je sati!"
+          />
+          <ActionCard
             title="Senke"
             href="/senke"
             imageSrc="/icons/senke.png"

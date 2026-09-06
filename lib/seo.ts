@@ -82,6 +82,13 @@ export const IGRE_SEO: IgraSeo[] = [
     lastModified: "2026-09-04",
   },
   {
+    path: "/sat",
+    title: "Koliko je sati?",
+    description:
+      "Nauči analogni sat kroz igru: namesti kazaljke ili pročitaj koliko je sati. Puni sati i četvrti, za predškolce.",
+    lastModified: "2026-09-06",
+  },
+  {
     path: "/igraonica/brojalica",
     title: "Brojalica",
     description:

@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   BookOpen,
   Calculator,
+  Clock,
   Keyboard,
   Puzzle,
   Hash,
@@ -20,6 +21,7 @@ import { useT } from "@/components/PismoProvider";
 const ICONS = {
   BookOpen,
   Calculator,
+  Clock,
   Keyboard,
   Puzzle,
   Hash,

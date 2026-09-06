@@ -26,6 +26,7 @@ Detalji po igri, ikone i SEO: [`docs/`](./docs/README.md).
 | Matematička Avantura | `/matematika` |
 | Vaga | `/vaga` |
 | Poređenje | `/poredjenje` |
+| Koliko je sati? | `/sat` |
 | Senke | `/senke` |
 | Magična Pisaća Mašina | `/igraonica/magicna-pisaca-masina` |
 | Čarobna Tastatura | `/igraonica/carobna-tastatura` |
